@@ -1,0 +1,96 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Space+Mono:wght@400;700&display=swap');
+
+      .title {
+        font-family: 'Big Shoulders Display', sans-serif;
+        font-weight: 700;
+        font-size: 140px;
+        letter-spacing: -3px;
+        fill: #FAF2E1;
+        text-transform: uppercase;
+      }
+
+      .accent {
+        fill: #3DED97;
+      }
+
+      .label {
+        font-family: 'Space Mono', monospace;
+        font-size: 14px;
+        fill: #FAF2E1;
+        opacity: 0.2;
+      }
+
+      .info {
+        font-family: 'Space Mono', monospace;
+        font-size: 16px;
+        fill: #FAF2E1;
+        letter-spacing: 1px;
+      }
+    </style>
+
+    <filter id="blur-sm">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+    </filter>
+
+    <filter id="blur-lg">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+    </filter>
+
+    <radialGradient id="bloom-green" cx="40%" cy="40%">
+      <stop offset="0%" stopColor="#3DED97" stopOpacity="0.6" />
+      <stop offset="100%" stopColor="#3DED97" stopOpacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bloom-pink" cx="50%" cy="50%">
+      <stop offset="0%" stopColor="#FF6B9D" stopOpacity="0.5" />
+      <stop offset="100%" stopColor="#FF6B9D" stopOpacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bloom-cyan" cx="45%" cy="55%">
+      <stop offset="0%" stopColor="#00E5CC" stopOpacity="0.5" />
+      <stop offset="100%" stopColor="#00E5CC" stopOpacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bloom-violet" cx="35%" cy="35%">
+      <stop offset="0%" stopColor="#A78BFA" stopOpacity="0.4" />
+      <stop offset="100%" stopColor="#A78BFA" stopOpacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#0F0E17" />
+
+  <!-- Bloom circles -->
+  <circle cx="180" cy="200" r="280" fill="url(#bloom-green)" filter="url(#blur-lg)" />
+  <circle cx="900" cy="150" r="320" fill="url(#bloom-pink)" filter="url(#blur-lg)" />
+  <circle cx="650" cy="700" r="350" fill="url(#bloom-cyan)" filter="url(#blur-lg)" />
+  <circle cx="200" cy="850" r="280" fill="url(#bloom-violet)" filter="url(#blur-lg)" />
+  <circle cx="950" cy="650" r="300" fill="url(#bloom-green)" filter="url(#blur-lg)" opacity="0.4" />
+
+  <!-- Geometric rectangles at low opacity -->
+  <rect x="80" y="280" width="8" height="240" fill="#FF6B9D" opacity="0.12" />
+  <rect x="920" y="420" width="12" height="320" fill="#00E5CC" opacity="0.1" />
+  <rect x="480" y="150" width="6" height="380" fill="#A78BFA" opacity="0.08" />
+
+  <!-- Coordinate labels -->
+  <text x="95" y="350" class="label">[-27.84, 45.12, 11.23]</text>
+  <text x="820" y="520" class="label">[52.16, -18.94, 8.67]</text>
+  <text x="520" y="950" class="label">[15.73, -62.31, 3.45]</text>
+  <text x="280" y="180" class="label">[8.42, 23.55, 14.89]</text>
+
+  <!-- Main title -->
+  <text x="540" y="420" class="title" text-anchor="middle">CURFEW</text>
+
+  <!-- Accent year -->
+  <text x="540" y="520" class="title accent" text-anchor="middle" font-size="96">2026</text>
+
+  <!-- Event details -->
+  <text x="540" y="660" class="info" text-anchor="middle" font-size="18" letter-spacing="2">SAT 6 JUNE</text>
+  <text x="540" y="695" class="info" text-anchor="middle" font-size="14">BLAARMEERSEN, GENT, BELGIUM</text>
+  <text x="540" y="735" class="info" text-anchor="middle" font-size="14">IN HOUSE WE TRUST</text>
+  <text x="540" y="775" class="info" text-anchor="middle" font-size="16" letter-spacing="1">€25 EARLY BIRD</text>
+  <text x="540" y="815" class="info" text-anchor="middle" font-size="12" opacity="0.8">curfew.events</text>
+</svg>

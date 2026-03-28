@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 
 const partners = [
@@ -20,18 +19,18 @@ export default function Partners() {
           </ScrollRevealItem>
 
           <ScrollRevealItem>
-            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+            <div className="flex justify-center items-center gap-16 md:gap-24">
               {partners.map((partner) => (
                 <div
                   key={partner.name}
-                  className="relative w-32 h-16 md:w-40 md:h-20 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  style={{ width: 160, height: 60 }}
                 >
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={partner.logo}
                     alt={partner.name}
-                    fill
-                    className="object-contain brightness-0 invert"
-                    sizes="160px"
+                    className="max-w-full max-h-full w-auto h-auto object-contain brightness-0 invert"
                   />
                 </div>
               ))}

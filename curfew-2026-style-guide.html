@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curfew 2026 — Brand Style Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   CURFEW 2026 — STYLE GUIDE
+   Visual Direction: "Signal Bloom"
+   Organic data, warm algorithmic soul
+   ═══════════════════════════════════════ */
+
+:root {
+  /* ── CORE PALETTE ── */
+  --deep:          #0F0E17;
+  --deep-warm:     #151422;
+  --surface:       #1C1B2E;
+  --surface-light: #252440;
+
+  /* ── WARM SPECTRUM (heritage) ── */
+  --cream:         #FAF2E1;
+  --cream-muted:   rgba(250, 242, 225, 0.55);
+  --golden:        #C8A45A;
+  --golden-light:  rgba(200, 164, 90, 0.15);
+  --coral:         #F0879B;
+
+  /* ── SIGNAL BLOOM ACCENTS (new 2026) ── */
+  --bloom-pink:    #FF6B9D;
+  --bloom-green:   #3DED97;
+  --bloom-cyan:    #00E5CC;
+  --bloom-violet:  #A78BFA;
+  --bloom-amber:   #FFB347;
+  --bloom-blue:    #5587C8;
+
+  /* ── FUNCTIONAL ── */
+  --text-primary:  var(--cream);
+  --text-muted:    var(--cream-muted);
+  --accent:        var(--golden);
+  --signal:        var(--bloom-green);
+
+  /* ── TYPOGRAPHY ── */
+  --font-display:  'Big Shoulders Display', sans-serif;
+  --font-body:     'Work Sans', sans-serif;
+  --font-data:     'Space Mono', monospace;
+
+  /* ── SPACING ── */
+  --space-xs:      0.5rem;
+  --space-sm:      1rem;
+  --space-md:      2rem;
+  --space-lg:      4rem;
+  --space-xl:      8rem;
+  --space-2xl:     12rem;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--deep);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--deep); }
+::-webkit-scrollbar-thumb { background: rgba(200, 164, 90, 0.3); border-radius: 2px; }
+
+::selection { background: rgba(61, 237, 151, 0.25); color: var(--cream); }
+
+/* ══════════════════════════════════════════
+   LAYOUT
+   ══════════════════════════════════════════ */
+
+.guide-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+section {
+  padding: var(--space-xl) 0;
+  position: relative;
+}
+
+section + section {
+  border-top: 1px solid rgba(200, 164, 90, 0.08);
+}
+
+/* ══════════════════════════════════════════
+   HEADER
+   ══════════════════════════════════════════ */
+
+.guide-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.guide-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 40%, rgba(61, 237, 151, 0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 60%, rgba(255, 107, 157, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 80%, rgba(200, 164, 90, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Animated blob canvas behind header */
+.blob-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.12;
+  animation: blobFloat 20s ease-in-out infinite;
+}
+
+.blob-1 { width: 400px; height: 400px; background: var(--bloom-green); top: 10%; left: 5%; animation-delay: 0s; }
+.blob-2 { width: 300px; height: 300px; background: var(--bloom-pink); top: 50%; right: 10%; animation-delay: -5s; }
+.blob-3 { width: 250px; height: 250px; background: var(--golden); bottom: 15%; left: 30%; animation-delay: -10s; }
+.blob-4 { width: 200px; height: 200px; background: var(--bloom-cyan); top: 30%; right: 30%; animation-delay: -15s; }
+.blob-5 { width: 350px; height: 350px; background: var(--bloom-violet); bottom: 30%; right: 5%; animation-delay: -8s; }
+
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -40px) scale(1.1); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(15px, 30px) scale(1.05); }
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.header-meta {
+  font-family: var(--font-data);
+  font-size: 0.7rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.header-meta .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bloom-green);
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.header-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(4rem, 12vw, 11rem);
+  line-height: 0.88;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-md);
+}
+
+.header-title .year {
+  display: block;
+  color: var(--bloom-green);
+  font-size: 0.4em;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+.header-subtitle {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--cream-muted);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.header-coords {
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  color: rgba(61, 237, 151, 0.4);
+  letter-spacing: 0.1em;
+}
+
+/* ══════════════════════════════════════════
+   SECTION HEADERS
+   ══════════════════════════════════════════ */
+
+.section-label {
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  color: var(--bloom-green);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.section-number {
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-md);
+}
+
+.section-desc {
+  font-weight: 300;
+  color: var(--cream-muted);
+  max-width: 680px;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+/* ══════════════════════════════════════════
+   COLOR SYSTEM
+   ══════════════════════════════════════════ */
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-sm);
+}
+
+.color-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid rgba(250, 242, 225, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.color-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+
+.color-swatch {
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blob texture on swatches */
+.color-swatch::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.3;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  background: inherit;
+  mix-blend-mode: soft-light;
+}
+
+.color-info {
+  padding: 1rem;
+}
+
+.color-name {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.color-hex {
+  font-family: var(--font-data);
+  font-size: 0.7rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.05em;
+}
+
+.color-role {
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+  color: rgba(61, 237, 151, 0.5);
+  margin-top: 0.35rem;
+  letter-spacing: 0.05em;
+}
+
+/* Color category headers */
+.color-category {
+  grid-column: 1 / -1;
+  font-family: var(--font-data);
+  font-size: 0.7rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: var(--space-sm) 0 0;
+  border-top: 1px solid rgba(250, 242, 225, 0.06);
+  margin-top: var(--space-sm);
+}
+
+.color-category:first-child {
+  border-top: none;
+  margin-top: 0;
+}
+
+/* ══════════════════════════════════════════
+   TYPOGRAPHY SHOWCASE
+   ══════════════════════════════════════════ */
+
+.type-specimen {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(250, 242, 225, 0.04);
+}
+
+.type-specimen:last-child {
+  border-bottom: none;
+}
+
+.type-meta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.type-family {
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  color: var(--bloom-green);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.type-usage {
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.05em;
+}
+
+.type-sample-hero {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-sm);
+}
+
+.type-sample-section {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-sm);
+}
+
+.type-sample-body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.7;
+  max-width: 600px;
+  color: var(--cream-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.type-sample-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.type-sample-data {
+  font-family: var(--font-data);
+  font-size: 0.8rem;
+  color: var(--bloom-green);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+.type-scale {
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.type-scale-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+
+.type-scale-label {
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ══════════════════════════════════════════
+   VISUAL LANGUAGE — SIGNAL BLOOM
+   ══════════════════════════════════════════ */
+
+.bloom-demo {
+  position: relative;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid rgba(250, 242, 225, 0.04);
+  margin-bottom: var(--space-md);
+}
+
+.bloom-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.bloom-circle {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+
+/* Large soft blobs */
+.bc-1 { width: 200px; height: 200px; background: radial-gradient(circle, var(--bloom-pink) 0%, transparent 70%); top: 15%; left: 10%; opacity: 0.5; animation: blobFloat 18s ease-in-out infinite; }
+.bc-2 { width: 280px; height: 280px; background: radial-gradient(circle, var(--bloom-green) 0%, transparent 70%); top: 30%; left: 35%; opacity: 0.4; animation: blobFloat 22s ease-in-out infinite reverse; }
+.bc-3 { width: 160px; height: 160px; background: radial-gradient(circle, var(--golden) 0%, transparent 70%); top: 55%; right: 15%; opacity: 0.45; animation: blobFloat 16s ease-in-out infinite; animation-delay: -4s; }
+.bc-4 { width: 120px; height: 120px; background: radial-gradient(circle, var(--bloom-cyan) 0%, transparent 70%); bottom: 20%; left: 20%; opacity: 0.35; animation: blobFloat 20s ease-in-out infinite; animation-delay: -8s; }
+.bc-5 { width: 180px; height: 180px; background: radial-gradient(circle, var(--bloom-violet) 0%, transparent 70%); top: 10%; right: 25%; opacity: 0.35; animation: blobFloat 24s ease-in-out infinite; animation-delay: -12s; }
+
+/* Sharp geometric blocks */
+.bloom-rect {
+  position: absolute;
+  opacity: 0.15;
+}
+
+.br-1 { width: 60px; height: 200px; background: var(--bloom-green); top: 20%; left: 25%; }
+.br-2 { width: 120px; height: 40px; background: var(--bloom-pink); top: 45%; left: 50%; }
+.br-3 { width: 40px; height: 150px; background: var(--golden); bottom: 15%; right: 30%; }
+.br-4 { width: 180px; height: 30px; background: var(--bloom-cyan); top: 70%; left: 10%; }
+
+/* Data coordinate labels */
+.bloom-coord {
+  position: absolute;
+  font-family: var(--font-data);
+  font-size: 0.55rem;
+  color: rgba(250, 242, 225, 0.25);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+.coord-1 { top: 22%; left: 18%; }
+.coord-2 { top: 38%; left: 55%; }
+.coord-3 { top: 60%; right: 22%; }
+.coord-4 { bottom: 25%; left: 30%; }
+.coord-5 { top: 15%; right: 18%; }
+
+/* Bloom overlay text */
+.bloom-text-overlay {
+  position: absolute;
+  z-index: 2;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  right: var(--space-md);
+}
+
+.bloom-text-overlay h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 4rem);
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+}
+
+.bloom-text-overlay .bloom-tagline {
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.15em;
+  margin-top: var(--space-xs);
+}
+
+/* Bloom explanation */
+.bloom-explain {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+.bloom-principle {
+  padding: var(--space-md);
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid rgba(250, 242, 225, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.bloom-principle::before {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.1;
+  top: -20px;
+  right: -20px;
+}
+
+.bloom-principle:nth-child(1)::before { background: var(--bloom-green); }
+.bloom-principle:nth-child(2)::before { background: var(--bloom-pink); }
+.bloom-principle:nth-child(3)::before { background: var(--golden); }
+.bloom-principle:nth-child(4)::before { background: var(--bloom-cyan); }
+
+.bloom-principle h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-xs);
+}
+
+.bloom-principle p {
+  font-size: 0.85rem;
+  color: var(--cream-muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════
+   GRADIENT SYSTEM
+   ══════════════════════════════════════════ */
+
+.gradient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-sm);
+}
+
+.gradient-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid rgba(250, 242, 225, 0.04);
+}
+
+.gradient-preview {
+  height: 160px;
+  position: relative;
+}
+
+.gradient-info {
+  padding: 1rem;
+}
+
+.gradient-name {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.gradient-css {
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.03em;
+  word-break: break-all;
+}
+
+/* ══════════════════════════════════════════
+   COMPONENT EXAMPLES
+   ══════════════════════════════════════════ */
+
+.component-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+/* Buttons */
+.button-row {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.75em 1.8em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--cream);
+  color: var(--deep);
+}
+.btn-primary:hover { background: var(--bloom-green); color: var(--deep); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--cream);
+}
+.btn-outline:hover { background: var(--cream); color: var(--deep); }
+
+.btn-signal {
+  background: var(--bloom-green);
+  color: var(--deep);
+}
+.btn-signal:hover { background: var(--bloom-cyan); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cream-muted);
+  padding: 0.75em 0;
+  border-bottom: 1px solid var(--cream-muted);
+  border-radius: 0;
+}
+.btn-ghost:hover { color: var(--cream); border-color: var(--cream); }
+
+/* Cards */
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid rgba(250, 242, 225, 0.04);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(61, 237, 151, 0.15); }
+
+.card-visual {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-body {
+  padding: var(--space-md);
+}
+
+.card-label {
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+  color: var(--bloom-green);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-bottom: var(--space-xs);
+}
+
+.card-text {
+  font-size: 0.85rem;
+  color: var(--cream-muted);
+  line-height: 1.6;
+}
+
+/* Stat blocks */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-sm);
+}
+
+.stat-block {
+  padding: var(--space-md);
+  background: var(--surface);
+  border: 1px solid rgba(250, 242, 225, 0.04);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+
+.stat-block:nth-child(1)::before { background: var(--bloom-green); }
+.stat-block:nth-child(2)::before { background: var(--bloom-pink); }
+.stat-block:nth-child(3)::before { background: var(--golden); }
+.stat-block:nth-child(4)::before { background: var(--bloom-cyan); }
+
+.stat-value {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════
+   SOCIAL MEDIA PREVIEW FRAMES
+   ══════════════════════════════════════════ */
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.social-frame {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: var(--space-sm);
+  border: 1px solid rgba(250, 242, 225, 0.04);
+}
+
+.social-frame-label {
+  font-family: var(--font-data);
+  font-size: 0.6rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+  padding: 0 var(--space-xs);
+}
+
+.social-canvas {
+  width: 100%;
+  aspect-ratio: var(--aspect);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  background: var(--deep);
+}
+
+/* ══════════════════════════════════════════
+   PATTERN LIBRARY — DATA GRID
+   ══════════════════════════════════════════ */
+
+.data-grid-demo {
+  position: relative;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid rgba(250, 242, 225, 0.04);
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 1px;
+  padding: 1px;
+}
+
+.data-cell {
+  background: var(--deep);
+  border-radius: 2px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.data-cell.active {
+  opacity: 0.8;
+}
+
+.data-cell:hover {
+  opacity: 1 !important;
+}
+
+/* ══════════════════════════════════════════
+   DO / DON'T
+   ══════════════════════════════════════════ */
+
+.do-dont-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.do-card, .dont-card {
+  padding: var(--space-md);
+  border-radius: 12px;
+  border: 1px solid;
+}
+
+.do-card {
+  background: rgba(61, 237, 151, 0.03);
+  border-color: rgba(61, 237, 151, 0.15);
+}
+
+.dont-card {
+  background: rgba(255, 107, 157, 0.03);
+  border-color: rgba(255, 107, 157, 0.15);
+}
+
+.do-card h4 {
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  color: var(--bloom-green);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.dont-card h4 {
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  color: var(--bloom-pink);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.do-card li, .dont-card li {
+  font-size: 0.85rem;
+  color: var(--cream-muted);
+  line-height: 1.7;
+  list-style: none;
+  padding-left: 1.2em;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.do-card li::before { content: '+'; position: absolute; left: 0; color: var(--bloom-green); font-weight: 700; }
+.dont-card li::before { content: '×'; position: absolute; left: 0; color: var(--bloom-pink); font-weight: 700; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════ */
+
+.guide-footer {
+  padding: var(--space-xl) 0 var(--space-lg);
+  border-top: 1px solid rgba(200, 164, 90, 0.08);
+  text-align: center;
+}
+
+.guide-footer p {
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  color: var(--cream-muted);
+  letter-spacing: 0.1em;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .guide-container { padding: 0 var(--space-sm); }
+  section { padding: var(--space-lg) 0; }
+  .do-dont-grid { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: 1fr; }
+  .type-scale-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="guide-container">
+
+  <!-- ═══════════════════════════════════
+       HEADER
+       ═══════════════════════════════════ -->
+  <header class="guide-header">
+    <div class="blob-field">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="blob blob-4"></div>
+      <div class="blob blob-5"></div>
+    </div>
+    <div class="header-content">
+      <div class="header-meta">
+        <span class="dot"></span>
+        <span>BRAND STYLE GUIDE — V1.0 — 2026</span>
+      </div>
+      <h1 class="header-title">
+        <span class="year">2026</span>
+        Curfew
+      </h1>
+      <p class="header-subtitle">
+        Visual identity system for the 2026 season. A new direction merging warm, soulful heritage with generative signal aesthetics. Organic data blooms meet golden hour.
+      </p>
+      <div class="header-coords">[51.05, 3.72] — Blaarmeersen, Gent, BE — SAT 6 JUNE</div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════
+       01. VISUAL DIRECTION
+       ═══════════════════════════════════ -->
+  <section>
+    <span class="section-label">Visual Direction</span>
+    <span class="section-number"> — 01</span>
+    <h2 class="section-title">Signal Bloom</h2>
+    <p class="section-desc">
+      The 2026 visual identity is called "Signal Bloom." It draws from two sources: Curfew's warm, analog heritage (golden hour, disco balls, film grain) and the language of generative data visualization (soft organic clusters, coordinate markers, algorithmic patterns). The result feels both human and futuristic: like looking at the festival through a thermal lens.
+    </p>
+
+    <div class="bloom-demo">
+      <div class="bloom-canvas">
+        <div class="bloom-circle bc-1"></div>
+        <div class="bloom-circle bc-2"></div>
+        <div class="bloom-circle bc-3"></div>
+        <div class="bloom-circle bc-4"></div>
+        <div class="bloom-circle bc-5"></div>
+        <div class="bloom-rect br-1"></div>
+        <div class="bloom-rect br-2"></div>
+        <div class="bloom-rect br-3"></div>
+        <div class="bloom-rect br-4"></div>
+        <span class="bloom-coord coord-1">[-12.35, 19.68, 6.68]</span>
+        <span class="bloom-coord coord-2">[-8.97, 25.11, -4.86]</span>
+        <span class="bloom-coord coord-3">[-11.24, 19.83, 2.55]</span>
+        <span class="bloom-coord coord-4">[-12.34, 19.88, 2.31]</span>
+        <span class="bloom-coord coord-5">[-15.77, 11.4, -0.78]</span>
+      </div>
+      <div class="bloom-text-overlay">
+        <h3>In House<br>We Trust</h3>
+        <div class="bloom-tagline">SAT 6 JUNE · BLAARMEERSEN · GENT</div>
+      </div>
+    </div>
+
+    <div class="bloom-explain">
+      <div class="bloom-principle">
+        <h4>Organic Clusters</h4>
+        <p>Soft, radial gradient circles in varying sizes and opacities. They cluster and overlap like cells under a microscope or heat signatures from a crowd. Always use radial gradients that fade to transparent, never hard edges.</p>
+      </div>
+      <div class="bloom-principle">
+        <h4>Data Markers</h4>
+        <p>Small monospaced coordinate labels float across compositions like metadata from a generative system. They add a layer of intentional "noise" that makes every piece feel computed yet poetic. Use at 25% opacity max.</p>
+      </div>
+      <div class="bloom-principle">
+        <h4>Sharp Geometry</h4>
+        <p>Rectangular blocks at low opacity cut through the organic forms. They create visual tension and structure like grid lines in a data visualization. These ground the softness and prevent compositions from feeling too ethereal.</p>
+      </div>
+      <div class="bloom-principle">
+        <h4>Typography Dominance</h4>
+        <p>Bold Big Shoulders Display headlines break through the bloom layer. Text is never secondary to graphics. The interplay between massive display type and the organic signal field behind it is the signature look.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       02. COLOR SYSTEM
+       ═══════════════════════════════════ -->
+  <section>
+    <span class="section-label">Color System</span>
+    <span class="section-number"> — 02</span>
+    <h2 class="section-title">Palette</h2>
+    <p class="section-desc">
+      The palette splits into two families. The warm core carries Curfew's heritage: deep midnight surfaces, cream text, and golden accents. The "Signal Bloom" accents bring new energy for 2026: vivid greens, pinks, cyans, and violets that only appear in the organic bloom layer and interactive highlights.
+    </p>
+
+    <div class="color-grid">
+      <div class="color-category">Foundation</div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #0F0E17;"></div>
+        <div class="color-info">
+          <div class="color-name">Deep</div>
+          <div class="color-hex">#0F0E17</div>
+          <div class="color-role">Primary background</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #1C1B2E;"></div>
+        <div class="color-info">
+          <div class="color-name">Surface</div>
+          <div class="color-hex">#1C1B2E</div>
+          <div class="color-role">Cards, panels, elevated UI</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #252440;"></div>
+        <div class="color-info">
+          <div class="color-name">Surface Light</div>
+          <div class="color-hex">#252440</div>
+          <div class="color-role">Hover states, active elements</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #FAF2E1;"></div>
+        <div class="color-info">
+          <div class="color-name">Cream</div>
+          <div class="color-hex">#FAF2E1</div>
+          <div class="color-role">Primary text, headlines</div>
+        </div>
+      </div>
+
+      <div class="color-category">Heritage Accents</div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #C8A45A;"></div>
+        <div class="color-info">
+          <div class="color-name">Golden</div>
+          <div class="color-hex">#C8A45A</div>
+          <div class="color-role">Brand accent, premium elements</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #F0879B;"></div>
+        <div class="color-info">
+          <div class="color-name">Coral</div>
+          <div class="color-hex">#F0879B</div>
+          <div class="color-role">Warm highlight, secondary accent</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #5587C8;"></div>
+        <div class="color-info">
+          <div class="color-name">Blue</div>
+          <div class="color-hex">#5587C8</div>
+          <div class="color-role">Informational, links</div>
+        </div>
+      </div>
+
+      <div class="color-category">Signal Bloom — 2026 Accents</div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: linear-gradient(135deg, #3DED97 0%, #00E5CC 100%);"></div>
+        <div class="color-info">
+          <div class="color-name">Signal Green</div>
+          <div class="color-hex">#3DED97</div>
+          <div class="color-role">Primary signal, CTAs, active states</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: linear-gradient(135deg, #FF6B9D 0%, #F0879B 100%);"></div>
+        <div class="color-info">
+          <div class="color-name">Bloom Pink</div>
+          <div class="color-hex">#FF6B9D</div>
+          <div class="color-role">Bloom layer, energy accents</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: linear-gradient(135deg, #00E5CC 0%, #5587C8 100%);"></div>
+        <div class="color-info">
+          <div class="color-name">Bloom Cyan</div>
+          <div class="color-hex">#00E5CC</div>
+          <div class="color-role">Bloom layer, cool contrast</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: linear-gradient(135deg, #A78BFA 0%, #FF6B9D 100%);"></div>
+        <div class="color-info">
+          <div class="color-name">Bloom Violet</div>
+          <div class="color-hex">#A78BFA</div>
+          <div class="color-role">Bloom layer, depth accent</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: linear-gradient(135deg, #FFB347 0%, #C8A45A 100%);"></div>
+        <div class="color-info">
+          <div class="color-name">Bloom Amber</div>
+          <div class="color-hex">#FFB347</div>
+          <div class="color-role">Bloom layer, warm bridge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       03. TYPOGRAPHY
+       ═══════════════════════════════════ -->
+  <section>
+    <span class="section-label">Typography</span>
+    <span class="section-number"> — 03</span>
+    <h2 class="section-title">Type System</h2>
+    <p class="section-desc">
+      Three typefaces form a strict hierarchy. Big Shoulders Display commands attention. Work Sans delivers clarity. Space Mono adds the data layer that makes Signal Bloom feel computational.
+    </p>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="type-family">Big Shoulders Display</span>
+        <span class="type-usage">Headlines, hero text, stats, impact moments</span>
+      </div>
+      <div class="type-sample-hero">Curfew</div>
+      <div class="type-sample-hero" style="font-weight: 700; font-size: clamp(2rem, 6vw, 5rem);">In House We Trust</div>
+      <div class="type-scale">
+        <div class="type-scale-row">
+          <span class="type-scale-label">900 / Hero</span>
+          <span style="font-family: var(--font-display); font-weight: 900; font-size: 3rem; line-height: 1; text-transform: uppercase; letter-spacing: 0.04em;">Where House Comes Home</span>
+        </div>
+        <div class="type-scale-row">
+          <span class="type-scale-label">700 / Section</span>
+          <span style="font-family: var(--font-display); font-weight: 700; font-size: 2rem; line-height: 1; text-transform: uppercase; letter-spacing: 0.04em;">Saturday 6 June 2026</span>
+        </div>
+        <div class="type-scale-row">
+          <span class="type-scale-label">400 / Accent</span>
+          <span style="font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; line-height: 1; text-transform: uppercase; letter-spacing: 0.06em;">Blaarmeersen, Gent, Belgium</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="type-family">Work Sans</span>
+        <span class="type-usage">Body text, descriptions, labels, navigation</span>
+      </div>
+      <div class="type-sample-body">
+        Curfew is a non-profit house music collective born in Gent, Belgium. Since 2015, we've curated over 100 events: intimate club nights, warehouse gatherings, and our annual open-air festival at Blaarmeersen. No investors. No corporate agenda. Just the music and the people who live for it.
+      </div>
+      <div class="type-sample-label">Label Style — 700, 0.75rem, Tracked</div>
+      <div style="font-family: var(--font-body); font-weight: 300; font-style: italic; font-size: 1.1rem; color: var(--cream-muted);">Tagline style: italic, 300 weight, cream muted</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="type-family">Space Mono</span>
+        <span class="type-usage">Data labels, coordinates, metadata, technical accents</span>
+      </div>
+      <div class="type-sample-data">[-12.35, 19.68, 6.68] — SIGNAL_BLOOM_V1.0 — 2026.06.06</div>
+      <div class="type-sample-data" style="color: var(--cream-muted); font-size: 0.65rem;">SAT 6 JUNE · BLAARMEERSEN · GENT · 12:00—23:59 · NON-PROFIT · €25 EARLY BIRD</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       04. GRADIENT SYSTEM
+       ═══════════════════════════════════ -->
+  <section>
+    <span class="section-label">Gradients</span>
+    <span class="section-number"> — 04</span>
+    <h2 class="section-title">Gradient Library</h2>
+    <p class="section-desc">
+      Gradients serve two roles: ambient backgrounds (radial, subtle, low opacity) and bloom accents (vivid radial fades on the organic circles). Never use linear gradients for the bloom elements.
+    </p>
+
+    <div class="gradient-grid">
+      <div class="gradient-card">
+        <div class="gradient-preview" style="background: radial-gradient(ellipse at 30% 40%, rgba(61, 237, 151, 0.15) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(255, 107, 157, 0.1) 0%, transparent 60%), var(--deep);"></div>
+        <div class="gradient-info">
+          <div class="gradient-name">Ambient Bloom</div>
+          <div class="gradient-css">Primary page background glow. Two opposing radial gradients at very low opacity.</div>
+        </div>
+      </div>
+
+      <div class="gradient-card">
+        <div class="gradient-preview" style="background: radial-gradient(circle, #3DED97 0%, transparent 70%); background-color: var(--deep);"></div>
+        <div class="gradient-info">
+          <div class="gradient-name">Signal Circle</div>
+          <div class="gradient-css">radial-gradient(circle, #3DED97 0%, transparent 70%)</div>
+        </div>
+      </div>
+
+      <div class="gradient-card">
+        <div class="gradient-preview" style="background: radial-gradient(circle, #FF6B9D 0%, transparent 70%); background-color: var(--deep);"></div>
+        <div class="gradient-info">
+          <div class="gradient-name">Pink Bloom</div>
+          <div class="gradient-css">radial-gradient(circle, #FF6B9D 0%, transparent 70%)</div>
+        </div>
+      </div>
+
+      <div class="gradient-card">
+        <div class="gradient-preview" style="background: linear-gradient(135deg, var(--deep) 0%, var(--surface) 50%, var(--deep) 100%);"></div>
+        <div class="gradient-info">
+          <div class="gradient-name">Section Depth</div>
+          <div class="gradient-css">Subtle surface shift for section backgrounds. linear-gradient(135deg, deep → surface → deep)</div>
+        </div>
+      </div>
+
+      <div class="gradient-card">
+        <div class="gradient-preview" style="background: radial-gradient(ellipse at 50% 50%, rgba(200,164,90,0.12) 0%, transparent 70%); background-color: var(--deep);"></div>
+        <div class="gradient-info">
+          <div class="gradient-name">Golden Hour Glow</div>
+          <div class="gradient-css">Heritage warm glow. Use behind hero content and key moments.</div>
+        </div>
+      </div>
+
+      <div class="gradient-card">
+        <div class="gradient-preview" style="background: radial-gradient(circle at 30% 50%, rgba(167, 139, 250, 0.2) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(0, 229, 204, 0.15) 0%, transparent 50%); background-color: var(--deep);"></div>
+        <div class="gradient-info">
+          <div class="gradient-name">Cool Bloom</div>
+          <div class="gradient-css">Violet + Cyan dual bloom. Use for alternative colorway sections.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       05. COMPONENTS
+       ═══════════════════════════════════ -->
+  <section>
+    <span class="section-label">Components</span>
+    <span class="section-number"> — 05</span>
+    <h2 class="section-title">UI Elements</h2>
+    <p class="section-desc">
+      Core interactive and display components for web, social, and print. All share the same token system. Buttons are always rectangular (no border-radius) to contrast the organic bloom shapes.
+    </p>
+
+    <div class="component-grid">
+      <div>
+        <h3 style="font-family: var(--font-data); font-size: 0.65rem; color: var(--bloom-green); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: var(--space-sm);">Buttons</h3>
+        <div class="button-row">
+          <button class="btn btn-primary">Get Tickets</button>
+          <button class="btn btn-outline">Learn More</button>
+          <button class="btn btn-signal">Buy Now</button>
+          <button class="btn btn-ghost">View Lineup →</button>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family: var(--font-data); font-size: 0.65rem; color: var(--bloom-green); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: var(--space-sm);">Stat Blocks</h3>
+        <div class="stat-row">
+          <div class="stat-block">
+            <div class="stat-value">40K+</div>
+            <div class="stat-label">Festival Capacity</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-value">10</div>
+            <div class="stat-label">Years Running</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-value">100+</div>
+            <div class="stat-label">Events Hosted</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-value">€25</div>
+            <div class="stat-label">Early Bird</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family: var(--font-data); font-size: 0.65rem; color: var(--bloom-green); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: var(--space-sm);">Artist Cards</h3>
+        <div class="card-row">
+          <div class="card">
+            <div class="card-visual" style="background: radial-gradient(circle at 30% 40%, rgba(255,107,157,0.3), transparent 60%), radial-gradient(circle at 70% 60%, rgba(200,164,90,0.2), transparent 60%), var(--surface);"></div>
+            <div class="card-body">
+              <div class="card-label">Germany · Live Set</div>
+              <div class="card-title">Ian Pooley</div>
+              <div class="card-text">Deep house pioneer. Frankfurt sound architect. A defining voice in electronic music for three decades.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-visual" style="background: radial-gradient(circle at 50% 30%, rgba(61,237,151,0.3), transparent 60%), radial-gradient(circle at 30% 70%, rgba(0,229,204,0.2), transparent 60%), var(--surface);"></div>
+            <div class="card-body">
+              <div class="card-label">Colombia · DJ Set</div>
+              <div class="card-title">Pabels</div>
+              <div class="card-text">House, disco, balearic. Sun-drenched selections from Bogotá to Blaarmeersen.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-visual" style="background: radial-gradient(circle at 60% 50%, rgba(167,139,250,0.3), transparent 60%), radial-gradient(circle at 20% 30%, rgba(255,179,71,0.2), transparent 60%), var(--surface);"></div>
+            <div class="card-body">
+              <div class="card-label">Syria/Dubai · DJ Set</div>
+              <div class="card-title">Walashi</div>
+              <div class="card-text">Middle Eastern rhythms woven into deep house. Border-crossing sonic storytelling.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       06. USAGE GUIDELINES
+       ═══════════════════════════════════ -->
+  <section>
+    <span class="section-label">Guidelines</span>
+    <span class="section-number"> — 06</span>
+    <h2 class="section-title">Do's & Don'ts</h2>
+    <p class="section-desc">
+      Rules to keep the Signal Bloom identity consistent across all touchpoints.
+    </p>
+
+    <div class="do-dont-grid">
+      <div class="do-card">
+        <h4>Do</h4>
+        <ul>
+          <li>Use bloom circles with radial-gradient fading to transparent</li>
+          <li>Keep coordinate labels at very low opacity (max 25%)</li>
+          <li>Let Big Shoulders Display headlines cut through the bloom layer</li>
+          <li>Use the grain texture overlay on all digital surfaces</li>
+          <li>Keep bloom accents in the background; text always readable</li>
+          <li>Mix warm heritage colors with cool bloom accents</li>
+          <li>Use sharp-edged buttons to contrast the organic shapes</li>
+          <li>Apply mix-blend-mode: screen on bloom circles over dark backgrounds</li>
+        </ul>
+      </div>
+      <div class="dont-card">
+        <h4>Don't</h4>
+        <ul>
+          <li>Use hard-edged circles or flat color fills for bloom elements</li>
+          <li>Make coordinate labels readable as primary content</li>
+          <li>Put bloom colors on text (they're background-only)</li>
+          <li>Use white (#FFFFFF) backgrounds anywhere</li>
+          <li>Mix more than 3 bloom accent colors in one composition</li>
+          <li>Use bloom effects without the underlying dark deep background</li>
+          <li>Add drop shadows to cards (use subtle border + translate instead)</li>
+          <li>Use generic sans-serif fonts (Inter, Roboto, Arial) in place of Work Sans</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       07. SOCIAL MEDIA FORMATS
+       ═══════════════════════════════════ -->
+  <section>
+    <span class="section-label">Social Formats</span>
+    <span class="section-number"> — 07</span>
+    <h2 class="section-title">Asset Dimensions</h2>
+    <p class="section-desc">
+      Standard asset sizes for the 2026 campaign. Each format uses the same Signal Bloom visual system scaled to its canvas. The bloom composition shifts per format but always includes: organic circles, coordinate labels, sharp geometry, and dominant typography.
+    </p>
+
+    <div class="social-grid">
+      <div class="social-frame">
+        <div class="social-frame-label">Instagram Post — 1080 × 1080</div>
+        <div class="social-canvas" style="--aspect: 1/1;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(circle at 25% 35%, rgba(61,237,151,0.2), transparent 50%), radial-gradient(circle at 70% 65%, rgba(255,107,157,0.15), transparent 50%), radial-gradient(circle at 50% 80%, rgba(200,164,90,0.1), transparent 50%);"></div>
+          <div style="position: absolute; width: 30px; height: 100px; background: rgba(61,237,151,0.12); top: 15%; left: 20%;"></div>
+          <div style="position: absolute; width: 80px; height: 20px; background: rgba(255,107,157,0.1); top: 45%; left: 55%;"></div>
+          <span style="position: absolute; font-family: var(--font-data); font-size: 0.45rem; color: rgba(250,242,225,0.2); top: 25%; left: 30%;">[-12.35, 19.68]</span>
+          <div style="position: absolute; bottom: 12%; left: 8%; right: 8%;">
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 2.2rem; text-transform: uppercase; line-height: 0.9; letter-spacing: 0.04em;">Curfew<br>2026</div>
+            <div style="font-family: var(--font-data); font-size: 0.4rem; color: var(--cream-muted); margin-top: 0.5rem; letter-spacing: 0.1em;">SAT 6 JUNE · BLAARMEERSEN · GENT</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-frame">
+        <div class="social-frame-label">Instagram Story — 1080 × 1920</div>
+        <div class="social-canvas" style="--aspect: 9/16;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 25%, rgba(255,107,157,0.2), transparent 50%), radial-gradient(circle at 30% 60%, rgba(61,237,151,0.15), transparent 50%), radial-gradient(circle at 70% 85%, rgba(167,139,250,0.12), transparent 50%);"></div>
+          <div style="position: absolute; width: 20px; height: 120px; background: rgba(61,237,151,0.1); top: 30%; right: 15%;"></div>
+          <span style="position: absolute; font-family: var(--font-data); font-size: 0.4rem; color: rgba(250,242,225,0.2); top: 35%; left: 20%;">[-8.97, 25.11]</span>
+          <div style="position: absolute; top: 8%; left: 8%;">
+            <div style="font-family: var(--font-data); font-size: 0.35rem; color: var(--bloom-green); letter-spacing: 0.15em;">IN HOUSE WE TRUST</div>
+          </div>
+          <div style="position: absolute; bottom: 15%; left: 8%; right: 8%;">
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 2rem; text-transform: uppercase; line-height: 0.9;">Curfew<br>Festival<br>2026</div>
+            <div style="font-family: var(--font-data); font-size: 0.35rem; color: var(--cream-muted); margin-top: 0.5rem; letter-spacing: 0.08em;">SAT 6 JUNE · GENT · TICKETS €25</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-frame">
+        <div class="social-frame-label">Facebook Cover — 1200 × 628</div>
+        <div class="social-canvas" style="--aspect: 1200/628;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(circle at 20% 40%, rgba(61,237,151,0.18), transparent 45%), radial-gradient(circle at 75% 55%, rgba(200,164,90,0.12), transparent 45%), radial-gradient(circle at 50% 80%, rgba(0,229,204,0.1), transparent 45%);"></div>
+          <div style="position: absolute; width: 40px; height: 120px; background: rgba(200,164,90,0.08); top: 10%; left: 40%;"></div>
+          <span style="position: absolute; font-family: var(--font-data); font-size: 0.4rem; color: rgba(250,242,225,0.15); top: 20%; right: 25%;">[-11.24, 19.83]</span>
+          <div style="position: absolute; bottom: 15%; left: 5%;">
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.8rem; text-transform: uppercase; line-height: 0.9; letter-spacing: 0.04em;">Curfew 2026</div>
+            <div style="font-family: var(--font-data); font-size: 0.35rem; color: var(--cream-muted); margin-top: 0.3rem; letter-spacing: 0.08em;">SAT 6 JUNE · BLAARMEERSEN · GENT · IN HOUSE WE TRUST</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-frame">
+        <div class="social-frame-label">Wide Banner — 1920 × 600</div>
+        <div class="social-canvas" style="--aspect: 1920/600;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(circle at 15% 50%, rgba(255,107,157,0.15), transparent 40%), radial-gradient(circle at 50% 40%, rgba(61,237,151,0.12), transparent 40%), radial-gradient(circle at 85% 55%, rgba(167,139,250,0.1), transparent 40%);"></div>
+          <div style="position: absolute; width: 25px; height: 90px; background: rgba(61,237,151,0.08); bottom: 10%; left: 30%;"></div>
+          <div style="position: absolute; width: 90px; height: 15px; background: rgba(255,107,157,0.06); top: 25%; left: 60%;"></div>
+          <span style="position: absolute; font-family: var(--font-data); font-size: 0.35rem; color: rgba(250,242,225,0.15); top: 30%; left: 45%;">[-15.77, 11.4, -0.78]</span>
+          <div style="position: absolute; bottom: 15%; left: 4%;">
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.6rem; text-transform: uppercase; line-height: 0.9; letter-spacing: 0.04em;">Curfew Festival 2026</div>
+            <div style="font-family: var(--font-data); font-size: 0.3rem; color: var(--cream-muted); margin-top: 0.3rem; letter-spacing: 0.08em;">SAT 6 JUNE · BLAARMEERSEN · GENT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       08. CSS TOKENS
+       ═══════════════════════════════════ -->
+  <section>
+    <span class="section-label">Implementation</span>
+    <span class="section-number"> — 08</span>
+    <h2 class="section-title">Design Tokens</h2>
+    <p class="section-desc">
+      Copy these CSS custom properties into your project. They form the complete token system for Curfew 2026.
+    </p>
+
+    <div style="background: var(--surface); border: 1px solid rgba(250,242,225,0.04); border-radius: 12px; padding: var(--space-md); overflow-x: auto;">
+      <pre style="font-family: var(--font-data); font-size: 0.7rem; line-height: 1.8; color: var(--cream-muted); margin: 0; white-space: pre;"><span style="color: var(--bloom-green);">:root</span> {
+  <span style="color: var(--cream);">/* Foundation */</span>
+  --deep:          <span style="color: var(--bloom-cyan);">#0F0E17</span>;
+  --deep-warm:     <span style="color: var(--bloom-cyan);">#151422</span>;
+  --surface:       <span style="color: var(--bloom-cyan);">#1C1B2E</span>;
+  --surface-light: <span style="color: var(--bloom-cyan);">#252440</span>;
+
+  <span style="color: var(--cream);">/* Text & Heritage */</span>
+  --cream:         <span style="color: var(--bloom-cyan);">#FAF2E1</span>;
+  --cream-muted:   <span style="color: var(--bloom-cyan);">rgba(250, 242, 225, 0.55)</span>;
+  --golden:        <span style="color: var(--bloom-cyan);">#C8A45A</span>;
+  --coral:         <span style="color: var(--bloom-cyan);">#F0879B</span>;
+  --blue:          <span style="color: var(--bloom-cyan);">#5587C8</span>;
+
+  <span style="color: var(--cream);">/* Signal Bloom 2026 */</span>
+  --bloom-pink:    <span style="color: var(--bloom-cyan);">#FF6B9D</span>;
+  --bloom-green:   <span style="color: var(--bloom-cyan);">#3DED97</span>;
+  --bloom-cyan:    <span style="color: var(--bloom-cyan);">#00E5CC</span>;
+  --bloom-violet:  <span style="color: var(--bloom-cyan);">#A78BFA</span>;
+  --bloom-amber:   <span style="color: var(--bloom-cyan);">#FFB347</span>;
+
+  <span style="color: var(--cream);">/* Typography */</span>
+  --font-display:  <span style="color: var(--bloom-cyan);">'Big Shoulders Display', sans-serif</span>;
+  --font-body:     <span style="color: var(--bloom-cyan);">'Work Sans', sans-serif</span>;
+  --font-data:     <span style="color: var(--bloom-cyan);">'Space Mono', monospace</span>;
+}</pre>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════ -->
+  <footer class="guide-footer">
+    <p>CURFEW — WHERE HOUSE COMES HOME — STYLE GUIDE V1.0 — 2026</p>
+    <p style="margin-top: 0.5rem; color: rgba(61, 237, 151, 0.3);">SIGNAL BLOOM — [51.05, 3.72]</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

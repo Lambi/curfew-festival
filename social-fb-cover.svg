@@ -1,0 +1,106 @@
+<svg viewBox="0 0 1200 628" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Space+Mono:wght@400;700&display=swap');
+
+      .title {
+        font-family: 'Big Shoulders Display', sans-serif;
+        font-weight: 700;
+        font-size: 120px;
+        letter-spacing: -3px;
+        fill: #FAF2E1;
+        text-transform: uppercase;
+      }
+
+      .accent {
+        fill: #3DED97;
+      }
+
+      .label {
+        font-family: 'Space Mono', monospace;
+        font-size: 12px;
+        fill: #FAF2E1;
+        opacity: 0.18;
+      }
+
+      .info {
+        font-family: 'Space Mono', monospace;
+        font-size: 14px;
+        fill: #FAF2E1;
+        letter-spacing: 1px;
+      }
+
+      .detail {
+        font-family: 'Space Mono', monospace;
+        font-size: 12px;
+        fill: #FAF2E1;
+        opacity: 0.75;
+      }
+    </style>
+
+    <filter id="blur-lg">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" />
+    </filter>
+
+    <radialGradient id="bloom-green" cx="40%" cy="40%">
+      <stop offset="0%" stopColor="#3DED97" stopOpacity="0.65" />
+      <stop offset="100%" stopColor="#3DED97" stopOpacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bloom-pink" cx="50%" cy="50%">
+      <stop offset="0%" stopColor="#FF6B9D" stopOpacity="0.55" />
+      <stop offset="100%" stopColor="#FF6B9D" stopOpacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bloom-cyan" cx="45%" cy="55%">
+      <stop offset="0%" stopColor="#00E5CC" stopOpacity="0.5" />
+      <stop offset="100%" stopColor="#00E5CC" stopOpacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bloom-violet" cx="35%" cy="35%">
+      <stop offset="0%" stopColor="#A78BFA" stopOpacity="0.45" />
+      <stop offset="100%" stopColor="#A78BFA" stopOpacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="628" fill="#0F0E17" />
+
+  <!-- Wide bloom composition -->
+  <circle cx="100" cy="100" r="300" fill="url(#bloom-green)" filter="url(#blur-lg)" />
+  <circle cx="400" cy="400" r="350" fill="url(#bloom-pink)" filter="url(#blur-lg)" />
+  <circle cx="800" cy="250" r="340" fill="url(#bloom-cyan)" filter="url(#blur-lg)" />
+  <circle cx="1100" cy="500" r="320" fill="url(#bloom-violet)" filter="url(#blur-lg)" />
+  <circle cx="600" cy="600" r="300" fill="url(#bloom-green)" filter="url(#blur-lg)" opacity="0.45" />
+
+  <!-- Geometric rectangles -->
+  <rect x="80" y="150" width="10" height="300" fill="#FF6B9D" opacity="0.11" />
+  <rect x="1110" y="280" width="8" height="280" fill="#00E5CC" opacity="0.09" />
+  <rect x="580" y="80" width="6" height="350" fill="#A78BFA" opacity="0.08" />
+
+  <!-- Coordinate labels -->
+  <text x="95" y="380" class="label">[-42.18, 35.72, 7.89]</text>
+  <text x="1050" y="200" class="label">[58.34, -28.51, 9.23]</text>
+  <text x="620" y="520" class="label">[12.67, -44.89, 5.12]</text>
+
+  <!-- Left side: Title -->
+  <text x="80" y="180" class="title">CURFEW</text>
+  <text x="80" y="300" class="title accent" font-size="90">2026</text>
+
+  <!-- Right side: Event details -->
+  <text x="1120" y="140" class="info" text-anchor="end" font-size="13" letter-spacing="2">SAT 6 JUNE</text>
+  <text x="1120" y="165" class="detail" text-anchor="end">Blaarmeersen, Gent</text>
+  <text x="1120" y="190" class="detail" text-anchor="end">Belgium</text>
+
+  <text x="1120" y="250" class="detail" text-anchor="end" letter-spacing="1">IN HOUSE WE TRUST</text>
+
+  <text x="1120" y="300" class="info" text-anchor="end" font-size="13" letter-spacing="1">€25 EARLY BIRD</text>
+
+  <text x="1120" y="350" class="detail" text-anchor="end" font-size="11">Ian Pooley · Pabels</text>
+  <text x="1120" y="368" class="detail" text-anchor="end" font-size="11">Walashi + more TBA</text>
+
+  <text x="1120" y="420" class="detail" text-anchor="end" font-size="12" opacity="0.65">curfew.events</text>
+
+  <!-- Decorative line -->
+  <line x1="1000" y1="480" x2="1120" y2="480" stroke="#3DED97" stroke-width="2" opacity="0.4" />
+</svg>

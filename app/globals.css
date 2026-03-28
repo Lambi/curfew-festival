@@ -13,12 +13,23 @@
 
   --font-display: 'Big Shoulders Display', sans-serif;
   --font-body: 'Work Sans', sans-serif;
+
+  --color-bloom-pink: #FF6B9D;
+  --color-bloom-green: #3DED97;
+  --color-bloom-cyan: #00E5CC;
+  --color-bloom-violet: #A78BFA;
+  --color-bloom-amber: #FFB347;
+  --color-surface: #1C1B2E;
+  --color-surface-light: #252440;
+  --font-data: 'Space Mono', monospace;
 }
 
 :root {
   --gradient-warm: linear-gradient(135deg, #F0879B 0%, #C8A45A 50%, #FAF2E1 100%);
   --gradient-hero: radial-gradient(ellipse at 50% 30%, rgba(200,164,90,0.12) 0%, transparent 70%);
   --gradient-section: linear-gradient(180deg, #1a1a2e 0%, #1e1a2e 50%, #1a1a2e 100%);
+  --gradient-bloom: radial-gradient(ellipse at 30% 40%, rgba(61, 237, 151, 0.06) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(255, 107, 157, 0.05) 0%, transparent 50%);
+  --gradient-bloom-cool: radial-gradient(circle at 30% 50%, rgba(167, 139, 250, 0.08) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(0, 229, 204, 0.06) 0%, transparent 50%);
 }
 
 html {
@@ -127,4 +138,35 @@ body::before {
 ::selection {
   background: rgba(200, 164, 90, 0.3);
   color: var(--color-cream);
+}
+
+/* Signal Bloom 2026 — Data labels */
+.data-label {
+  font-family: var(--font-data);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: rgba(250, 242, 225, 0.25);
+}
+
+/* Signal Bloom 2026 — Bloom circle utility */
+.bloom-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Signal Bloom 2026 — Section bloom background */
+.bloom-bg {
+  position: relative;
+}
+
+.bloom-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-bloom);
+  pointer-events: none;
+  z-index: 0;
 }
