@@ -12,7 +12,7 @@ const fadeUp = {
     transition: {
       duration: 0.6,
       delay: 1.5 + custom * 0.1,
-      ease: 'easeOut',
+      ease: 'easeOut' as const,
     },
   }),
 };
@@ -34,7 +34,7 @@ const scrollPulse = {
     transition: {
       duration: 2,
       repeat: Infinity,
-      ease: 'easeInOut',
+      ease: 'easeInOut' as const,
     },
   },
 };
