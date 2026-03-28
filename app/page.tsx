@@ -13,6 +13,7 @@ import Experience from '@/components/Experience';
 import Stats from '@/components/Stats';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import Newsletter from '@/components/Newsletter';
+import Partners from '@/components/Partners';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import CustomCursor from '@/components/CustomCursor';
@@ -69,7 +70,7 @@ export default function Home() {
         />
         <UpcomingEvents />
         <Newsletter />
-        {/* <Partners /> — hidden until real partner logos are available */}
+        <Partners />
       </main>
 
       <Footer />

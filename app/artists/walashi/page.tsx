@@ -60,7 +60,7 @@ export default function WalashiPage() {
             WALASHI
           </motion.h1>
           <motion.p custom={2} variants={fadeUp} className="text-cream/50 text-sm md:text-base tracking-wide mt-2">
-            Syria · Dubai · Boiler Room
+            Syria / Dubai
           </motion.p>
         </motion.div>
       </section>

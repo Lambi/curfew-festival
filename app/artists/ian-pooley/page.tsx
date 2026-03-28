@@ -49,7 +49,7 @@ export default function IanPooleyPage() {
         >
           <motion.div custom={0} variants={fadeUp} className="mb-3">
             <span className="inline-block bg-golden text-deep text-[10px] tracking-[0.2em] font-bold px-3 py-1.5">
-              EXCLUSIVE LIVE SET
+              LIVE
             </span>
           </motion.div>
           <motion.h1
@@ -60,7 +60,7 @@ export default function IanPooleyPage() {
             IAN POOLEY
           </motion.h1>
           <motion.p custom={2} variants={fadeUp} className="text-cream/50 text-sm md:text-base tracking-wide mt-2">
-            UK · Berlin
+            Germany
           </motion.p>
         </motion.div>
       </section>

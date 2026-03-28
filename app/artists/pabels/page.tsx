@@ -60,7 +60,7 @@ export default function PabelsPage() {
             PABELS
           </motion.h1>
           <motion.p custom={2} variants={fadeUp} className="text-cream/50 text-sm md:text-base tracking-wide mt-2">
-            Buenos Aires, Argentina
+            Colombia
           </motion.p>
         </motion.div>
       </section>
