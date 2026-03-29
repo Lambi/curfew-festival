@@ -25,7 +25,7 @@ export default function Newsletter() {
   }
 
   return (
-    <section id="newsletter" className="py-20 md:py-30 px-6">
+    <section id="newsletter" className="py-12 md:py-20 px-6">
       <div className="max-w-[600px] mx-auto text-center">
         <ScrollReveal stagger>
           <ScrollRevealItem>

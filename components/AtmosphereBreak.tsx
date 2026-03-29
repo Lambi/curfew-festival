@@ -18,7 +18,7 @@ export default function AtmosphereBreak({ src, alt }: AtmosphereBreakProps) {
   const y = useTransform(scrollYProgress, [0, 1], ['-15%', '15%']);
 
   return (
-    <div ref={ref} className="relative w-full min-h-[60vh] md:min-h-[80vh] overflow-hidden">
+    <div ref={ref} className="relative w-full min-h-[40vh] md:min-h-[60vh] overflow-hidden">
       <motion.div className="relative h-[120%] scale-110 overflow-hidden" style={{ y }}>
         <Image
           src={src}

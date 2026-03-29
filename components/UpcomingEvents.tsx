@@ -28,7 +28,7 @@ export default function UpcomingEvents() {
   }
 
   return (
-    <section id="events" className="py-20 md:py-30 px-6">
+    <section id="events" className="py-12 md:py-20 px-6">
       <div className="max-w-[800px] mx-auto">
         <ScrollReveal stagger>
           <ScrollRevealItem>

@@ -5,7 +5,7 @@ import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 
 export default function About() {
   return (
-    <section className="py-20 md:py-30 px-6">
+    <section className="py-12 md:py-20 px-6">
       <div className="max-w-[900px] mx-auto">
         <ScrollReveal stagger>
           {/* Photo — full width, natural colors */}

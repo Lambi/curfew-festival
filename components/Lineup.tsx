@@ -46,7 +46,7 @@ const artists: Artist[] = [
 
 export default function Lineup() {
   return (
-    <section id="lineup" className="py-20 md:py-30 px-6">
+    <section id="lineup" className="py-12 md:py-20 px-6">
       <div className="max-w-[1200px] mx-auto">
         <ScrollReveal stagger>
           <ScrollRevealItem>

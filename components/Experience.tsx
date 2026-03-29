@@ -29,7 +29,7 @@ const cards = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 md:py-30 px-6">
+    <section id="experience" className="py-12 md:py-20 px-6">
       <div className="max-w-[1200px] mx-auto">
         <ScrollReveal>
           <h2 className="section-title text-cream text-center mb-16">THE EXPERIENCE</h2>
