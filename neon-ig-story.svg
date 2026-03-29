@@ -1,0 +1,103 @@
+<svg viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Caveat:wght@400;700&display=swap');
+    </style>
+
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A1A1D;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0F2B30;stop-opacity:1"/>
+    </linearGradient>
+
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C9A0FF;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#31CDCF;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#FFB5C2;stop-opacity:1"/>
+    </linearGradient>
+
+    <radialGradient id="purpleHaze" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#C9A0FF;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#C9A0FF;stop-opacity:0"/>
+    </radialGradient>
+
+    <radialGradient id="cyanHaze" cx="60%" cy="50%" r="65%">
+      <stop offset="0%" style="stop-color:#31CDCF;stop-opacity:0.16"/>
+      <stop offset="100%" style="stop-color:#31CDCF;stop-opacity:0"/>
+    </radialGradient>
+
+    <radialGradient id="pinkHaze" cx="50%" cy="60%" r="55%">
+      <stop offset="0%" style="stop-color:#FFB5C2;stop-opacity:0.14"/>
+      <stop offset="100%" style="stop-color:#FFB5C2;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background gradient -->
+  <rect width="1080" height="1920" fill="url(#bgGradient)"/>
+
+  <!-- Atmospheric haze orbs scattered -->
+  <circle cx="150" cy="300" r="350" fill="url(#purpleHaze)" filter="url(#softGlow)"/>
+  <circle cx="950" cy="400" r="320" fill="url(#cyanHaze)" filter="url(#softGlow)"/>
+  <circle cx="1050" cy="900" r="380" fill="url(#pinkHaze)" filter="url(#softGlow)"/>
+  <circle cx="100" cy="1200" r="340" fill="url(#cyanHaze)" filter="url(#softGlow)"/>
+  <circle cx="850" cy="1500" r="300" fill="url(#purpleHaze)" filter="url(#softGlow)"/>
+
+  <!-- Top section: CURFEW with gradient -->
+  <text x="540" y="380" font-family="Unbounded, sans-serif" font-size="160" font-weight="800" fill="url(#textGradient)" text-anchor="middle" letter-spacing="-3">CURFEW</text>
+
+  <!-- Neon lime accent line 1 -->
+  <line x1="150" y1="450" x2="930" y2="450" stroke="#E4FF54" stroke-width="3" opacity="0.9" filter="url(#neonGlow)"/>
+
+  <!-- FESTIVAL 2026 -->
+  <text x="540" y="600" font-family="Unbounded, sans-serif" font-size="100" font-weight="700" fill="#E4FF54" text-anchor="middle" filter="url(#strongGlow)">FESTIVAL 2026</text>
+
+  <!-- Neon lime accent line 2 -->
+  <line x1="150" y1="660" x2="930" y2="660" stroke="#E4FF54" stroke-width="2" opacity="0.75" filter="url(#neonGlow)"/>
+
+  <!-- Location and date info -->
+  <text x="540" y="770" font-family="DM Sans, sans-serif" font-size="32" font-weight="700" fill="#F0F4F8" text-anchor="middle" opacity="0.95">SAT 6 JUNE</text>
+  <text x="540" y="820" font-family="DM Sans, sans-serif" font-size="28" font-weight="500" fill="#31CDCF" text-anchor="middle" opacity="0.9">BLAARMEERSEN</text>
+  <text x="540" y="860" font-family="DM Sans, sans-serif" font-size="28" font-weight="500" fill="#31CDCF" text-anchor="middle" opacity="0.9">GENT</text>
+
+  <!-- Neon lime accent line 3 -->
+  <line x1="150" y1="920" x2="930" y2="920" stroke="#E4FF54" stroke-width="2" opacity="0.7" filter="url(#neonGlow)"/>
+
+  <!-- Artist names section header -->
+  <text x="540" y="1020" font-family="DM Sans, sans-serif" font-size="20" font-weight="500" fill="#C9A0FF" text-anchor="middle" opacity="0.75" letter-spacing="2">FEATURING</text>
+
+  <!-- Artist names -->
+  <text x="540" y="1100" font-family="DM Sans, sans-serif" font-size="36" font-weight="600" fill="#F0F4F8" text-anchor="middle" opacity="0.95">Ian Pooley</text>
+  <text x="540" y="1160" font-family="DM Sans, sans-serif" font-size="36" font-weight="600" fill="#F0F4F8" text-anchor="middle" opacity="0.95">Pabels</text>
+  <text x="540" y="1220" font-family="DM Sans, sans-serif" font-size="36" font-weight="600" fill="#F0F4F8" text-anchor="middle" opacity="0.95">Walashi</text>
+  <text x="540" y="1280" font-family="DM Sans, sans-serif" font-size="28" font-weight="500" fill="#FFB5C2" text-anchor="middle" opacity="0.8">+ more</text>
+
+  <!-- Neon lime accent line 4 -->
+  <line x1="150" y1="1340" x2="930" y2="1340" stroke="#E4FF54" stroke-width="2" opacity="0.7" filter="url(#neonGlow)"/>
+
+  <!-- Ticket info prominent -->
+  <text x="540" y="1480" font-family="Unbounded, sans-serif" font-size="72" font-weight="800" fill="#E4FF54" text-anchor="middle" filter="url(#strongGlow)">€25</text>
+  <text x="540" y="1550" font-family="DM Sans, sans-serif" font-size="32" font-weight="700" fill="#E4FF54" text-anchor="middle" opacity="0.95">EARLY BIRD</text>
+
+  <!-- Neon lime accent line 5 -->
+  <line x1="150" y1="1610" x2="930" y2="1610" stroke="#E4FF54" stroke-width="2" opacity="0.65" filter="url(#neonGlow)"/>
+
+  <!-- Tagline in handwritten style -->
+  <text x="540" y="1740" font-family="Caveat, cursive" font-size="56" font-weight="400" fill="#FFE2C7" text-anchor="middle" opacity="0.9">In House We Trust</text>
+
+  <!-- Bottom website -->
+  <text x="540" y="1860" font-family="DM Sans, sans-serif" font-size="28" font-weight="700" fill="#F0F4F8" text-anchor="middle" opacity="0.8">curfew.events</text>
+</svg>

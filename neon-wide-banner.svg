@@ -1,0 +1,78 @@
+<svg viewBox="0 0 1920 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Caveat:wght@400;700&display=swap');
+    </style>
+
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <linearGradient id="bgGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" style="stop-color:#0A1A1D;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#0F2B30;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0A1A1D;stop-opacity:1"/>
+    </linearGradient>
+
+    <linearGradient id="hazeGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" style="stop-color:#C9A0FF;stop-opacity:0.1"/>
+      <stop offset="30%" style="stop-color:#C9A0FF;stop-opacity:0.08"/>
+      <stop offset="50%" style="stop-color:#31CDCF;stop-opacity:0.12"/>
+      <stop offset="70%" style="stop-color:#31CDCF;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#FFB5C2;stop-opacity:0.09"/>
+    </linearGradient>
+
+    <radialGradient id="purpleLeft" cx="10%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#C9A0FF;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#C9A0FF;stop-opacity:0"/>
+    </radialGradient>
+
+    <radialGradient id="cyanCenter" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" style="stop-color:#31CDCF;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#31CDCF;stop-opacity:0"/>
+    </radialGradient>
+
+    <radialGradient id="pinkRight" cx="90%" cy="50%" r="48%">
+      <stop offset="0%" style="stop-color:#FFB5C2;stop-opacity:0.11"/>
+      <stop offset="100%" style="stop-color:#FFB5C2;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Dark panoramic background -->
+  <rect width="1920" height="600" fill="url(#bgGradient)"/>
+
+  <!-- Atmospheric gradient hazes spanning width -->
+  <rect width="1920" height="600" fill="url(#hazeGradient)" filter="url(#softGlow)"/>
+
+  <!-- Purple left -->
+  <rect width="1920" height="600" fill="url(#purpleLeft)" filter="url(#softGlow)"/>
+
+  <!-- Cyan center -->
+  <rect width="1920" height="600" fill="url(#cyanCenter)" filter="url(#softGlow)"/>
+
+  <!-- Pink right -->
+  <rect width="1920" height="600" fill="url(#pinkRight)" filter="url(#softGlow)"/>
+
+  <!-- Main title centered -->
+  <text x="960" y="220" font-family="Unbounded, sans-serif" font-size="140" font-weight="800" fill="#F0F4F8" text-anchor="middle" letter-spacing="-2" filter="url(#strongGlow)">CURFEW FESTIVAL 2026</text>
+
+  <!-- Neon lime line under title -->
+  <line x1="400" y1="280" x2="1520" y2="280" stroke="#E4FF54" stroke-width="4" opacity="0.9" filter="url(#neonGlow)"/>
+
+  <!-- Date and location info -->
+  <text x="960" y="380" font-family="DM Sans, sans-serif" font-size="36" font-weight="600" fill="#31CDCF" text-anchor="middle" opacity="0.95">SAT 6 JUNE · BLAARMEERSEN · GENT</text>
+
+  <!-- Tagline in handwritten style at bottom -->
+  <text x="960" y="530" font-family="Caveat, cursive" font-size="52" font-weight="400" fill="#FFE2C7" text-anchor="middle" opacity="0.9">In House We Trust</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
+    </style>
+
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="fineGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <radialGradient id="purpleHaze" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#C9A0FF;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#C9A0FF;stop-opacity:0"/>
+    </radialGradient>
+
+    <radialGradient id="cyanHaze" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#31CDCF;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#31CDCF;stop-opacity:0"/>
+    </radialGradient>
+
+    <linearGradient id="fogWash" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A1A1D;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0F2B30;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#0A1A1D"/>
+
+  <!-- Atmospheric haze orbs -->
+  <circle cx="180" cy="200" r="280" fill="url(#purpleHaze)" filter="url(#softGlow)"/>
+  <circle cx="900" cy="350" r="250" fill="url(#cyanHaze)" filter="url(#softGlow)"/>
+  <circle cx="150" cy="750" r="220" fill="url(#purpleHaze)" filter="url(#softGlow)"/>
+  <circle cx="950" cy="650" r="300" fill="url(#cyanHaze)" filter="url(#softGlow)"/>
+
+  <!-- Neon accent line -->
+  <line x1="100" y1="420" x2="980" y2="420" stroke="#E4FF54" stroke-width="2" opacity="0.8" filter="url(#neonGlow)"/>
+
+  <!-- CURFEW text -->
+  <text x="540" y="380" font-family="Unbounded, sans-serif" font-size="140" font-weight="800" fill="#F0F4F8" text-anchor="middle" letter-spacing="-2" filter="url(#fineGlow)">CURFEW</text>
+
+  <!-- 2026 in Neon Lime -->
+  <text x="540" y="520" font-family="Unbounded, sans-serif" font-size="110" font-weight="700" fill="#E4FF54" text-anchor="middle" filter="url(#neonGlow)">2026</text>
+
+  <!-- Event details section -->
+  <text x="540" y="750" font-family="DM Sans, sans-serif" font-size="24" font-weight="500" fill="#F0F4F8" text-anchor="middle" opacity="0.9">SAT 6 JUNE</text>
+  <text x="540" y="785" font-family="DM Sans, sans-serif" font-size="20" font-weight="400" fill="#31CDCF" text-anchor="middle" opacity="0.85">BLAARMEERSEN, GENT</text>
+
+  <!-- Tagline -->
+  <text x="540" y="840" font-family="DM Sans, sans-serif" font-size="18" font-weight="400" fill="#C9A0FF" text-anchor="middle" opacity="0.8">In House We Trust</text>
+
+  <!-- Bottom info -->
+  <text x="540" y="900" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" fill="#E4FF54" text-anchor="middle" opacity="0.95">€25 EARLY BIRD</text>
+  <text x="540" y="950" font-family="DM Sans, sans-serif" font-size="18" font-weight="500" fill="#F0F4F8" text-anchor="middle" opacity="0.75">curfew.events</text>
+
+  <!-- Fog gradient wash at bottom -->
+  <rect x="0" y="700" width="1080" height="380" fill="url(#fogWash)" opacity="0.6"/>
+</svg>

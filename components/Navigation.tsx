@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { buildTicketUrl } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
@@ -10,6 +11,8 @@ const navLinks = [
   { label: 'LINEUP', href: '#lineup' },
   { label: 'EXPERIENCE', href: '#experience' },
   { label: 'EVENTS', href: '#events' },
+  { label: 'PARTNERS', href: '#partners' },
+  { label: 'NEWSLETTER', href: '#newsletter' },
 ];
 
 export default function Navigation() {
@@ -47,12 +50,12 @@ export default function Navigation() {
             CURFEW
           </span>
 
-          <div className="hidden md:flex gap-8 items-center">
+          <div className="hidden md:flex gap-6 items-center">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => scrollTo(link.href)}
-                className="text-xs tracking-[0.25em] text-cream/60 hover:text-cream transition-colors duration-300 font-body"
+                className="text-sm tracking-[0.2em] text-cream/60 hover:text-cream transition-colors duration-300 font-body font-semibold"
               >
                 {link.label}
               </button>
@@ -62,7 +65,7 @@ export default function Navigation() {
           <div className="flex items-center gap-4">
             <button
               onClick={handleTicketClick}
-              className="border border-golden text-cream px-5 py-2 text-xs tracking-[0.25em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
+              className="border border-golden text-cream px-5 py-2 text-sm tracking-[0.2em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
             >
               GET TICKETS
             </button>
@@ -108,7 +111,7 @@ export default function Navigation() {
               className="mt-4 border border-golden text-cream px-8 py-3 text-sm tracking-[0.25em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.4 }}
+              transition={{ delay: 0.6, duration: 0.4 }}
             >
               GET TICKETS
             </motion.button>

@@ -2,38 +2,40 @@
 
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 
-const partners = [
-  { name: 'Tout Bien', logo: '/images/toutbien-logo.svg' },
-  { name: 'Yugen', logo: '/images/yugen-logo.svg' },
-];
-
 export default function Partners() {
   return (
-    <section className="py-20 md:py-30 px-6">
-      <div className="max-w-[1000px] mx-auto">
+    <section id="partners" className="py-16 md:py-24 px-6">
+      <div className="max-w-[600px] mx-auto">
         <ScrollReveal stagger>
           <ScrollRevealItem>
-            <h2 className="section-title text-cream text-center mb-12 text-2xl md:text-3xl">
+            <p className="label text-cream/30 text-center mb-10 tracking-[0.3em] text-xs">
               PARTNERS & FRIENDS
-            </h2>
+            </p>
           </ScrollRevealItem>
 
           <ScrollRevealItem>
             <div className="flex justify-center items-center gap-16 md:gap-24">
-              {partners.map((partner) => (
-                <div
-                  key={partner.name}
-                  className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300"
-                  style={{ width: 160, height: 60 }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-w-full max-h-full w-auto h-auto object-contain brightness-0 invert"
-                  />
-                </div>
-              ))}
+              {/* Tout Bien */}
+              <div className="flex items-center justify-center opacity-50 hover:opacity-80 transition-opacity duration-300" style={{ width: 120, height: 40 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/toutbien-logo.svg"
+                  alt="Tout Bien"
+                  style={{ width: 120, height: 40, objectFit: 'contain' }}
+                  className="brightness-0 invert"
+                />
+              </div>
+
+              {/* Yugen */}
+              <div className="flex items-center justify-center opacity-50 hover:opacity-80 transition-opacity duration-300" style={{ width: 120, height: 40 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/yugen-logo.svg"
+                  alt="Yugen"
+                  style={{ width: 120, height: 40, objectFit: 'contain' }}
+                  className="brightness-0 invert"
+                />
+              </div>
             </div>
           </ScrollRevealItem>
         </ScrollReveal>

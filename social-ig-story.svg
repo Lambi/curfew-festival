@@ -1,129 +1,74 @@
 <svg viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Space+Mono:wght@400;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Space+Mono:wght@400&display=swap');
 
-      .header {
-        font-family: 'Space Mono', monospace;
-        font-size: 13px;
+      .headline {
+        font-family: 'Big Shoulders Display', sans-serif;
+        font-weight: 900;
+        font-size: 340px;
+        letter-spacing: -10px;
+        text-transform: uppercase;
         fill: #FAF2E1;
-        letter-spacing: 2px;
-        opacity: 0.7;
+        line-height: 0.85;
       }
 
-      .title {
+      .subheadline {
         font-family: 'Big Shoulders Display', sans-serif;
-        font-weight: 700;
-        font-size: 110px;
-        letter-spacing: -2px;
-        fill: #FAF2E1;
+        font-weight: 900;
+        font-size: 180px;
+        letter-spacing: -5px;
         text-transform: uppercase;
+        fill: #FAF2E1;
+        line-height: 0.9;
       }
 
       .accent {
         fill: #3DED97;
       }
 
-      .label {
+      .small-text {
         font-family: 'Space Mono', monospace;
-        font-size: 12px;
+        font-weight: 400;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
         fill: #FAF2E1;
-        opacity: 0.2;
       }
 
-      .info {
+      .top-text {
         font-family: 'Space Mono', monospace;
-        font-size: 15px;
-        fill: #FAF2E1;
-        letter-spacing: 1px;
-      }
-
-      .artist {
-        font-family: 'Space Mono', monospace;
+        font-weight: 400;
         font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
         fill: #FAF2E1;
-        opacity: 0.85;
+        opacity: 0.7;
       }
     </style>
 
-    <filter id="blur-sm">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+    <filter id="bloom-soft">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="50" />
     </filter>
-
-    <filter id="blur-lg">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
-    </filter>
-
-    <radialGradient id="bloom-green" cx="40%" cy="40%">
-      <stop offset="0%" stopColor="#3DED97" stopOpacity="0.7" />
-      <stop offset="100%" stopColor="#3DED97" stopOpacity="0" />
-    </radialGradient>
-
-    <radialGradient id="bloom-pink" cx="50%" cy="50%">
-      <stop offset="0%" stopColor="#FF6B9D" stopOpacity="0.6" />
-      <stop offset="100%" stopColor="#FF6B9D" stopOpacity="0" />
-    </radialGradient>
-
-    <radialGradient id="bloom-cyan" cx="45%" cy="55%">
-      <stop offset="0%" stopColor="#00E5CC" stopOpacity="0.5" />
-      <stop offset="100%" stopColor="#00E5CC" stopOpacity="0" />
-    </radialGradient>
-
-    <radialGradient id="bloom-violet" cx="35%" cy="35%">
-      <stop offset="0%" stopColor="#A78BFA" stopOpacity="0.5" />
-      <stop offset="100%" stopColor="#A78BFA" stopOpacity="0" />
-    </radialGradient>
-
-    <radialGradient id="bloom-golden" cx="50%" cy="50%">
-      <stop offset="0%" stopColor="#C8A45A" stopOpacity="0.4" />
-      <stop offset="100%" stopColor="#C8A45A" stopOpacity="0" />
-    </radialGradient>
   </defs>
 
   <!-- Background -->
   <rect width="1080" height="1920" fill="#0F0E17" />
 
-  <!-- Bloom circles flowing vertically -->
-  <circle cx="150" cy="200" r="320" fill="url(#bloom-green)" filter="url(#blur-lg)" />
-  <circle cx="950" cy="280" r="340" fill="url(#bloom-pink)" filter="url(#blur-lg)" />
-  <circle cx="300" cy="700" r="380" fill="url(#bloom-cyan)" filter="url(#blur-lg)" />
-  <circle cx="850" cy="900" r="360" fill="url(#bloom-violet)" filter="url(#blur-lg)" />
-  <circle cx="200" cy="1500" r="350" fill="url(#bloom-golden)" filter="url(#blur-lg)" />
-  <circle cx="900" cy="1600" r="340" fill="url(#bloom-green)" filter="url(#blur-lg)" opacity="0.5" />
+  <!-- Bloom circles -->
+  <circle cx="200" cy="300" r="220" fill="#FF6B9D" opacity="0.1" filter="url(#bloom-soft)" />
+  <circle cx="850" cy="1650" r="240" fill="#3DED97" opacity="0.1" filter="url(#bloom-soft)" />
 
-  <!-- Geometric rectangles -->
-  <rect x="100" y="400" width="10" height="280" fill="#FF6B9D" opacity="0.1" />
-  <rect x="970" y="600" width="8" height="400" fill="#00E5CC" opacity="0.08" />
-  <rect x="520" y="1200" width="6" height="350" fill="#A78BFA" opacity="0.09" />
+  <!-- Top text -->
+  <text x="540" y="100" text-anchor="middle" class="top-text">IN HOUSE WE TRUST</text>
 
-  <!-- Coordinate labels -->
-  <text x="120" y="450" class="label">[-18.23, 72.45, 9.12]</text>
-  <text x="880" y="650" class="label">[45.67, -32.89, 11.34]</text>
-  <text x="380" y="1300" class="label">[8.91, -51.23, 6.78]</text>
+  <!-- Accent year -->
+  <text x="540" y="750" text-anchor="middle" class="accent" style="font-size: 110px; letter-spacing: -2px;">2026</text>
 
-  <!-- Header -->
-  <text x="540" y="90" class="header" text-anchor="middle">IN HOUSE WE TRUST</text>
+  <!-- Main headline stacked -->
+  <text x="540" y="950" text-anchor="middle" class="headline">CURFEW</text>
+  <text x="540" y="1320" text-anchor="middle" class="subheadline">FESTIVAL</text>
 
-  <!-- Main title stacked -->
-  <text x="540" y="380" class="title" text-anchor="middle">CURFEW</text>
-  <text x="540" y="510" class="title" text-anchor="middle">FESTIVAL</text>
-  <text x="540" y="640" class="title accent" font-size="96">2026</text>
-
-  <!-- Artists -->
-  <text x="540" y="780" class="artist" text-anchor="middle" font-size="16" letter-spacing="1">IAN POOLEY</text>
-  <text x="540" y="810" class="artist" text-anchor="middle" font-size="16" letter-spacing="1">PABELS</text>
-  <text x="540" y="840" class="artist" text-anchor="middle" font-size="16" letter-spacing="1">WALASHI + MORE TBA</text>
-
-  <!-- Bottom info section -->
-  <text x="540" y="1200" class="info" text-anchor="middle" font-size="18" letter-spacing="2">SAT 6 JUNE</text>
-  <text x="540" y="1240" class="info" text-anchor="middle" font-size="15">BLAARMEERSEN</text>
-  <text x="540" y="1270" class="info" text-anchor="middle" font-size="15">GENT, BELGIUM</text>
-
-  <!-- Ticket info -->
-  <rect x="280" y="1380" width="520" height="120" fill="none" stroke="#3DED97" stroke-width="2" opacity="0.6" />
-  <text x="540" y="1440" class="info" text-anchor="middle" font-size="36" letter-spacing="1">€25</text>
-  <text x="540" y="1475" class="info" text-anchor="middle" font-size="14">EARLY BIRD TICKETS</text>
-
-  <!-- Link -->
-  <text x="540" y="1580" class="info" text-anchor="middle" font-size="14" opacity="0.7">curfew.events</text>
+  <!-- Bottom info -->
+  <text x="540" y="1880" text-anchor="middle" class="small-text">SAT 6 JUNE · GENT · €25</text>
 </svg>

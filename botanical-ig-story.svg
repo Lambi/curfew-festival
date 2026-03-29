@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Work+Sans:wght@400;500&family=Caveat:wght@400;700&display=swap');
+
+      .title-serif { font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 700; }
+      .artist-serif { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; }
+      .handwritten { font-family: 'Caveat', cursive; font-size: 56px; font-weight: 700; }
+      .details-sans { font-family: 'Work Sans', sans-serif; font-size: 32px; font-weight: 500; }
+      .small-text { font-family: 'Work Sans', sans-serif; font-size: 26px; font-weight: 400; }
+    </style>
+
+    <linearGradient id="storyGradientTop" x1="0%" y1="0%" x2="0%" y2="50%">
+      <stop offset="0%" style="stop-color:#D4726A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4944A;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="storyGradientBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5EDDF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5EDDF;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="flowerGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D4726A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4944A;stop-opacity:0.8" />
+    </radialGradient>
+  </defs>
+
+  <!-- Top gradient section -->
+  <rect width="1080" height="960" fill="url(#storyGradientTop)"/>
+
+  <!-- Bottom parchment section -->
+  <rect y="960" width="1080" height="960" fill="url(#storyGradientBottom)"/>
+
+  <!-- Right-side botanical vine decoration -->
+  <g opacity="0.7">
+    <!-- Main vine curve -->
+    <path d="M 1000 100 Q 980 250 990 400 Q 1000 550 980 700 Q 975 850 990 1000"
+          stroke="#7BA05B" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Leaf cluster 1 -->
+    <ellipse cx="1020" cy="180" rx="14" ry="24" fill="#7BA05B" transform="rotate(25 1020 180)"/>
+    <ellipse cx="1005" cy="200" rx="14" ry="24" fill="#7BA05B" transform="rotate(-35 1005 200)"/>
+
+    <!-- Small flower 1 -->
+    <circle cx="995" cy="160" r="8" fill="url(#flowerGrad)"/>
+    <circle cx="985" cy="148" r="5" fill="#D4726A"/>
+    <circle cx="1005" cy="148" r="5" fill="#D4726A"/>
+    <circle cx="990" cy="135" r="5" fill="#D4726A"/>
+    <circle cx="1000" cy="135" r="5" fill="#D4726A"/>
+
+    <!-- Leaf cluster 2 -->
+    <ellipse cx="1015" cy="350" rx="14" ry="24" fill="#7BA05B" transform="rotate(40 1015 350)"/>
+    <ellipse cx="995" cy="380" rx="14" ry="24" fill="#7BA05B" transform="rotate(-30 995 380)"/>
+
+    <!-- Small flower 2 -->
+    <circle cx="990" cy="320" r="7" fill="url(#flowerGrad)"/>
+    <circle cx="980" cy="310" r="5" fill="#D4726A"/>
+    <circle cx="1000" cy="310" r="5" fill="#D4726A"/>
+
+    <!-- Leaf cluster 3 -->
+    <ellipse cx="1010" cy="580" rx="14" ry="24" fill="#7BA05B" transform="rotate(-25 1010 580)"/>
+    <ellipse cx="990" cy="620" rx="14" ry="24" fill="#7BA05B" transform="rotate(35 990 620)"/>
+
+    <!-- Leaf cluster 4 -->
+    <ellipse cx="1015" cy="850" rx="14" ry="24" fill="#7BA05B" transform="rotate(30 1015 850)"/>
+    <ellipse cx="1000" cy="900" rx="14" ry="24" fill="#7BA05B" transform="rotate(-40 1000 900)"/>
+  </g>
+
+  <!-- Top-left accent -->
+  <g opacity="0.5">
+    <circle cx="120" cy="200" r="6" fill="#D4944A"/>
+    <ellipse cx="100" cy="250" rx="10" ry="18" fill="#D4944A" transform="rotate(-35 100 250)"/>
+  </g>
+
+  <!-- Main title in gradient area -->
+  <text x="540" y="280" text-anchor="middle" class="title-serif" fill="#F5EDDF">CURFEW</text>
+
+  <!-- Artist lineup -->
+  <g>
+    <text x="540" y="1120" text-anchor="middle" class="artist-serif" fill="#2A2320">Ian Pooley</text>
+    <text x="540" y="1200" text-anchor="middle" class="artist-serif" fill="#D4726A">Pabels</text>
+    <text x="540" y="1280" text-anchor="middle" class="artist-serif" fill="#2A2320">Walashi & more</text>
+  </g>
+
+  <!-- Handwritten annotation angled -->
+  <text x="200" y="1480" class="handwritten" fill="#D4726A" transform="rotate(-15 200 1480)">where house</text>
+  <text x="250" y="1560" class="handwritten" fill="#D4726A" transform="rotate(-15 250 1560)">comes home</text>
+
+  <!-- Date and details bottom -->
+  <text x="540" y="1750" text-anchor="middle" class="details-sans" fill="#2A2320">SAT 6 JUNE 2026</text>
+  <text x="540" y="1810" text-anchor="middle" class="small-text" fill="#D4944A">BLAARMEERSEN · GENT</text>
+  <text x="540" y="1870" text-anchor="middle" class="small-text" fill="#6B8FC4">€25 EARLY BIRD · curfew.events</text>
+</svg>

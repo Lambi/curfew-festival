@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Work+Sans:wght@400;500&family=Caveat:wght@400;700&display=swap');
+
+      .title-serif { font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 700; }
+      .details-sans { font-family: 'Work Sans', sans-serif; font-size: 36px; font-weight: 500; }
+      .handwritten { font-family: 'Caveat', cursive; font-size: 52px; font-weight: 700; }
+      .small-text { font-family: 'Work Sans', sans-serif; font-size: 28px; font-weight: 400; }
+    </style>
+
+    <linearGradient id="panoramicGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1B1612;stop-opacity:1" />
+      <stop offset="20%" style="stop-color:#D4726A;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#F5EDDF;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#D4944A;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#D4726A;stop-opacity:0.6" />
+    </linearGradient>
+
+    <radialGradient id="flowerGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D4726A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4944A;stop-opacity:0.8" />
+    </radialGradient>
+  </defs>
+
+  <!-- Panoramic gradient background -->
+  <rect width="1920" height="600" fill="url(#panoramicGradient)"/>
+
+  <!-- Far-left botanical cluster -->
+  <g opacity="0.65">
+    <!-- Main vine -->
+    <path d="M 80 480 Q 100 420 85 360 Q 75 300 95 240" stroke="#7BA05B" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Leaves -->
+    <ellipse cx="65" cy="380" rx="12" ry="22" fill="#7BA05B" transform="rotate(-45 65 380)"/>
+    <ellipse cx="105" cy="320" rx="12" ry="22" fill="#7BA05B" transform="rotate(35 105 320)"/>
+    <!-- Flowers -->
+    <circle cx="90" cy="420" r="8" fill="url(#flowerGrad)"/>
+    <circle cx="80" cy="408" r="5" fill="#D4726A"/>
+    <circle cx="100" cy="408" r="5" fill="#D4726A"/>
+    <circle cx="85" cy="395" r="5" fill="#D4726A"/>
+  </g>
+
+  <!-- Left-center botanical -->
+  <g opacity="0.6">
+    <path d="M 420 500 Q 440 450 430 390" stroke="#9B8BB4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="410" cy="460" rx="11" ry="20" fill="#9B8BB4" transform="rotate(-40 410 460)"/>
+    <circle cx="430" cy="520" r="7" fill="#9B8BB4"/>
+  </g>
+
+  <!-- Center botanical -->
+  <g opacity="0.55">
+    <path d="M 960 520 Q 940 460 955 400" stroke="#7BA05B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="935" cy="480" rx="11" ry="20" fill="#7BA05B" transform="rotate(-35 935 480)"/>
+    <ellipse cx="970" cy="440" rx="11" ry="20" fill="#7BA05B" transform="rotate(40 970 440)"/>
+  </g>
+
+  <!-- Right-center botanical -->
+  <g opacity="0.6">
+    <path d="M 1480 510 Q 1500 450 1490 390" stroke="#6B8FC4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="1465" cy="470" rx="11" ry="20" fill="#6B8FC4" transform="rotate(-45 1465 470)"/>
+    <circle cx="1495" cy="530" r="7" fill="#6B8FC4"/>
+  </g>
+
+  <!-- Far-right botanical cluster -->
+  <g opacity="0.65">
+    <path d="M 1840 480 Q 1820 420 1835 360 Q 1845 300 1825 240" stroke="#7BA05B" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="1855" cy="380" rx="12" ry="22" fill="#7BA05B" transform="rotate(45 1855 380)"/>
+    <ellipse cx="1815" cy="320" rx="12" ry="22" fill="#7BA05B" transform="rotate(-35 1815 320)"/>
+    <circle cx="1830" cy="420" r="8" fill="url(#flowerGrad)"/>
+    <circle cx="1820" cy="408" r="5" fill="#D4726A"/>
+    <circle cx="1840" cy="408" r="5" fill="#D4726A"/>
+  </g>
+
+  <!-- Scattered small botanical elements across width -->
+  <g opacity="0.4">
+    <circle cx="250" cy="150" r="5" fill="#D4944A"/>
+    <circle cx="580" cy="80" r="6" fill="#9B8BB4"/>
+    <circle cx="900" cy="120" r="5" fill="#7BA05B"/>
+    <circle cx="1350" cy="100" r="6" fill="#6B8FC4"/>
+    <circle cx="1750" cy="140" r="5" fill="#D4726A"/>
+  </g>
+
+  <!-- Main title spanning width -->
+  <text x="960" y="220" text-anchor="middle" class="title-serif" fill="#2A2320">CURFEW FESTIVAL 2026</text>
+
+  <!-- Floating handwritten tagline -->
+  <text x="300" y="520" class="handwritten" fill="#D4726A" opacity="0.7">In House We Trust</text>
+
+  <!-- Date location details -->
+  <text x="960" y="350" text-anchor="middle" class="details-sans" fill="#2A2320">SAT 6 JUNE · BLAARMEERSEN · GENT</text>
+
+  <!-- Bottom right info -->
+  <text x="1700" y="520" text-anchor="end" class="small-text" fill="#2A2320">€25 Early Bird</text>
+  <text x="1700" y="560" text-anchor="end" class="small-text" fill="#D4944A">curfew.events</text>
+</svg>

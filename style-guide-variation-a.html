@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curfew Festival 2026 – Botanical Dusk Style Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Work+Sans:wght@300;400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: #2A2320;
+            background: #F5EDDF;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Film grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise' /%3E%3C/filter%3E%3Crect width='400' height='400' fill='rgba(0,0,0,0.03)' filter='url(%23noiseFilter)' /%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: overlay;
+        }
+
+        main {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================
+           BOTANICAL SVG ELEMENTS
+           ============================================ */
+
+        .botanical-flower {
+            position: absolute;
+            opacity: 0.7;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .botanical-leaf {
+            position: absolute;
+            opacity: 0.6;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .botanical-vine {
+            position: absolute;
+            opacity: 0.5;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        /* ============================================
+           HEADER & HERO
+           ============================================ */
+
+        .header {
+            background: linear-gradient(135deg, #1B1612 0%, #2A2320 50%, #1B1612 100%);
+            color: #FAF2E1;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            border-bottom: 3px solid #D4944A;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 148, 74, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .header-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #D4944A;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .header-meta {
+            font-size: 1rem;
+            color: #FAF2E1;
+            opacity: 0.9;
+            margin-top: 30px;
+            line-height: 1.8;
+        }
+
+        .header-meta strong {
+            color: #D4944A;
+            font-weight: 600;
+        }
+
+        /* ============================================
+           SECTIONS & LAYOUTS
+           ============================================ */
+
+        section {
+            padding: 80px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        section.light {
+            background: #F5EDDF;
+            color: #2A2320;
+        }
+
+        section.dark {
+            background: #1B1612;
+            color: #FAF2E1;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        section.light h2 {
+            color: #1B1612;
+        }
+
+        section.dark h2 {
+            color: #D4944A;
+        }
+
+        section > p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        /* ============================================
+           COLORS SECTION
+           ============================================ */
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .color-swatch {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .color-swatch:hover {
+            transform: translateY(-8px);
+        }
+
+        .color-sample {
+            height: 180px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: 20px;
+            background: #F5EDDF;
+        }
+
+        .color-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1B1612;
+            margin-bottom: 8px;
+        }
+
+        .color-hex {
+            font-family: 'Work Sans', monospace;
+            font-size: 0.95rem;
+            color: #7BA05B;
+            font-weight: 600;
+        }
+
+        .color-use {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ============================================
+           TYPOGRAPHY SECTION
+           ============================================ */
+
+        .typography-showcase {
+            margin-top: 50px;
+        }
+
+        .type-sample {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(212, 148, 74, 0.05);
+            border-left: 4px solid #D4944A;
+            border-radius: 8px;
+        }
+
+        .type-label {
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            color: #D4944A;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .type-hero {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin: 20px 0;
+        }
+
+        section.light .type-hero {
+            color: #1B1612;
+        }
+
+        section.dark .type-hero {
+            color: #FAF2E1;
+        }
+
+        .type-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+        }
+
+        section.light .type-heading {
+            color: #1B1612;
+        }
+
+        section.dark .type-heading {
+            color: #D4944A;
+        }
+
+        .type-body {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.1rem;
+            margin: 15px 0;
+            line-height: 1.7;
+        }
+
+        .type-accent {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: #D4726A;
+            margin: 15px 0;
+        }
+
+        .type-meta {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 15px;
+            font-family: 'Work Sans', monospace;
+        }
+
+        /* ============================================
+           GRADIENTS SECTION
+           ============================================ */
+
+        .gradient-library {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .gradient-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .gradient-preview {
+            height: 200px;
+            width: 100%;
+        }
+
+        .gradient-info {
+            padding: 20px;
+            background: #FAF2E1;
+            color: #1B1612;
+        }
+
+        .gradient-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .gradient-code {
+            font-family: 'Work Sans', monospace;
+            font-size: 0.8rem;
+            color: #666;
+            word-break: break-all;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        /* ============================================
+           COMPONENTS SECTION
+           ============================================ */
+
+        .component-showcase {
+            margin-top: 50px;
+        }
+
+        .component-group {
+            margin-bottom: 60px;
+        }
+
+        .component-group h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        section.light .component-group h3 {
+            color: #1B1612;
+        }
+
+        section.dark .component-group h3 {
+            color: #D4944A;
+        }
+
+        /* Button Styles */
+        .button-display {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #D4944A 0%, #D4726A 100%);
+            color: #FAF2E1;
+            box-shadow: 0 6px 20px rgba(212, 148, 74, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(212, 148, 74, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #D4944A;
+            border: 2px solid #D4944A;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 148, 74, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            background: #1B1612;
+            color: #FAF2E1;
+            box-shadow: 0 6px 20px rgba(27, 22, 18, 0.3);
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(27, 22, 18, 0.4);
+        }
+
+        /* Artist Card */
+        .artist-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            max-width: 320px;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .artist-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            background: rgba(212, 148, 74, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .artist-image {
+            height: 240px;
+            background: linear-gradient(135deg, #6B8FC4 0%, #9B8BB4 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 3rem;
+        }
+
+        .artist-info {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .artist-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1B1612;
+            margin-bottom: 8px;
+        }
+
+        .artist-genre {
+            font-size: 0.95rem;
+            color: #D4944A;
+            font-weight: 600;
+        }
+
+        /* Stat Block */
+        .stat-block {
+            background: rgba(212, 148, 74, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px 0;
+            border-left: 4px solid #D4944A;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #D4944A;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            color: #1B1612;
+            font-weight: 600;
+        }
+
+        /* ============================================
+           SOCIAL FORMATS
+           ============================================ */
+
+        .social-formats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .social-preview {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .social-frame {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #D4944A 0%, #D4726A 50%, #6B8FC4 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 4rem;
+            overflow: hidden;
+        }
+
+        .social-frame.story {
+            aspect-ratio: 9/16;
+        }
+
+        .social-frame.banner {
+            aspect-ratio: 16/3;
+        }
+
+        .social-label {
+            padding: 15px;
+            background: #F5EDDF;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1B1612;
+            border-top: 2px solid #D4944A;
+        }
+
+        .social-specs {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* ============================================
+           DO'S & DON'TS
+           ============================================ */
+
+        .guidelines {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .guidelines {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .guideline-card {
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .dos-card {
+            background: rgba(123, 160, 91, 0.1);
+            border: 2px solid #7BA05B;
+        }
+
+        .donts-card {
+            background: rgba(212, 114, 106, 0.1);
+            border: 2px solid #D4726A;
+        }
+
+        .guideline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .dos-card .guideline-title {
+            color: #7BA05B;
+        }
+
+        .donts-card .guideline-title {
+            color: #D4726A;
+        }
+
+        .guideline-list {
+            list-style: none;
+        }
+
+        .guideline-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .guideline-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .donts-card .guideline-list li::before {
+            content: '✗';
+        }
+
+        .dos-card .guideline-list li::before {
+            color: #7BA05B;
+        }
+
+        .donts-card .guideline-list li::before {
+            color: #D4726A;
+        }
+
+        /* ============================================
+           CSS TOKENS / VARIABLES
+           ============================================ */
+
+        .tokens-display {
+            background: rgba(0, 0, 0, 0.03);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+
+        .token-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Work Sans', monospace;
+            font-size: 0.95rem;
+        }
+
+        .token-table th,
+        .token-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .token-table th {
+            background: rgba(212, 148, 74, 0.1);
+            font-weight: 700;
+            color: #1B1612;
+        }
+
+        .token-table tr:hover {
+            background: rgba(212, 148, 74, 0.05);
+        }
+
+        .token-name {
+            color: #D4944A;
+            font-weight: 600;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        footer {
+            background: #1B1612;
+            color: #FAF2E1;
+            padding: 40px 60px;
+            text-align: center;
+            border-top: 3px solid #D4944A;
+            position: relative;
+            z-index: 2;
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: #D4944A;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+
+        @media (max-width: 1024px) {
+            section {
+                padding: 60px 40px;
+            }
+
+            .header {
+                padding: 60px 30px;
+            }
+
+            .header h1 {
+                font-size: 3rem;
+            }
+
+            .header-subtitle {
+                font-size: 1.4rem;
+            }
+
+            section h2 {
+                font-size: 2.2rem;
+            }
+
+            .type-hero {
+                font-size: 2.5rem;
+            }
+
+            .color-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .header-meta {
+                font-size: 0.9rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .color-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .type-hero {
+                font-size: 2rem;
+            }
+
+            .type-heading {
+                font-size: 1.5rem;
+            }
+
+            .button-display {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .social-formats {
+                grid-template-columns: 1fr;
+            }
+
+            .guidelines {
+                grid-template-columns: 1fr;
+            }
+
+            .artist-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Curfew Festival 2026</h1>
+            <p class="header-subtitle">Botanical Dusk</p>
+            <div class="header-meta">
+                <p><strong>In House We Trust</strong> – Where House Comes Home</p>
+                <p>SAT 6 JUNE, 12:00–23:59 | Blaarmeersen, Gent, Belgium</p>
+                <p>€25 Early Bird Tickets | curfew.events</p>
+            </div>
+        </div>
+
+        <!-- Botanical SVG Decorations in Header -->
+        <svg class="botanical-flower" style="top: 10%; right: 15%; width: 120px; height: 120px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="8" fill="#D4944A"/>
+            <circle cx="50" cy="25" r="6" fill="#D4726A" opacity="0.8"/>
+            <circle cx="65" cy="35" r="6" fill="#D4726A" opacity="0.8"/>
+            <circle cx="70" cy="50" r="6" fill="#D4726A" opacity="0.8"/>
+            <circle cx="65" cy="65" r="6" fill="#D4726A" opacity="0.8"/>
+            <circle cx="50" cy="75" r="6" fill="#D4726A" opacity="0.8"/>
+            <circle cx="35" cy="65" r="6" fill="#D4726A" opacity="0.8"/>
+            <circle cx="30" cy="50" r="6" fill="#D4726A" opacity="0.8"/>
+            <circle cx="35" cy="35" r="6" fill="#D4726A" opacity="0.8"/>
+        </svg>
+
+        <svg class="botanical-leaf" style="bottom: 15%; left: 10%; width: 100px; height: 100px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="50" rx="15" ry="35" fill="#7BA05B" opacity="0.7"/>
+            <path d="M 50 20 Q 55 50 50 80" stroke="#7BA05B" stroke-width="1.5" fill="none" opacity="0.5"/>
+        </svg>
+    </header>
+
+    <main>
+
+        <!-- Visual Direction Section -->
+        <section class="light">
+            <h2>Visual Direction</h2>
+            <p>
+                <strong>Botanical Dusk</strong> merges organic botanical elements with golden hour warmth. The identity draws inspiration from Piknik i Parken's botanical collage aesthetic—scattered wildflower illustrations layered over sunset-toned gradients, vintage film grain, and organic compositions—combined with Curfew's golden hour house music identity.
+            </p>
+            <p>
+                The mood is a summer afternoon fading into a warm evening: daydreamy but grounded. Think warm serif display fonts, collage-style compositions where photography, botanical line art, and bold typography overlap. Nature meets the dancefloor. Every design element celebrates the transition from day to night, from nature to rhythm.
+            </p>
+
+            <svg class="botanical-vine" style="top: 30%; right: 5%; width: 80px; height: 150px;" viewBox="0 0 50 150" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 25 10 Q 30 40 25 70 Q 20 100 25 130" stroke="#D4944A" stroke-width="2" fill="none" opacity="0.6"/>
+                <circle cx="20" cy="40" r="3" fill="#7BA05B" opacity="0.7"/>
+                <circle cx="30" cy="80" r="3" fill="#7BA05B" opacity="0.7"/>
+                <circle cx="22" cy="120" r="3" fill="#7BA05B" opacity="0.7"/>
+            </svg>
+        </section>
+
+        <!-- Colors Section -->
+        <section class="dark">
+            <h2>Color Palette</h2>
+            <p>
+                Our palette blends warm earth tones with sunset hues and botanical accents. Each color serves a purpose: creating warmth, establishing hierarchy, and evoking the transitional moment between day and night.
+            </p>
+
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-sample" style="background: #1B1612;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Deep Earth</div>
+                        <div class="color-hex">#1B1612</div>
+                        <div class="color-use">Backgrounds, text on light</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-sample" style="background: #F5EDDF;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Parchment</div>
+                        <div class="color-hex">#F5EDDF</div>
+                        <div class="color-use">Main background, paper tone</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-sample" style="background: #D4944A;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Golden Hour</div>
+                        <div class="color-hex">#D4944A</div>
+                        <div class="color-use">Primary accent, emphasis</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-sample" style="background: #D4726A;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Sunset Rose</div>
+                        <div class="color-hex">#D4726A</div>
+                        <div class="color-use">Secondary accent, warmth</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-sample" style="background: #6B8FC4;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Cornflower</div>
+                        <div class="color-hex">#6B8FC4</div>
+                        <div class="color-use">Sky tones, contrast</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-sample" style="background: #7BA05B;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Meadow</div>
+                        <div class="color-hex">#7BA05B</div>
+                        <div class="color-use">Botanical elements, accents</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-sample" style="background: #9B8BB4;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Lavender Dusk</div>
+                        <div class="color-hex">#9B8BB4</div>
+                        <div class="color-use">Subtle accents, gradients</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-sample" style="background: #FAF2E1;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Cream</div>
+                        <div class="color-hex">#FAF2E1</div>
+                        <div class="color-use">Text on dark, highlights</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-sample" style="background: #2A2320;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Warm Black</div>
+                        <div class="color-hex">#2A2320</div>
+                        <div class="color-use">Text on light, depth</div>
+                    </div>
+                </div>
+            </div>
+
+            <svg class="botanical-flower" style="bottom: 10%; left: 5%; width: 100px; height: 100px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="8" fill="#FAF2E1"/>
+                <circle cx="50" cy="25" r="6" fill="#D4944A" opacity="0.8"/>
+                <circle cx="65" cy="35" r="6" fill="#D4944A" opacity="0.8"/>
+                <circle cx="70" cy="50" r="6" fill="#D4944A" opacity="0.8"/>
+                <circle cx="65" cy="65" r="6" fill="#D4944A" opacity="0.8"/>
+                <circle cx="50" cy="75" r="6" fill="#D4944A" opacity="0.8"/>
+                <circle cx="35" cy="65" r="6" fill="#D4944A" opacity="0.8"/>
+                <circle cx="30" cy="50" r="6" fill="#D4944A" opacity="0.8"/>
+                <circle cx="35" cy="35" r="6" fill="#D4944A" opacity="0.8"/>
+            </svg>
+        </section>
+
+        <!-- Typography Section -->
+        <section class="light">
+            <h2>Typography</h2>
+            <p>
+                Three complementary typefaces create a rich typographic hierarchy: Playfair Display for editorial elegance, Work Sans for clarity and accessibility, and Caveat for handwritten warmth and personality.
+            </p>
+
+            <div class="typography-showcase">
+                <div class="type-sample">
+                    <div class="type-label">Display – Playfair Display</div>
+                    <div class="type-hero">Daydreams & Rhythm</div>
+                    <div class="type-meta">Weights: 400, 700, 900 | All-caps, headlines, editorial emphasis</div>
+                </div>
+
+                <div class="type-sample">
+                    <div class="type-label">Heading – Playfair Display</div>
+                    <div class="type-heading">Saturday 6 June</div>
+                    <div class="type-meta">Weights: 400, 700 | Section headers, announcements</div>
+                </div>
+
+                <div class="type-sample">
+                    <div class="type-label">Body – Work Sans</div>
+                    <div class="type-body">
+                        Experience an afternoon-to-evening celebration of house music at Blaarmeersen. From the first golden hour rays to the warmth of the dancefloor, Curfew Festival brings together a non-profit collective since 2015, where music, nature, and community converge.
+                    </div>
+                    <div class="type-meta">Weights: 300, 400, 500, 600, 700 | Long-form content, labels, descriptions</div>
+                </div>
+
+                <div class="type-sample">
+                    <div class="type-label">Accent – Caveat</div>
+                    <div class="type-accent">Special moment, just for you</div>
+                    <div class="type-meta">Weights: 400, 700 | Annotations, labels, playful accents</div>
+                </div>
+            </div>
+
+            <svg class="botanical-leaf" style="bottom: 5%; right: 3%; width: 90px; height: 90px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="50" rx="15" ry="35" fill="#7BA05B" opacity="0.5"/>
+                <path d="M 50 20 Q 55 50 50 80" stroke="#7BA05B" stroke-width="1.5" fill="none" opacity="0.4"/>
+            </svg>
+        </section>
+
+        <!-- Gradients Section -->
+        <section class="dark">
+            <h2>Gradient Library</h2>
+            <p>
+                Gradients form the emotional backbone of our visual system. From sunset transitions to sky-to-earth flows, each gradient tells a story of transition and transformation.
+            </p>
+
+            <div class="gradient-library">
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(135deg, #D4726A 0%, #D4944A 50%, #F5EDDF 100%);"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Sunset Fade</div>
+                        <div class="gradient-code">linear-gradient(135deg, #D4726A 0%, #D4944A 50%, #F5EDDF 100%)</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(to right, #D4944A 0%, #FAF2E1 100%);"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Golden Hour Glow</div>
+                        <div class="gradient-code">linear-gradient(to right, #D4944A 0%, #FAF2E1 100%)</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(180deg, #6B8FC4 0%, #9B8BB4 50%, #D4726A 100%);"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Dusk Sky</div>
+                        <div class="gradient-code">linear-gradient(180deg, #6B8FC4 0%, #9B8BB4 50%, #D4726A 100%)</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(135deg, #7BA05B 0%, #D4944A 100%);"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Meadow Dawn</div>
+                        <div class="gradient-code">linear-gradient(135deg, #7BA05B 0%, #D4944A 100%)</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(to bottom, #1B1612 0%, #2A2320 50%, #D4944A 100%);"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Night to Golden</div>
+                        <div class="gradient-code">linear-gradient(to bottom, #1B1612 0%, #2A2320 50%, #D4944A 100%)</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="background: linear-gradient(135deg, #F5EDDF 0%, #D4944A 50%, #1B1612 100%);"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Day to Night</div>
+                        <div class="gradient-code">linear-gradient(135deg, #F5EDDF 0%, #D4944A 50%, #1B1612 100%)</div>
+                    </div>
+                </div>
+            </div>
+
+            <svg class="botanical-vine" style="top: 20%; right: 8%; width: 70px; height: 140px;" viewBox="0 0 50 150" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 25 10 Q 30 40 25 70 Q 20 100 25 130" stroke="#D4944A" stroke-width="2" fill="none" opacity="0.5"/>
+                <circle cx="20" cy="40" r="3" fill="#7BA05B" opacity="0.6"/>
+                <circle cx="30" cy="80" r="3" fill="#7BA05B" opacity="0.6"/>
+                <circle cx="22" cy="120" r="3" fill="#7BA05B" opacity="0.6"/>
+            </svg>
+        </section>
+
+        <!-- Components Section -->
+        <section class="light">
+            <h2>Components & Patterns</h2>
+
+            <div class="component-showcase">
+
+                <!-- Buttons -->
+                <div class="component-group">
+                    <h3>Buttons</h3>
+                    <div class="button-display">
+                        <button class="btn btn-primary">Get Early Bird Tickets</button>
+                        <button class="btn btn-secondary">Learn More</button>
+                        <button class="btn btn-dark">Explore the Experience</button>
+                    </div>
+                </div>
+
+                <!-- Artist Cards -->
+                <div class="component-group">
+                    <h3>Artist Cards</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                        <div class="artist-card">
+                            <div class="artist-image">🎵</div>
+                            <div class="artist-info">
+                                <div class="artist-name">Ian Pooley</div>
+                                <div class="artist-genre">House Pioneer</div>
+                            </div>
+                        </div>
+
+                        <div class="artist-card">
+                            <div class="artist-image">🎧</div>
+                            <div class="artist-info">
+                                <div class="artist-name">Pabels</div>
+                                <div class="artist-genre">Deep House</div>
+                            </div>
+                        </div>
+
+                        <div class="artist-card">
+                            <div class="artist-image">♪</div>
+                            <div class="artist-info">
+                                <div class="artist-name">Walashi</div>
+                                <div class="artist-genre">Tech House</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stat Blocks -->
+                <div class="component-group">
+                    <h3>Stat Blocks</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div class="stat-block">
+                            <div class="stat-number">2015</div>
+                            <div class="stat-label">Since day one</div>
+                        </div>
+
+                        <div class="stat-block">
+                            <div class="stat-number">11+</div>
+                            <div class="stat-label">Artists & Selectors</div>
+                        </div>
+
+                        <div class="stat-block">
+                            <div class="stat-number">€25</div>
+                            <div class="stat-label">Early Bird Price</div>
+                        </div>
+
+                        <div class="stat-block">
+                            <div class="stat-number">12h</div>
+                            <div class="stat-label">Of Pure House Music</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <svg class="botanical-flower" style="bottom: 15%; left: 8%; width: 110px; height: 110px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="8" fill="#D4944A"/>
+                <circle cx="50" cy="25" r="6" fill="#D4726A" opacity="0.7"/>
+                <circle cx="65" cy="35" r="6" fill="#D4726A" opacity="0.7"/>
+                <circle cx="70" cy="50" r="6" fill="#D4726A" opacity="0.7"/>
+                <circle cx="65" cy="65" r="6" fill="#D4726A" opacity="0.7"/>
+                <circle cx="50" cy="75" r="6" fill="#D4726A" opacity="0.7"/>
+                <circle cx="35" cy="65" r="6" fill="#D4726A" opacity="0.7"/>
+                <circle cx="30" cy="50" r="6" fill="#D4726A" opacity="0.7"/>
+                <circle cx="35" cy="35" r="6" fill="#D4726A" opacity="0.7"/>
+            </svg>
+        </section>
+
+        <!-- Social Media Formats -->
+        <section class="dark">
+            <h2>Social Media Formats</h2>
+            <p>
+                These templates ensure consistent visual presence across platforms. Use gradients, botanical elements, and centered typography for maximum impact.
+            </p>
+
+            <div class="social-formats">
+                <div class="social-preview">
+                    <div class="social-frame">📸</div>
+                    <div class="social-label">
+                        Instagram Post (1:1)
+                        <div class="social-specs">1080 × 1080 px</div>
+                    </div>
+                </div>
+
+                <div class="social-preview">
+                    <div class="social-frame story">📱</div>
+                    <div class="social-label">
+                        Instagram Story (9:16)
+                        <div class="social-specs">1080 × 1920 px</div>
+                    </div>
+                </div>
+
+                <div class="social-preview">
+                    <div class="social-frame">🎬</div>
+                    <div class="social-label">
+                        TikTok Video (9:16)
+                        <div class="social-specs">1080 × 1920 px</div>
+                    </div>
+                </div>
+
+                <div class="social-preview">
+                    <div class="social-frame banner">🌅</div>
+                    <div class="social-label">
+                        Facebook Cover (16:9)
+                        <div class="social-specs">1200 × 628 px</div>
+                    </div>
+                </div>
+
+                <div class="social-preview">
+                    <div class="social-frame banner">🎪</div>
+                    <div class="social-label">
+                        Wide Banner (16:3)
+                        <div class="social-specs">1920 × 360 px</div>
+                    </div>
+                </div>
+
+                <div class="social-preview">
+                    <div class="social-frame">🎵</div>
+                    <div class="social-label">
+                        Event Tile (1:1)
+                        <div class="social-specs">500 × 500 px</div>
+                    </div>
+                </div>
+            </div>
+
+            <svg class="botanical-leaf" style="top: 10%; left: 5%; width: 85px; height: 85px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="50" rx="15" ry="35" fill="#7BA05B" opacity="0.6"/>
+                <path d="M 50 20 Q 55 50 50 80" stroke="#7BA05B" stroke-width="1.5" fill="none" opacity="0.5"/>
+            </svg>
+        </section>
+
+        <!-- Do's & Don'ts Section -->
+        <section class="light">
+            <h2>Do's & Don'ts</h2>
+            <p>
+                These guidelines ensure the Botanical Dusk identity remains cohesive, warm, and effective across all applications.
+            </p>
+
+            <div class="guidelines">
+                <div class="guideline-card dos-card">
+                    <h3 class="guideline-title">Do ✓</h3>
+                    <ul class="guideline-list">
+                        <li>Use botanical elements sparingly (max 2–3 per composition) as decorative accents</li>
+                        <li>Mix serif headlines (Playfair) with sans-serif body text for hierarchy</li>
+                        <li>Apply warm film grain texture overlays for vintage character</li>
+                        <li>Create collage-style compositions with overlapping, rotated elements</li>
+                        <li>Alternate between light (Parchment) and dark (Deep Earth) sections</li>
+                        <li>Use handwritten Caveat font for playful labels and annotations</li>
+                        <li>Layer photography with botanical line art and bold typography</li>
+                        <li>Apply warm sepia or golden filters to photography</li>
+                    </ul>
+                </div>
+
+                <div class="guideline-card donts-card">
+                    <h3 class="guideline-title">Don't ✗</h3>
+                    <ul class="guideline-list">
+                        <li>Use neon or overly saturated colors—stay warm and muted</li>
+                        <li>Use sharp geometric shapes without organic softening or botanical elements</li>
+                        <li>Use pure white (#FFFFFF) or pure black (#000000) backgrounds</li>
+                        <li>Overload layouts with botanical elements—restraint creates elegance</li>
+                        <li>Use cold blue-toned or desaturated photography without warm filters</li>
+                        <li>Mix too many typefaces—stick to the three-typeface system</li>
+                        <li>Apply harsh drop shadows—prefer soft, subtle shadows</li>
+                        <li>Use corporate or overly modern visual language</li>
+                    </ul>
+                </div>
+            </div>
+
+            <svg class="botanical-vine" style="bottom: 20%; right: 5%; width: 75px; height: 135px;" viewBox="0 0 50 150" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 25 10 Q 30 40 25 70 Q 20 100 25 130" stroke="#D4944A" stroke-width="2" fill="none" opacity="0.5"/>
+                <circle cx="20" cy="40" r="3" fill="#7BA05B" opacity="0.6"/>
+                <circle cx="30" cy="80" r="3" fill="#7BA05B" opacity="0.6"/>
+                <circle cx="22" cy="120" r="3" fill="#7BA05B" opacity="0.6"/>
+            </svg>
+        </section>
+
+        <!-- CSS Tokens / Variables Section -->
+        <section class="dark">
+            <h2>CSS Tokens & Variables</h2>
+            <p>
+                Use these CSS custom properties in your stylesheets for consistent, maintainable theming across all projects.
+            </p>
+
+            <div class="tokens-display">
+                <table class="token-table">
+                    <thead>
+                        <tr>
+                            <th>Token Name</th>
+                            <th>Value</th>
+                            <th>Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="token-name">--color-deep-earth</td>
+                            <td>#1B1612</td>
+                            <td>Dark backgrounds, text on light</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--color-parchment</td>
+                            <td>#F5EDDF</td>
+                            <td>Main light background</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--color-golden-hour</td>
+                            <td>#D4944A</td>
+                            <td>Primary accent, CTAs</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--color-sunset-rose</td>
+                            <td>#D4726A</td>
+                            <td>Secondary accent, warmth</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--color-cornflower</td>
+                            <td>#6B8FC4</td>
+                            <td>Sky tones, contrast</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--color-meadow</td>
+                            <td>#7BA05B</td>
+                            <td>Botanical elements</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--color-lavender-dusk</td>
+                            <td>#9B8BB4</td>
+                            <td>Subtle accents</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--font-display</td>
+                            <td>'Playfair Display', serif</td>
+                            <td>Headlines, editorial</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--font-body</td>
+                            <td>'Work Sans', sans-serif</td>
+                            <td>Body text, labels</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--font-accent</td>
+                            <td>'Caveat', cursive</td>
+                            <td>Playful annotations</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--spacing-unit</td>
+                            <td>8px</td>
+                            <td>Base spacing multiplier</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--radius-smooth</td>
+                            <td>12px</td>
+                            <td>Card corners, buttons</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--shadow-soft</td>
+                            <td>0 8px 24px rgba(0,0,0,0.12)</td>
+                            <td>Subtle elevation</td>
+                        </tr>
+                        <tr>
+                            <td class="token-name">--shadow-deep</td>
+                            <td>0 16px 40px rgba(0,0,0,0.2)</td>
+                            <td>Prominent elevation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="margin-top: 30px; font-style: italic;">
+                <strong>Pro Tip:</strong> Define these as CSS custom properties in your :root selector to enable dynamic theming and ensure consistency across your entire design system.
+            </p>
+
+            <svg class="botanical-flower" style="top: 15%; right: 10%; width: 100px; height: 100px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="8" fill="#FAF2E1"/>
+                <circle cx="50" cy="25" r="6" fill="#D4944A" opacity="0.7"/>
+                <circle cx="65" cy="35" r="6" fill="#D4944A" opacity="0.7"/>
+                <circle cx="70" cy="50" r="6" fill="#D4944A" opacity="0.7"/>
+                <circle cx="65" cy="65" r="6" fill="#D4944A" opacity="0.7"/>
+                <circle cx="50" cy="75" r="6" fill="#D4944A" opacity="0.7"/>
+                <circle cx="35" cy="65" r="6" fill="#D4944A" opacity="0.7"/>
+                <circle cx="30" cy="50" r="6" fill="#D4944A" opacity="0.7"/>
+                <circle cx="35" cy="35" r="6" fill="#D4944A" opacity="0.7"/>
+            </svg>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Curfew Festival 2026</strong> – "In House We Trust"</p>
+        <p>SAT 6 JUNE, 12:00–23:59 | Blaarmeersen, Gent, Belgium</p>
+        <p>€25 Early Bird Tickets | <a href="#">curfew.events</a></p>
+        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">
+            Design System: Botanical Dusk | Last Updated: March 2026
+        </p>
+    </footer>
+
+</body>
+</html>

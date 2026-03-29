@@ -24,34 +24,19 @@ export default function AtmosphereBreak({ src, alt }: AtmosphereBreakProps) {
           src={src}
           alt={alt}
           fill
-          className="object-cover object-center warm-grade"
-          style={{
-            animation: 'kenBurns 20s ease-in-out infinite alternate',
-          }}
+          className="object-cover object-center"
           sizes="100vw"
           loading="lazy"
         />
       </motion.div>
 
-      <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-        <div className="font-display font-black text-cream/[0.04] text-[clamp(5rem,15vw,12rem)] leading-none">
-          CURFEW
-        </div>
-      </div>
-
+      {/* Subtle vignette only */}
       <div
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse at center, transparent 40%, rgba(26,26,46,0.5) 100%)',
         }}
       />
-
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes kenBurns {
-          0% { transform: scale(1); }
-          100% { transform: scale(1.08); }
-        }
-      `}} />
     </div>
   );
 }

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 628">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Work+Sans:wght@400;500&family=Caveat:wght@400;700&display=swap');
+
+      .title-serif { font-family: 'Playfair Display', serif; font-size: 96px; font-weight: 700; }
+      .details-sans { font-family: 'Work Sans', sans-serif; font-size: 26px; font-weight: 500; }
+      .small-text { font-family: 'Work Sans', sans-serif; font-size: 22px; font-weight: 400; }
+    </style>
+
+    <linearGradient id="fbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5EDDF;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#F5EDDF;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#D4944A;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#D4726A;stop-opacity:0.3" />
+    </linearGradient>
+
+    <pattern id="grainPattern" patternUnits="userSpaceOnUse" width="4" height="4">
+      <rect width="4" height="4" fill="#D4944A" opacity="0.03"/>
+      <circle cx="2" cy="2" r="0.5" fill="#2A2320" opacity="0.02"/>
+    </pattern>
+
+    <radialGradient id="flowerGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D4726A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4944A;stop-opacity:0.8" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="628" fill="url(#fbGradient)"/>
+
+  <!-- Subtle grain texture -->
+  <rect width="1200" height="628" fill="url(#grainPattern)"/>
+
+  <!-- Top-left corner botanical -->
+  <g opacity="0.6">
+    <!-- Stem -->
+    <path d="M 60 40 Q 75 100 65 160" stroke="#7BA05B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Leaves -->
+    <ellipse cx="48" cy="85" rx="10" ry="18" fill="#7BA05B" transform="rotate(-40 48 85)"/>
+    <ellipse cx="80" cy="130" rx="10" ry="18" fill="#7BA05B" transform="rotate(35 80 130)"/>
+    <!-- Flower -->
+    <circle cx="65" cy="35" r="7" fill="url(#flowerGrad)"/>
+    <circle cx="54" cy="26" r="4.5" fill="#D4726A"/>
+    <circle cx="76" cy="26" r="4.5" fill="#D4726A"/>
+    <circle cx="60" cy="15" r="4.5" fill="#D4726A"/>
+    <circle cx="70" cy="15" r="4.5" fill="#D4726A"/>
+  </g>
+
+  <!-- Top-right corner botanical -->
+  <g opacity="0.55">
+    <path d="M 1140 60 Q 1120 110 1130 170" stroke="#9B8BB4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="1155" cy="95" rx="10" ry="18" fill="#9B8BB4" transform="rotate(40 1155 95)"/>
+    <ellipse cx="1110" cy="140" rx="10" ry="18" fill="#9B8BB4" transform="rotate(-35 1110 140)"/>
+    <circle cx="1130" cy="50" r="6" fill="#9B8BB4"/>
+  </g>
+
+  <!-- Bottom-left botanical -->
+  <g opacity="0.5">
+    <path d="M 80 580 Q 100 620 85 660" stroke="#7BA05B" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="70" cy="620" rx="9" ry="16" fill="#7BA05B" transform="rotate(-50 70 620)"/>
+    <circle cx="85" cy="560" r="5" fill="#D4944A"/>
+  </g>
+
+  <!-- Bottom-right botanical -->
+  <g opacity="0.55">
+    <path d="M 1120 600 Q 1100 640 1115 680" stroke="#6B8FC4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="1135" cy="640" rx="10" ry="18" fill="#6B8FC4" transform="rotate(35 1135 640)"/>
+    <circle cx="1115" cy="570" r="6" fill="#6B8FC4"/>
+  </g>
+
+  <!-- Main title (left-aligned) -->
+  <text x="80" y="200" class="title-serif" fill="#2A2320">CURFEW</text>
+  <text x="80" y="310" class="title-serif" fill="#D4944A">2026</text>
+
+  <!-- Right-side event details -->
+  <g text-anchor="end">
+    <text x="1110" y="220" class="details-sans" fill="#2A2320">SAT 6 JUNE</text>
+    <text x="1110" y="270" class="small-text" fill="#D4726A">BLAARMEERSEN</text>
+    <text x="1110" y="310" class="small-text" fill="#D4726A">GENT</text>
+
+    <text x="1110" y="400" class="details-sans" fill="#D4944A">€25 EARLY BIRD</text>
+    <text x="1110" y="450" class="small-text" fill="#2A2320">curfew.events</text>
+
+    <text x="1110" y="540" class="small-text" fill="#6B8FC4" font-style="italic">In House We Trust</text>
+  </g>
+</svg>

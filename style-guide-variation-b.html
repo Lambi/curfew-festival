@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curfew Festival 2026 — Style Guide: Neon Drift</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=DM+Sans:wght@400;500;700&family=Caveat:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #0A1A1D;
+            color: #F0F4F8;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===== AMBIENT BACKGROUND EFFECTS ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(57, 205, 207, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201, 160, 255, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: ambientShift 20s ease-in-out infinite;
+        }
+
+        @keyframes ambientShift {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Floating orbs */
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(228, 255, 84, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatOrb 30s ease-in-out infinite;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% {
+                transform: translate(0, 0);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-100px, -100px);
+                opacity: 0.8;
+            }
+        }
+
+        /* ===== MAIN CONTENT WRAPPER ===== */
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HEADER/HERO SECTION ===== */
+        .header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #0A1A1D 0%, #0F2B30 50%, #0A1A1D 100%);
+            border-bottom: 1px solid rgba(228, 255, 84, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(45deg, transparent 0%, rgba(49, 205, 207, 0.05) 25%, transparent 50%),
+                linear-gradient(-45deg, transparent 0%, rgba(201, 160, 255, 0.05) 25%, transparent 50%);
+            pointer-events: none;
+            animation: fogDrift 25s linear infinite;
+        }
+
+        @keyframes fogDrift {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .header h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #E4FF54 0%, #31CDCF 50%, #E4FF54 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: breathingGlow 4s ease-in-out infinite;
+            text-shadow: 0 0 40px rgba(228, 255, 84, 0.3);
+        }
+
+        @keyframes breathingGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(228, 255, 84, 0.3));
+                text-shadow: 0 0 40px rgba(228, 255, 84, 0.3);
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(228, 255, 84, 0.5));
+                text-shadow: 0 0 60px rgba(228, 255, 84, 0.5);
+            }
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #FFE2C7;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .header .tagline {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: #C9A0FF;
+            margin: 30px 0;
+            font-weight: 700;
+        }
+
+        .event-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(228, 255, 84, 0.2);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #31CDCF;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .meta-value {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #E4FF54;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section {
+            padding: 80px 40px;
+            background-color: #0A1A1D;
+            border-bottom: 1px solid rgba(228, 255, 84, 0.08);
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #E4FF54 25%, #31CDCF 50%, #E4FF54 75%, transparent 100%);
+            margin: 60px 0;
+            opacity: 0.3;
+        }
+
+        .section h2 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+            color: #31CDCF;
+            letter-spacing: -1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #E4FF54, #31CDCF, #C9A0FF);
+            opacity: 0.5;
+        }
+
+        /* ===== COLOR PALETTE SECTION ===== */
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .color-swatch {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(228, 255, 84, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .color-swatch:hover {
+            border-color: rgba(228, 255, 84, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .color-swatch.is-neon {
+            box-shadow: 0 0 20px rgba(228, 255, 84, 0.2), inset 0 0 20px rgba(228, 255, 84, 0.05);
+        }
+
+        .color-swatch.is-neon:hover {
+            box-shadow: 0 0 40px rgba(228, 255, 84, 0.4), inset 0 0 20px rgba(228, 255, 84, 0.1);
+        }
+
+        .swatch-color {
+            width: 100%;
+            height: 150px;
+            border-bottom: 1px solid rgba(228, 255, 84, 0.1);
+        }
+
+        .swatch-info {
+            padding: 20px;
+            background-color: rgba(15, 43, 48, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .swatch-name {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #E4FF54;
+            margin-bottom: 8px;
+        }
+
+        .swatch-hex {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #31CDCF;
+            margin-bottom: 8px;
+        }
+
+        .swatch-rgb {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: rgba(240, 244, 248, 0.5);
+        }
+
+        /* ===== TYPOGRAPHY SECTION ===== */
+        .typography-showcase {
+            margin-top: 60px;
+        }
+
+        .font-example {
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #0F2B30 0%, #163338 100%);
+            border-left: 3px solid #E4FF54;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .font-example::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(228, 255, 84, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .font-example.is-display h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #E4FF54;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(228, 255, 84, 0.3);
+            letter-spacing: -1px;
+        }
+
+        .font-example.is-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #31CDCF;
+            margin-bottom: 10px;
+        }
+
+        .font-example.is-accent h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #FFB5C2;
+            margin-bottom: 10px;
+        }
+
+        .font-example.is-mono h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #C9A0FF;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .font-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: rgba(240, 244, 248, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .font-example p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(240, 244, 248, 0.8);
+            margin-top: 20px;
+        }
+
+        .font-scales {
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(15, 43, 48, 0.6);
+            border-radius: 8px;
+            border: 1px solid rgba(228, 255, 84, 0.1);
+        }
+
+        .scale-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(228, 255, 84, 0.05);
+        }
+
+        .scale-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .scale-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #C9A0FF;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .scale-text-display {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            color: #E4FF54;
+            text-shadow: 0 0 15px rgba(228, 255, 84, 0.2);
+        }
+
+        .scale-text-xl { font-size: 3.5rem; }
+        .scale-text-lg { font-size: 2.5rem; }
+        .scale-text-md { font-size: 1.8rem; }
+        .scale-text-sm { font-size: 1.2rem; }
+        .scale-text-xs { font-size: 0.95rem; }
+
+        /* ===== GRADIENTS SECTION ===== */
+        .gradients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .gradient-card {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(228, 255, 84, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .gradient-card:hover {
+            border-color: rgba(228, 255, 84, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .gradient-preview {
+            height: 200px;
+            width: 100%;
+        }
+
+        .gradient-fog-drift {
+            background: linear-gradient(135deg, #0A1A1D 0%, #31CDCF 25%, #0F2B30 50%, #E4FF54 75%, #0A1A1D 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-fog-drift::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        .gradient-laser-line {
+            background: linear-gradient(90deg, #0A1A1D 0%, #E4FF54 20%, #31CDCF 50%, #C9A0FF 80%, #0A1A1D 100%);
+        }
+
+        .gradient-twilight-haze {
+            background: linear-gradient(180deg, #0A1A1D 0%, #163338 40%, #C9A0FF 80%, #0F2B30 100%);
+        }
+
+        .gradient-neon-burst {
+            background: radial-gradient(circle at 50% 30%, #E4FF54 0%, transparent 30%),
+                        radial-gradient(circle at 70% 70%, #31CDCF 0%, transparent 30%),
+                        radial-gradient(circle at 30% 80%, #C9A0FF 0%, transparent 30%),
+                        linear-gradient(135deg, #0A1A1D, #0F2B30);
+        }
+
+        .gradient-stage-glow {
+            background: radial-gradient(circle at 50% 0%, rgba(228, 255, 84, 0.3) 0%, transparent 40%),
+                        radial-gradient(circle at 50% 100%, rgba(49, 205, 207, 0.2) 0%, transparent 40%),
+                        linear-gradient(135deg, #0F2B30, #0A1A1D);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .gradient-info {
+            padding: 20px;
+            background-color: rgba(15, 43, 48, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .gradient-name {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #E4FF54;
+            margin-bottom: 8px;
+        }
+
+        .gradient-css {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #31CDCF;
+            word-break: break-all;
+            background: rgba(10, 26, 29, 0.5);
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        /* ===== COMPONENTS SECTION ===== */
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .component-box {
+            background: linear-gradient(135deg, #0F2B30 0%, #163338 100%);
+            border: 1px solid rgba(228, 255, 84, 0.15);
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .component-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(228, 255, 84, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .component-title {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #31CDCF;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: #E4FF54;
+            color: #0A1A1D;
+            border-color: #E4FF54;
+            box-shadow: 0 0 20px rgba(228, 255, 84, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 40px rgba(228, 255, 84, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #31CDCF;
+            border-color: #31CDCF;
+            box-shadow: 0 0 15px rgba(49, 205, 207, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(49, 205, 207, 0.1);
+            box-shadow: 0 0 30px rgba(49, 205, 207, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: transparent;
+            color: #C9A0FF;
+            border-color: #C9A0FF;
+            box-shadow: 0 0 15px rgba(201, 160, 255, 0.2);
+        }
+
+        .btn-accent:hover {
+            background-color: rgba(201, 160, 255, 0.1);
+            box-shadow: 0 0 30px rgba(201, 160, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .button-demo {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Artist Cards */
+        .artist-card {
+            background: linear-gradient(135deg, rgba(49, 205, 207, 0.1) 0%, rgba(201, 160, 255, 0.05) 100%);
+            border: 1px solid rgba(228, 255, 84, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .artist-card:hover {
+            border-color: rgba(228, 255, 84, 0.5);
+            box-shadow: 0 0 30px rgba(228, 255, 84, 0.15), inset 0 0 30px rgba(228, 255, 84, 0.02);
+            transform: translateY(-5px);
+        }
+
+        .artist-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(228, 255, 84, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .artist-card:hover::before {
+            top: -30%;
+            right: -30%;
+        }
+
+        .artist-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #E4FF54, #31CDCF);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            color: #0A1A1D;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(228, 255, 84, 0.3);
+        }
+
+        .artist-name {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #E4FF54;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .artist-genre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #31CDCF;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Ticket Scarcity Bar */
+        .scarcity-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .scarcity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .scarcity-label {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            color: #FFB5C2;
+            font-size: 1rem;
+        }
+
+        .scarcity-percentage {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #E4FF54;
+            text-shadow: 0 0 10px rgba(228, 255, 84, 0.3);
+        }
+
+        .scarcity-bar {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(15, 43, 48, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(228, 255, 84, 0.2);
+            position: relative;
+        }
+
+        .scarcity-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #E4FF54 0%, #31CDCF 100%);
+            border-radius: 10px;
+            width: 65%;
+            position: relative;
+            box-shadow: 0 0 10px rgba(228, 255, 84, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.2);
+            animation: scarcityPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scarcityPulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .scarcity-message {
+            margin-top: 12px;
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            color: #FFB5C2;
+            font-weight: 700;
+            animation: messagePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes messagePulse {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Stat Blocks */
+        .stat-block {
+            background: linear-gradient(135deg, #0F2B30 0%, #163338 100%);
+            border-left: 4px solid #E4FF54;
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .stat-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(228, 255, 84, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .stat-value {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #E4FF54;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(228, 255, 84, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            color: rgba(240, 244, 248, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== SOCIAL FORMATS SECTION ===== */
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .social-format {
+            border: 1px solid rgba(228, 255, 84, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #0F2B30;
+        }
+
+        .social-format-preview {
+            background: linear-gradient(135deg, #0A1A1D 0%, #163338 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(240, 244, 248, 0.5);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-format-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(228, 255, 84, 0.05) 50%, transparent 100%);
+            pointer-events: none;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .social-ig-post {
+            aspect-ratio: 1 / 1;
+        }
+
+        .social-ig-story {
+            aspect-ratio: 9 / 16;
+        }
+
+        .social-fb-cover {
+            aspect-ratio: 820 / 312;
+        }
+
+        .social-banner {
+            aspect-ratio: 1920 / 400;
+        }
+
+        .social-format-info {
+            padding: 20px;
+            border-top: 1px solid rgba(228, 255, 84, 0.1);
+        }
+
+        .social-format-title {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #E4FF54;
+            margin-bottom: 8px;
+        }
+
+        .social-format-specs {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #31CDCF;
+        }
+
+        /* ===== DOs AND DON'Ts SECTION ===== */
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .guidelines-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .guideline-box {
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guideline-do {
+            background: linear-gradient(135deg, rgba(228, 255, 84, 0.08) 0%, rgba(49, 205, 207, 0.08) 100%);
+            border: 2px solid rgba(228, 255, 84, 0.3);
+        }
+
+        .guideline-dont {
+            background: linear-gradient(135deg, rgba(255, 181, 194, 0.08) 0%, rgba(201, 160, 255, 0.08) 100%);
+            border: 2px solid rgba(255, 181, 194, 0.3);
+        }
+
+        .guideline-title {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guideline-do .guideline-title {
+            color: #E4FF54;
+        }
+
+        .guideline-dont .guideline-title {
+            color: #FFB5C2;
+        }
+
+        .guideline-list {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guideline-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: rgba(240, 244, 248, 0.8);
+            line-height: 1.6;
+        }
+
+        .guideline-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .guideline-do .guideline-list li::before {
+            color: #E4FF54;
+        }
+
+        .guideline-dont .guideline-list li::before {
+            content: '✕';
+            color: #FFB5C2;
+        }
+
+        /* ===== CSS TOKENS SECTION ===== */
+        .tokens-container {
+            margin-top: 60px;
+        }
+
+        .token-group {
+            margin-bottom: 50px;
+        }
+
+        .token-group-title {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #31CDCF;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(228, 255, 84, 0.2);
+        }
+
+        .token-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            gap: 20px;
+            padding: 15px;
+            background: rgba(15, 43, 48, 0.5);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .token-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        .token-name {
+            color: #E4FF54;
+            font-weight: 500;
+        }
+
+        .token-value {
+            color: #31CDCF;
+            word-break: break-all;
+        }
+
+        .token-usage {
+            color: rgba(240, 244, 248, 0.6);
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .token-usage {
+                text-align: left;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, #0F2B30 0%, #0A1A1D 100%);
+            border-top: 1px solid rgba(228, 255, 84, 0.1);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            color: rgba(240, 244, 248, 0.6);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-link {
+            color: #E4FF54;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            text-shadow: 0 0 10px rgba(228, 255, 84, 0.5);
+        }
+
+        footer a {
+            color: #31CDCF;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #E4FF54;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .header h1 {
+                font-size: 3.5rem;
+            }
+
+            .section {
+                padding: 60px 30px;
+            }
+
+            .section h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .event-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 50px 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .section h2::after {
+                bottom: -10px;
+            }
+
+            .colors-grid,
+            .gradients-grid,
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .font-example {
+                padding: 25px;
+            }
+
+            .font-example.is-display h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- HEADER/HERO -->
+        <header class="header">
+            <div class="header-content">
+                <h1>CURFEW FESTIVAL 2026</h1>
+                <p>In House We Trust</p>
+                <p class="tagline">Where House Comes Home</p>
+
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">When</div>
+                        <div class="meta-value">SAT 6 JUNE</div>
+                        <div class="meta-label" style="margin-top: 8px;">Time</div>
+                        <div class="meta-value">12:00–23:59</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Where</div>
+                        <div class="meta-value">BLAARMEERSEN</div>
+                        <div class="meta-label" style="margin-top: 8px;">Location</div>
+                        <div class="meta-value">GENT, BELGIUM</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- VISUAL DIRECTION SECTION -->
+        <section class="section">
+            <h2>Visual Direction: Neon Drift</h2>
+            <div class="section-divider"></div>
+
+            <div style="max-width: 900px; margin-top: 50px;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: rgba(240, 244, 248, 0.85); margin-bottom: 30px;">
+                    Dark, atmospheric, cinematic. Imagine stepping into a premium club at twilight—where deep teal-black backgrounds meet neon accents that glow like stage lights through fog. Pastel gradients refract light like a disco ball at 3am. The mood is the moment between the last rays of sunset and the first laser beams. This is sophisticated nightlife, not rave chaos. Premium electronic music culture distilled into light and color.
+                </p>
+            </div>
+        </section>
+
+        <!-- COLOR PALETTE SECTION -->
+        <section class="section">
+            <h2>Color Palette</h2>
+            <div class="section-divider"></div>
+
+            <div class="colors-grid">
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background-color: #0A1A1D;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Void</div>
+                        <div class="swatch-hex">#0A1A1D</div>
+                        <div class="swatch-rgb">RGB(10, 26, 29)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 8px;">Primary background</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background-color: #0F2B30;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Midnight</div>
+                        <div class="swatch-hex">#0F2B30</div>
+                        <div class="swatch-rgb">RGB(15, 43, 48)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 8px;">Cards & surfaces</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background-color: #163338;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Dusk Surface</div>
+                        <div class="swatch-hex">#163338</div>
+                        <div class="swatch-rgb">RGB(22, 51, 56)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 8px;">Elevated elements</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch is-neon">
+                    <div class="swatch-color" style="background-color: #E4FF54;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Neon Lime</div>
+                        <div class="swatch-hex">#E4FF54</div>
+                        <div class="swatch-rgb">RGB(228, 255, 84)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 8px;">Primary accent</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch is-neon">
+                    <div class="swatch-color" style="background-color: #C9A0FF;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Haze Purple</div>
+                        <div class="swatch-hex">#C9A0FF</div>
+                        <div class="swatch-rgb">RGB(201, 160, 255)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 8px;">Secondary accent</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch is-neon">
+                    <div class="swatch-color" style="background-color: #31CDCF;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Fog Cyan</div>
+                        <div class="swatch-hex">#31CDCF</div>
+                        <div class="swatch-rgb">RGB(49, 205, 207)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 8px;">Tertiary accent</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background-color: #FFB5C2;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Blush</div>
+                        <div class="swatch-hex">#FFB5C2</div>
+                        <div class="swatch-rgb">RGB(255, 181, 194)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 8px;">Warm balance</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background-color: #FFE2C7;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Sand</div>
+                        <div class="swatch-hex">#FFE2C7</div>
+                        <div class="swatch-rgb">RGB(255, 226, 199)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 8px;">Text warmth</div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background-color: #F0F4F8;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Ice</div>
+                        <div class="swatch-hex">#F0F4F8</div>
+                        <div class="swatch-rgb">RGB(240, 244, 248)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 8px;">Primary text</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TYPOGRAPHY SECTION -->
+        <section class="section">
+            <h2>Typography System</h2>
+            <div class="section-divider"></div>
+
+            <div class="typography-showcase">
+                <div class="font-example is-display">
+                    <div class="font-label">Display — Unbounded (Google Fonts)</div>
+                    <h3>Modern Geometric Display</h3>
+                    <p>Bold, futuristic, sharp-edged. Used for headline hierarchy, event titles, and stage presence. This is the visual voice of the festival.</p>
+                </div>
+
+                <div class="font-example is-body">
+                    <div class="font-label">Body — DM Sans (Google Fonts)</div>
+                    <h3>Clean Contemporary Sans-Serif</h3>
+                    <p>The workhorse typeface. Used for body text, descriptions, metadata, and all editorial content. Maintains legibility and contemporary feel across all sizes.</p>
+                </div>
+
+                <div class="font-example is-accent">
+                    <div class="font-label">Accent — Caveat (Google Fonts)</div>
+                    <h3>Handwritten Intimacy</h3>
+                    <p>For personal, human moments. Quotes, scarcity messages, personal testimonials. Used sparingly to add warmth and human connection to the design.</p>
+                </div>
+
+                <div class="font-example is-mono">
+                    <div class="font-label">Data — JetBrains Mono (Google Fonts)</div>
+                    <h3>Technical, Precise, Structured</h3>
+                    <p>For technical details, metadata labels, hex codes, and data presentation. Adds a systematic, organized feeling to information hierarchy.</p>
+                </div>
+            </div>
+
+            <div class="font-scales">
+                <h3 style="font-family: 'Unbounded', sans-serif; font-size: 1.5rem; font-weight: 700; color: #31CDCF; margin-bottom: 30px;">Typography Scale</h3>
+
+                <div class="scale-item">
+                    <div class="scale-label">Display XL</div>
+                    <div class="scale-text-display scale-text-xl">Museum-Grade Headline</div>
+                </div>
+
+                <div class="scale-item">
+                    <div class="scale-label">Display Large</div>
+                    <div class="scale-text-display scale-text-lg">Premium Section Title</div>
+                </div>
+
+                <div class="scale-item">
+                    <div class="scale-label">Display Medium</div>
+                    <div class="scale-text-display scale-text-md">Featured Content</div>
+                </div>
+
+                <div class="scale-item">
+                    <div class="scale-label">Body Large</div>
+                    <p style="font-size: 1.2rem; color: #F0F4F8;">Large body text for emphasis. This is the largest standard reading size.</p>
+                </div>
+
+                <div class="scale-item">
+                    <div class="scale-label">Body Standard</div>
+                    <p style="font-size: 1rem; color: #F0F4F8;">Standard paragraph text. Optimal reading size. Use for most editorial content.</p>
+                </div>
+
+                <div class="scale-item">
+                    <div class="scale-label">Body Small</div>
+                    <p style="font-size: 0.9rem; color: rgba(240, 244, 248, 0.8);">Supporting text, captions, and tertiary information.</p>
+                </div>
+
+                <div class="scale-item">
+                    <div class="scale-label">Label</div>
+                    <p style="font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; color: #C9A0FF; letter-spacing: 1px; text-transform: uppercase;">METADATA LABELS AND TAGS</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRADIENTS SECTION -->
+        <section class="section">
+            <h2>Gradient Library</h2>
+            <div class="section-divider"></div>
+
+            <div class="gradients-grid">
+                <div class="gradient-card">
+                    <div class="gradient-preview gradient-fog-drift"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Fog Drift</div>
+                        <div class="gradient-css">linear-gradient(135deg, #0A1A1D 0%, #31CDCF 25%, #0F2B30 50%, #E4FF54 75%, #0A1A1D 100%)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 10px;">Atmospheric section backgrounds. Creates the feeling of fog and light movement.</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview gradient-laser-line"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Laser Line</div>
+                        <div class="gradient-css">linear-gradient(90deg, #0A1A1D 0%, #E4FF54 20%, #31CDCF 50%, #C9A0FF 80%, #0A1A1D 100%)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 10px;">High-energy horizontal movement. Use for dividers and accent lines.</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview gradient-twilight-haze"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Twilight Haze</div>
+                        <div class="gradient-css">linear-gradient(180deg, #0A1A1D 0%, #163338 40%, #C9A0FF 80%, #0F2B30 100%)</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 10px;">Vertical sunset-to-night transition. Perfect for hero sections and atmospheric moments.</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview gradient-neon-burst"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Neon Burst</div>
+                        <div class="gradient-css">Radial: #E4FF54, #31CDCF, #C9A0FF over dark base</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 10px;">Explosive radial energy. Use for feature highlights and attention-grabbing moments.</div>
+                    </div>
+                </div>
+
+                <div class="gradient-card">
+                    <div class="gradient-preview gradient-stage-glow"></div>
+                    <div class="gradient-info">
+                        <div class="gradient-name">Stage Glow</div>
+                        <div class="gradient-css">Layered radials: #E4FF54 top, #31CDCF bottom over dark base</div>
+                        <div style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); margin-top: 10px;">Stage lighting effect. Creates theatrical depth and focus.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPONENTS SECTION -->
+        <section class="section">
+            <h2>Component Library</h2>
+            <div class="section-divider"></div>
+
+            <div class="components-grid">
+                <!-- Buttons -->
+                <div class="component-box">
+                    <div class="component-title">Buttons</div>
+                    <div class="button-demo">
+                        <a href="#" class="btn btn-primary">Get Tickets — €25</a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                        <a href="#" class="btn btn-accent">Follow Artists</a>
+                    </div>
+                    <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(228, 255, 84, 0.1);">
+                        <p style="font-size: 0.85rem; color: rgba(240, 244, 248, 0.6); font-family: 'JetBrains Mono', monospace;">Pill-shaped with neon glow on hover. Maintains modern, sharp aesthetic.</p>
+                    </div>
+                </div>
+
+                <!-- Artist Card -->
+                <div class="component-box">
+                    <div class="component-title">Artist Cards</div>
+                    <div class="artist-card">
+                        <div class="artist-avatar">IP</div>
+                        <div class="artist-name">Ian Pooley</div>
+                        <div class="artist-genre">House / Techno</div>
+                    </div>
+                    <div class="artist-card" style="margin-top: 15px;">
+                        <div class="artist-avatar">PA</div>
+                        <div class="artist-name">Pabels</div>
+                        <div class="artist-genre">Deep House</div>
+                    </div>
+                </div>
+
+                <!-- Ticket Scarcity -->
+                <div class="component-box">
+                    <div class="component-title">Ticket Scarcity</div>
+                    <div class="scarcity-container">
+                        <div class="scarcity-header">
+                            <div class="scarcity-label">Early Bird Tickets</div>
+                            <div class="scarcity-percentage">65%</div>
+                        </div>
+                        <div class="scarcity-bar">
+                            <div class="scarcity-fill"></div>
+                        </div>
+                        <div class="scarcity-message">Selling fast · 35 left</div>
+                    </div>
+                </div>
+
+                <!-- Stat Blocks -->
+                <div class="component-box">
+                    <div class="component-title">Stat Blocks</div>
+                    <div class="stat-block">
+                        <div class="stat-value">2015</div>
+                        <div class="stat-label">Founded — Non-profit collective</div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-value">3K+</div>
+                        <div class="stat-label">Annual attendees</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL FORMATS SECTION -->
+        <section class="section">
+            <h2>Social Media Formats</h2>
+            <div class="section-divider"></div>
+
+            <div class="social-grid">
+                <div class="social-format">
+                    <div class="social-format-preview social-ig-post">Instagram Post (1:1)</div>
+                    <div class="social-format-info">
+                        <div class="social-format-title">Instagram Post</div>
+                        <div class="social-format-specs">1080px × 1080px · RGB color mode</div>
+                    </div>
+                </div>
+
+                <div class="social-format">
+                    <div class="social-format-preview social-ig-story">Instagram Story (9:16)</div>
+                    <div class="social-format-info">
+                        <div class="social-format-title">Instagram Story</div>
+                        <div class="social-format-specs">1080px × 1920px · RGB color mode</div>
+                    </div>
+                </div>
+
+                <div class="social-format">
+                    <div class="social-format-preview social-fb-cover">Facebook Cover (820:312)</div>
+                    <div class="social-format-info">
+                        <div class="social-format-title">Facebook Cover</div>
+                        <div class="social-format-specs">820px × 312px · RGB color mode</div>
+                    </div>
+                </div>
+
+                <div class="social-format">
+                    <div class="social-format-preview social-banner">Wide Banner (1920:400)</div>
+                    <div class="social-format-info">
+                        <div class="social-format-title">Web Banner</div>
+                        <div class="social-format-specs">1920px × 400px · RGB color mode</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUIDELINES SECTION -->
+        <section class="section">
+            <h2>Design Guidelines</h2>
+            <div class="section-divider"></div>
+
+            <div class="guidelines-grid">
+                <div class="guideline-box guideline-do">
+                    <h3 class="guideline-title">✓ DO</h3>
+                    <ul class="guideline-list">
+                        <li>Use neon accents sparingly for maximum impact</li>
+                        <li>Keep backgrounds dark and atmospheric</li>
+                        <li>Apply fog and glow gradients for depth</li>
+                        <li>Use grain texture heavily for cinema feel</li>
+                        <li>Create pill-shaped buttons with glow hover</li>
+                        <li>Layer dark surfaces with subtle borders</li>
+                        <li>Use cool-tinted photography grades</li>
+                        <li>Animate gradients and breathing glows</li>
+                    </ul>
+                </div>
+
+                <div class="guideline-box guideline-dont">
+                    <h3 class="guideline-title">✕ DON'T</h3>
+                    <ul class="guideline-list">
+                        <li>Use light or white backgrounds</li>
+                        <li>Use warm earthy tones as primaries</li>
+                        <li>Use serif fonts for headlines</li>
+                        <li>Overwhelm with neon (it's glimpses of light)</li>
+                        <li>Use flat colors without glow or gradient</li>
+                        <li>Mix multiple serif typefaces</li>
+                        <li>Create high contrast with bright whites</li>
+                        <li>Ignore the grain texture overlay</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS TOKENS SECTION -->
+        <section class="section">
+            <h2>CSS Tokens & Variables</h2>
+            <div class="section-divider"></div>
+
+            <div class="tokens-container">
+                <!-- Colors -->
+                <div class="token-group">
+                    <div class="token-group-title">Color Variables</div>
+                    <div class="token-row">
+                        <div class="token-name">--color-void</div>
+                        <div class="token-value">#0A1A1D</div>
+                        <div class="token-usage">Primary background</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--color-midnight</div>
+                        <div class="token-value">#0F2B30</div>
+                        <div class="token-usage">Card backgrounds</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--color-dusk-surface</div>
+                        <div class="token-value">#163338</div>
+                        <div class="token-usage">Elevated surfaces</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--color-neon-lime</div>
+                        <div class="token-value">#E4FF54</div>
+                        <div class="token-usage">Primary accent</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--color-haze-purple</div>
+                        <div class="token-value">#C9A0FF</div>
+                        <div class="token-usage">Secondary accent</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--color-fog-cyan</div>
+                        <div class="token-value">#31CDCF</div>
+                        <div class="token-usage">Tertiary accent</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--color-text-primary</div>
+                        <div class="token-value">#F0F4F8</div>
+                        <div class="token-usage">Primary text</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--color-text-muted</div>
+                        <div class="token-value">rgba(240, 244, 248, 0.4)</div>
+                        <div class="token-usage">Muted text</div>
+                    </div>
+                </div>
+
+                <!-- Typography -->
+                <div class="token-group">
+                    <div class="token-group-title">Typography Variables</div>
+                    <div class="token-row">
+                        <div class="token-name">--font-display</div>
+                        <div class="token-value">'Unbounded', sans-serif</div>
+                        <div class="token-usage">Headlines</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--font-body</div>
+                        <div class="token-value">'DM Sans', sans-serif</div>
+                        <div class="token-usage">Body text</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--font-accent</div>
+                        <div class="token-value">'Caveat', cursive</div>
+                        <div class="token-usage">Handwritten moments</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--font-mono</div>
+                        <div class="token-value">'JetBrains Mono', monospace</div>
+                        <div class="token-usage">Data & labels</div>
+                    </div>
+                </div>
+
+                <!-- Glow Effects -->
+                <div class="token-group">
+                    <div class="token-group-title">Glow & Shadow Effects</div>
+                    <div class="token-row">
+                        <div class="token-name">--glow-neon-lime</div>
+                        <div class="token-value">0 0 20px rgba(228, 255, 84, 0.3)</div>
+                        <div class="token-usage">Soft neon glow</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--glow-neon-lime-intense</div>
+                        <div class="token-value">0 0 40px rgba(228, 255, 84, 0.5)</div>
+                        <div class="token-usage">Intense glow hover</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--glow-cyan</div>
+                        <div class="token-value">0 0 15px rgba(49, 205, 207, 0.3)</div>
+                        <div class="token-usage">Cyan accent glow</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--text-shadow-glow</div>
+                        <div class="token-value">0 0 10px rgba(228, 255, 84, 0.5), 0 0 40px rgba(228, 255, 84, 0.2)</div>
+                        <div class="token-usage">Neon text glow</div>
+                    </div>
+                </div>
+
+                <!-- Spacing & Sizing -->
+                <div class="token-group">
+                    <div class="token-group-title">Spacing & Sizing</div>
+                    <div class="token-row">
+                        <div class="token-name">--space-xs</div>
+                        <div class="token-value">4px</div>
+                        <div class="token-usage">Minimal gaps</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--space-sm</div>
+                        <div class="token-value">12px</div>
+                        <div class="token-usage">Small spacing</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--space-md</div>
+                        <div class="token-value">24px</div>
+                        <div class="token-usage">Standard spacing</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--space-lg</div>
+                        <div class="token-value">40px</div>
+                        <div class="token-usage">Large spacing</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--space-xl</div>
+                        <div class="token-value">80px</div>
+                        <div class="token-usage">Section padding</div>
+                    </div>
+                </div>
+
+                <!-- Border Radius -->
+                <div class="token-group">
+                    <div class="token-group-title">Border Radius</div>
+                    <div class="token-row">
+                        <div class="token-name">--radius-sm</div>
+                        <div class="token-value">4px</div>
+                        <div class="token-usage">Subtle corners</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--radius-md</div>
+                        <div class="token-value">8px</div>
+                        <div class="token-usage">Standard corners</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--radius-lg</div>
+                        <div class="token-value">12px</div>
+                        <div class="token-usage">Generous corners</div>
+                    </div>
+                    <div class="token-row">
+                        <div class="token-name">--radius-full</div>
+                        <div class="token-value">999px</div>
+                        <div class="token-usage">Pill shapes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p style="font-family: 'Unbounded', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: #E4FF54;">Curfew Festival 2026</p>
+            <p>Non-profit house music collective since 2015</p>
+            <p style="margin-bottom: 25px;">SAT 6 JUNE · BLAARMEERSEN, GENT, BELGIUM · 12:00–23:59</p>
+            <div style="margin-bottom: 25px;">
+                <a href="https://curfew.events">curfew.events</a> •
+                <a href="https://instagram.com/curfew">Instagram</a> •
+                <a href="https://facebook.com/curfew">Facebook</a>
+            </div>
+            <p style="border-top: 1px solid rgba(228, 255, 84, 0.1); padding-top: 20px; margin-top: 30px; font-size: 0.8rem; color: rgba(240, 244, 248, 0.5);">
+                Style Guide: Neon Drift Variation B · In House We Trust · Where House Comes Home
+            </p>
+        </footer>
+    </main>
+</body>
+</html>

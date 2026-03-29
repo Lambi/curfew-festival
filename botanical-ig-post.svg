@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Work+Sans:wght@400;500&family=Caveat:wght@400;700&display=swap');
+
+      .title-serif { font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 700; }
+      .year-serif { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 400; }
+      .handwritten { font-family: 'Caveat', cursive; font-size: 48px; font-weight: 700; }
+      .details-sans { font-family: 'Work Sans', sans-serif; font-size: 28px; font-weight: 500; }
+      .small-text { font-family: 'Work Sans', sans-serif; font-size: 24px; font-weight: 400; }
+    </style>
+
+    <linearGradient id="warmGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5EDDF;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#F5EDDF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4944A;stop-opacity:0.6" />
+    </linearGradient>
+
+    <radialGradient id="flowerGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D4726A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4944A;stop-opacity:0.8" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#warmGradient)"/>
+
+  <!-- Top-left botanical corner -->
+  <g opacity="0.7">
+    <!-- Stem -->
+    <path d="M 80 120 Q 85 180 75 240" stroke="#7BA05B" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Leaves -->
+    <ellipse cx="65" cy="160" rx="12" ry="22" fill="#7BA05B" transform="rotate(-45 65 160)"/>
+    <ellipse cx="95" cy="200" rx="12" ry="22" fill="#7BA05B" transform="rotate(35 95 200)"/>
+    <!-- Small flower -->
+    <circle cx="75" cy="100" r="8" fill="url(#flowerGrad)"/>
+    <circle cx="60" cy="88" r="6" fill="#D4726A"/>
+    <circle cx="90" cy="88" r="6" fill="#D4726A"/>
+    <circle cx="65" cy="75" r="6" fill="#D4726A"/>
+    <circle cx="85" cy="75" r="6" fill="#D4726A"/>
+  </g>
+
+  <!-- Top-right botanical accent -->
+  <g opacity="0.6">
+    <path d="M 1020 100 Q 990 150 1000 210" stroke="#9B8BB4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <circle cx="1000" cy="70" r="7" fill="#9B8BB4"/>
+    <ellipse cx="1010" cy="130" rx="10" ry="18" fill="#9B8BB4" transform="rotate(30 1010 130)"/>
+    <ellipse cx="980" cy="180" rx="10" ry="18" fill="#9B8BB4" transform="rotate(-40 980 180)"/>
+  </g>
+
+  <!-- Main title -->
+  <text x="540" y="180" text-anchor="middle" class="title-serif" fill="#2A2320">CURFEW</text>
+
+  <!-- Year -->
+  <text x="540" y="270" text-anchor="middle" class="year-serif" fill="#D4944A">2026</text>
+
+  <!-- Handwritten tagline -->
+  <text x="540" y="420" text-anchor="middle" class="handwritten" fill="#D4726A">In House We Trust</text>
+
+  <!-- Bottom-left botanical -->
+  <g opacity="0.65">
+    <path d="M 100 850 Q 120 900 110 950" stroke="#7BA05B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="95" cy="890" rx="9" ry="16" fill="#7BA05B" transform="rotate(-50 95 890)"/>
+    <ellipse cx="125" cy="920" rx="9" ry="16" fill="#7BA05B" transform="rotate(40 125 920)"/>
+    <circle cx="110" cy="860" r="6" fill="#D4944A"/>
+  </g>
+
+  <!-- Bottom-right botanical -->
+  <g opacity="0.6">
+    <path d="M 980 920 Q 960 950 970 1000" stroke="#6B8FC4" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="990" cy="960" rx="8" ry="14" fill="#6B8FC4" transform="rotate(35 990 960)"/>
+  </g>
+
+  <!-- Event details bottom -->
+  <text x="540" y="1000" text-anchor="middle" class="details-sans" fill="#2A2320">SAT 6 JUNE · BLAARMEERSEN</text>
+  <text x="540" y="1040" text-anchor="middle" class="small-text" fill="#D4944A">€25 EARLY BIRD | curfew.events</text>
+</svg>

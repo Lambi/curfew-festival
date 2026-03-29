@@ -1,0 +1,91 @@
+<svg viewBox="0 0 1200 628" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
+    </style>
+
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="textureNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A1A1D;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0F2B30;stop-opacity:1"/>
+    </linearGradient>
+
+    <linearGradient id="fogSweep" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" style="stop-color:#C9A0FF;stop-opacity:0.12"/>
+      <stop offset="40%" style="stop-color:#C9A0FF;stop-opacity:0.08"/>
+      <stop offset="60%" style="stop-color:#31CDCF;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#31CDCF;stop-opacity:0.05"/>
+    </linearGradient>
+
+    <radialGradient id="purpleLeft" cx="20%" cy="50%" r="40%">
+      <stop offset="0%" style="stop-color:#C9A0FF;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#C9A0FF;stop-opacity:0"/>
+    </radialGradient>
+
+    <radialGradient id="cyanRight" cx="80%" cy="50%" r="45%">
+      <stop offset="0%" style="stop-color:#31CDCF;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#31CDCF;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="628" fill="url(#bgGradient)"/>
+
+  <!-- Atmospheric gradient fog sweep -->
+  <rect width="1200" height="628" fill="url(#fogSweep)" filter="url(#softGlow)"/>
+
+  <!-- Purple haze left side -->
+  <rect width="1200" height="628" fill="url(#purpleLeft)" filter="url(#softGlow)"/>
+
+  <!-- Cyan haze right side -->
+  <rect width="1200" height="628" fill="url(#cyanRight)" filter="url(#softGlow)"/>
+
+  <!-- Left side: Main title -->
+  <text x="200" y="220" font-family="Unbounded, sans-serif" font-size="100" font-weight="800" fill="#F0F4F8" letter-spacing="-2" filter="url(#strongGlow)">CURFEW</text>
+  <text x="200" y="330" font-family="Unbounded, sans-serif" font-size="84" font-weight="700" fill="#E4FF54" filter="url(#neonGlow)">2026</text>
+
+  <!-- Neon accent vertical line -->
+  <line x1="410" y1="80" x2="410" y2="570" stroke="#E4FF54" stroke-width="3" opacity="0.85" filter="url(#neonGlow)"/>
+
+  <!-- Right side: Event details -->
+  <text x="750" y="140" font-family="DM Sans, sans-serif" font-size="20" font-weight="500" fill="#C9A0FF" opacity="0.85" letter-spacing="1">FESTIVAL 2026</text>
+
+  <text x="750" y="210" font-family="DM Sans, sans-serif" font-size="26" font-weight="700" fill="#31CDCF" opacity="0.95">SAT 6 JUNE</text>
+  <text x="750" y="250" font-family="DM Sans, sans-serif" font-size="24" font-weight="500" fill="#F0F4F8" opacity="0.9">BLAARMEERSEN</text>
+  <text x="750" y="285" font-family="DM Sans, sans-serif" font-size="24" font-weight="500" fill="#F0F4F8" opacity="0.9">GENT</text>
+
+  <!-- Artist names -->
+  <text x="750" y="360" font-family="DM Sans, sans-serif" font-size="18" font-weight="500" fill="#FFB5C2" opacity="0.8" letter-spacing="1">WITH</text>
+  <text x="750" y="400" font-family="DM Sans, sans-serif" font-size="20" font-weight="600" fill="#F0F4F8" opacity="0.95">Ian Pooley · Pabels</text>
+  <text x="750" y="430" font-family="DM Sans, sans-serif" font-size="20" font-weight="600" fill="#F0F4F8" opacity="0.95">Walashi + more</text>
+
+  <!-- Ticket info -->
+  <text x="750" y="510" font-family="Unbounded, sans-serif" font-size="48" font-weight="800" fill="#E4FF54" filter="url(#strongGlow)">€25 EARLY BIRD</text>
+
+  <!-- Website footer -->
+  <text x="750" y="570" font-family="DM Sans, sans-serif" font-size="18" font-weight="700" fill="#F0F4F8" opacity="0.75">curfew.events</text>
+
+  <!-- Neon accent dots -->
+  <circle cx="450" cy="314" r="6" fill="#E4FF54" opacity="0.7" filter="url(#neonGlow)"/>
+  <circle cx="470" cy="314" r="6" fill="#E4FF54" opacity="0.7" filter="url(#neonGlow)"/>
+  <circle cx="490" cy="314" r="6" fill="#E4FF54" opacity="0.7" filter="url(#neonGlow)"/>
+</svg>
