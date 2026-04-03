@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 import { buildTicketUrl } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
@@ -7,9 +8,9 @@ import { trackTicketClick } from '@/lib/analytics';
 const events = [
   {
     name: "MO'JUICE \u00D7 CURFEW",
-    date: 'THU 16 OCTOBER',
-    venue: 'Club Wintercircus \u00B7 Gent',
-    lineup: 'Lineup TBA',
+    date: 'FRI 7 NOVEMBER',
+    venue: 'Club Wintercircus \u00B7 Ghent',
+    lineup: 'Kamma & Masalo \u00B7 Forbidden Fruit \u00B7 Nico Juice & Mo Disko',
     status: 'SOON',
   },
   {
@@ -28,17 +29,32 @@ export default function UpcomingEvents() {
   }
 
   return (
-    <section id="events" className="py-12 md:py-20 px-6">
-      <div className="max-w-[800px] mx-auto">
+    <section id="events" className="py-8 md:py-14 px-6">
+      <div className="max-w-[900px] mx-auto">
         <ScrollReveal stagger>
           <ScrollRevealItem>
             <h2 className="section-title text-cream text-center mb-4">UPCOMING EVENTS</h2>
           </ScrollRevealItem>
 
           <ScrollRevealItem>
-            <p className="text-cream-muted text-center mb-12 tagline">
+            <p className="text-cream-muted text-center mb-8 tagline">
               Curfew beyond the festival.
             </p>
+          </ScrollRevealItem>
+
+          {/* Photo moment */}
+          <ScrollRevealItem>
+            <div className="relative aspect-[16/7] overflow-hidden mb-8">
+              <Image
+                src="/images/curfew-crowd-stage-purple.jpg"
+                alt="Curfew crowd with purple stage lights"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 900px"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-deep/20 to-deep/30" />
+            </div>
           </ScrollRevealItem>
 
           <ScrollRevealItem>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import Image from 'next/image';
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 import { trackNewsletterSignup } from '@/lib/analytics';
 
@@ -25,8 +26,21 @@ export default function Newsletter() {
   }
 
   return (
-    <section id="newsletter" className="py-12 md:py-20 px-6">
-      <div className="max-w-[600px] mx-auto text-center">
+    <section id="newsletter" className="relative py-8 md:py-14 px-6 overflow-hidden">
+      {/* Background photo with heavy overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/curfew-dj-discoballs-daytime.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-20"
+          sizes="100vw"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-deep/80" />
+      </div>
+
+      <div className="max-w-[600px] mx-auto text-center relative z-10">
         <ScrollReveal stagger>
           <ScrollRevealItem>
             <h2 className="section-title text-cream mb-4">STAY IN THE LOOP</h2>

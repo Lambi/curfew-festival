@@ -49,7 +49,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-24 md:py-32 px-6 relative overflow-hidden">
+    <footer className="py-16 md:py-24 px-6 relative overflow-hidden">
       {/* Massive CURFEW wordmark background */}
       <button
         onClick={handleWordmarkClick}
@@ -63,8 +63,17 @@ export default function Footer() {
         <div className="h-px bg-golden/30 mb-12" />
 
         <ScrollReveal>
-          <p className="label text-cream-muted mb-8 tracking-[0.3em]">
-            CURFEW &middot; GENT &middot; SINCE 2015
+          <p className="label text-cream-muted mb-6 tracking-[0.3em]">
+            CURFEW &middot; GHENT &middot; SINCE 2015
+          </p>
+
+          <p className="mb-8">
+            <a
+              href="mailto:info@curfew.events"
+              className="text-cream-muted hover:text-golden transition-colors duration-300 text-sm tracking-wide"
+            >
+              info@curfew.events
+            </a>
           </p>
 
           <div className="flex justify-center gap-6 mb-8">

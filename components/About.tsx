@@ -5,15 +5,15 @@ import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 
 export default function About() {
   return (
-    <section className="py-12 md:py-20 px-6">
+    <section className="py-8 md:py-14 px-6">
       <div className="max-w-[900px] mx-auto">
         <ScrollReveal stagger>
           {/* Photo — full width, natural colors */}
           <ScrollRevealItem>
-            <div className="relative aspect-[16/9] overflow-hidden mb-12 md:mb-16">
+            <div className="relative aspect-[16/9] overflow-hidden mb-8 md:mb-12">
               <Image
-                src="/images/curfew-stage-discoball.jpg"
-                alt="Curfew stage with disco ball at golden hour"
+                src="/images/curfew-live-act-streamers.jpg"
+                alt="Curfew live performance with streamers"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 900px"
@@ -25,7 +25,7 @@ export default function About() {
           {/* Centered text */}
           <div className="text-center max-w-[700px] mx-auto">
             <ScrollRevealItem>
-              <p className="body-text text-cream/70 mb-6 text-lg leading-relaxed">
+              <p className="body-text text-cream/70 mb-5 text-lg leading-relaxed">
                 It started in 2015 with a simple idea: create a space where house music
                 feels like home. A group of friends in Gent, Belgium, who believed the
                 dancefloor could be something more than a night out — it could be a community.
@@ -33,7 +33,7 @@ export default function About() {
             </ScrollRevealItem>
 
             <ScrollRevealItem>
-              <p className="body-text text-cream/70 mb-6 text-lg leading-relaxed">
+              <p className="body-text text-cream/70 mb-5 text-lg leading-relaxed">
                 Curfew is a non-profit movement. Every event we organize goes back into
                 the music, the people, and the experience. No investors, no corporate
                 agenda — just a crew that lives for deep, soulful house and the
@@ -42,7 +42,7 @@ export default function About() {
             </ScrollRevealItem>
 
             <ScrollRevealItem>
-              <p className="body-text text-cream/70 mb-8 text-lg leading-relaxed">
+              <p className="body-text text-cream/70 mb-6 text-lg leading-relaxed">
                 Over 10 years, 100+ events, and 40.000 people later, the mission
                 hasn&apos;t changed. We bring people together under open skies and golden
                 light, and we let the music do the rest.
@@ -50,7 +50,7 @@ export default function About() {
             </ScrollRevealItem>
 
             <ScrollRevealItem>
-              <p className="text-golden font-bold italic text-xl md:text-2xl mb-10">
+              <p className="text-golden font-bold italic text-xl md:text-2xl mb-8">
                 In House We Trust.
               </p>
             </ScrollRevealItem>

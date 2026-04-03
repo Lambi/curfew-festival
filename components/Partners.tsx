@@ -4,7 +4,7 @@ import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 
 export default function Partners() {
   return (
-    <section id="partners" className="py-10 md:py-16 px-6">
+    <section id="partners" className="py-6 md:py-10 px-6">
       <div className="max-w-[600px] mx-auto">
         <ScrollReveal stagger>
           <ScrollRevealItem>
@@ -19,7 +19,7 @@ export default function Partners() {
               <img
                 src="/images/toutbien-logo.svg"
                 alt="Tout Bien"
-                className="h-8 md:h-10 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 brightness-0 invert"
+                className="h-8 md:h-10 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

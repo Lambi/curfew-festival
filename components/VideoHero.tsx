@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { buildTicketUrl } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
+import Countdown from './Countdown';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -101,7 +102,7 @@ export default function VideoHero() {
             variants={fadeUp}
             className="text-cream/60 text-sm tracking-wide mb-8"
           >
-            SAT 6 JUNE · BLAARMEERSEN · GENT
+            SAT 6 JUNE · BLAARMEERSEN · GHENT
           </motion.p>
 
           {/* Get Tickets Button */}
@@ -114,9 +115,14 @@ export default function VideoHero() {
             GET TICKETS
           </motion.button>
 
+          {/* Countdown */}
+          <motion.div custom={4} variants={fadeUp} className="mb-6">
+            <Countdown />
+          </motion.div>
+
           {/* Tagline */}
           <motion.p
-            custom={4}
+            custom={5}
             variants={fadeUp}
             className="text-golden italic text-sm"
           >

@@ -2,9 +2,9 @@
 
 export default function Marquee() {
   const row1Text =
-    'IN HOUSE WE TRUST · SAT 6 JUNE 2026 · BLAARMEERSEN GENT · DEEP HOUSE · NON-PROFIT · SINCE 2015 · ';
+    'IN HOUSE WE TRUST · SAT 6 JUNE 2026 · BLAARMEERSEN GHENT · DEEP HOUSE · NON-PROFIT · SINCE 2015 · ';
   const row2Text =
-    'CURFEW FESTIVAL · WHERE HOUSE COMES HOME · GENT BELGIUM · 40.000+ PEOPLE UNITED · ';
+    'CURFEW FESTIVAL · WHERE HOUSE COMES HOME · GHENT BELGIUM · 40.000+ PEOPLE UNITED · ';
 
   const row1Full = row1Text + row1Text + row1Text + row1Text;
   const row2Full = row2Text + row2Text + row2Text + row2Text;

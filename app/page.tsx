@@ -14,6 +14,7 @@ import Stats from '@/components/Stats';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import Newsletter from '@/components/Newsletter';
 import Partners from '@/components/Partners';
+import TicketPricing from '@/components/TicketPricing';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import CustomCursor from '@/components/CustomCursor';
@@ -57,16 +58,21 @@ export default function Home() {
         <VideoHero />
         <Marquee />
         <About />
-        <Lineup />
         <AtmosphereBreak
           src="/images/curfew-crowd-golden-hour.jpg"
-          alt="Curfew festival crowd at golden hour"
+          alt="Curfew crowd under golden hour light"
+        />
+        <Lineup />
+        <AtmosphereBreak
+          src="/images/curfew-stage-neon-wide.jpg"
+          alt="Curfew neon sign with festival crowd"
         />
         <Experience />
         <Stats />
+        <TicketPricing />
         <AtmosphereBreak
-          src="/images/curfew-dj-discoballs-daytime.jpg"
-          alt="Curfew DJ with disco balls in daytime"
+          src="/images/curfew-booth-red-lights.jpg"
+          alt="DJ booth bathed in red lights at Curfew"
         />
         <UpcomingEvents />
         <Newsletter />

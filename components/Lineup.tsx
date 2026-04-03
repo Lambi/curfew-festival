@@ -46,11 +46,11 @@ const artists: Artist[] = [
 
 export default function Lineup() {
   return (
-    <section id="lineup" className="py-12 md:py-20 px-6">
+    <section id="lineup" className="py-8 md:py-14 px-6">
       <div className="max-w-[1200px] mx-auto">
         <ScrollReveal stagger>
           <ScrollRevealItem>
-            <h2 className="section-title text-cream text-center mb-12 md:mb-16">LINEUP</h2>
+            <h2 className="section-title text-cream text-center mb-8 md:mb-12">LINEUP</h2>
           </ScrollRevealItem>
 
           {/* All 3 artists in a row on desktop */}
@@ -65,17 +65,17 @@ export default function Lineup() {
                         src={artist.image}
                         alt={artist.name}
                         fill
-                        className="object-cover object-top warm-grade transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                         sizes="(max-width: 768px) 90vw, 33vw"
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-deep/80 via-deep/20 to-transparent" />
 
                       {/* Tag overlay */}
-                      <div className={`absolute top-3 left-3 z-10 text-[9px] tracking-[0.2em] font-bold px-2.5 py-1 ${
+                      <div className={`absolute top-4 left-4 z-10 text-xs tracking-[0.2em] font-bold px-4 py-2 ${
                         artist.tag === 'LIVE'
-                          ? 'bg-golden text-deep'
-                          : 'border border-golden/40 text-golden bg-deep/60 backdrop-blur-sm'
+                          ? 'bg-golden text-deep shadow-lg shadow-golden/30'
+                          : 'border border-golden/50 text-golden bg-deep/70 backdrop-blur-sm'
                       }`}>
                         {artist.tag}
                       </div>

@@ -11,7 +11,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-14 md:py-24 px-6 relative">
+    <section className="py-10 md:py-16 px-6 relative">
       <div className="warm-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
       <div className="max-w-[1100px] mx-auto relative z-10">
@@ -31,7 +31,7 @@ export default function Stats() {
       </div>
 
       {/* Golden divider */}
-      <div className="max-w-[200px] mx-auto mt-12 md:mt-16">
+      <div className="max-w-[200px] mx-auto mt-8 md:mt-12">
         <div className="h-px bg-golden/30" />
       </div>
     </section>

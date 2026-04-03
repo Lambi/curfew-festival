@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { buildTicketUrl } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
@@ -34,21 +33,33 @@ export default function Navigation() {
 
   function scrollTo(href: string) {
     setMenuOpen(false);
+    if (href === '#hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const el = document.querySelector(href);
     el?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function handleLogoClick() {
+    setMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-[100] transition-colors duration-300 ${
-          scrolled ? 'bg-deep/95 backdrop-blur-sm' : 'bg-transparent'
+        className={`fixed top-0 w-full z-[100] transition-all duration-300 ${
+          scrolled ? 'bg-deep/95 backdrop-blur-sm shadow-lg shadow-deep/50' : 'bg-deep/30 backdrop-blur-[2px]'
         }`}
       >
         <div className="flex justify-between items-center px-6 py-4 max-w-[1400px] mx-auto">
-          <span className="font-display text-cream text-xl tracking-wider font-bold">
+          <button
+            onClick={handleLogoClick}
+            className="font-display text-cream text-xl tracking-wider font-bold hover:text-golden transition-colors duration-300"
+          >
             CURFEW
-          </span>
+          </button>
 
           <div className="hidden md:flex gap-6 items-center">
             {navLinks.map((link) => (
@@ -85,36 +96,67 @@ export default function Navigation() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[99] bg-deep flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-[99] bg-deep flex flex-col"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {navLinks.map((link, i) => (
+            {/* Top bar with logo and close */}
+            <div className="flex justify-between items-center px-6 py-4">
+              <button
+                onClick={handleLogoClick}
+                className="font-display text-cream text-xl tracking-wider font-bold hover:text-golden transition-colors duration-300"
+              >
+                CURFEW
+              </button>
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-cream text-2xl hover:text-golden transition-colors duration-300"
+                aria-label="Close menu"
+              >
+                &#10005;
+              </button>
+            </div>
+
+            {/* Menu items centered */}
+            <div className="flex-1 flex flex-col items-center justify-center gap-8">
+              {navLinks.map((link, i) => (
+                <motion.button
+                  key={link.label}
+                  onClick={() => scrollTo(link.href)}
+                  className="font-display text-cream text-3xl tracking-wider font-bold hover:text-golden transition-colors duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                >
+                  {link.label}
+                </motion.button>
+              ))}
               <motion.button
-                key={link.label}
-                onClick={() => scrollTo(link.href)}
-                className="font-display text-cream text-3xl tracking-wider font-bold"
+                onClick={() => {
+                  setMenuOpen(false);
+                  handleTicketClick();
+                }}
+                className="mt-4 border border-golden text-cream px-8 py-3 text-sm tracking-[0.25em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.4 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
               >
-                {link.label}
+                GET TICKETS
               </motion.button>
-            ))}
-            <motion.button
-              onClick={() => {
-                setMenuOpen(false);
-                handleTicketClick();
-              }}
-              className="mt-4 border border-golden text-cream px-8 py-3 text-sm tracking-[0.25em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.4 }}
+            </div>
+
+            {/* Swipe/arrow hint at left edge to close */}
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 px-2 py-8 text-cream/30 hover:text-cream/60 transition-colors duration-300"
+              aria-label="Close menu"
             >
-              GET TICKETS
-            </motion.button>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
