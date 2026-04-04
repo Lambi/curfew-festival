@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #0A0A0C; position: relative; font-family: 'Work Sans', sans-serif; }
+
+  .photo { position: absolute; inset: 0; background: url('./public/images/curfew-stage-discoball.jpg') center center / cover; filter: saturate(1.2) brightness(0.75) contrast(1.2) sepia(0.15); }
+  .wash { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(200,164,90,0.35) 0%, rgba(10,10,12,0.3) 25%, transparent 45%, rgba(10,10,12,0.5) 65%, rgba(10,10,12,0.97) 100%); }
+  .warm { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(255,200,80,0.18) 0%, transparent 55%); }
+  .orb { position: absolute; width: 450px; height: 450px; top: 400px; right: -100px; border-radius: 50%; background: radial-gradient(circle, rgba(200,164,90,0.3) 0%, transparent 70%); filter: blur(65px); mix-blend-mode: screen; }
+  .grain { position: absolute; inset: 0; opacity: 0.05; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; z-index: 50; }
+
+  .top { position: absolute; top: 80px; left: 65px; right: 65px; display: flex; justify-content: space-between; align-items: flex-start; z-index: 10; }
+  .tagline { font-family: 'Work Sans'; font-weight: 400; font-style: italic; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; color: #C8A45A; }
+  .top-date { font-family: 'Big Shoulders Display'; font-weight: 900; font-size: 56px; color: #C8A45A; line-height: 1; }
+
+  .mid-info { position: absolute; top: 46%; left: 65px; transform: translateY(-50%); z-index: 10; }
+  .mid-day { font-family: 'Big Shoulders Display'; font-weight: 700; font-size: 36px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(242,237,227,0.55); }
+  .mid-venue { font-family: 'Work Sans'; font-weight: 700; font-size: 24px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,164,90,0.6); margin-top: 10px; }
+
+  .title-block { position: absolute; bottom: 120px; left: 65px; right: 65px; z-index: 10; }
+  .t-curfew { font-family: 'Big Shoulders Display'; font-weight: 900; font-size: 210px; line-height: 0.88; text-transform: uppercase; color: #F2EDE3; text-shadow: 0 4px 80px rgba(200,164,90,0.35); }
+  .t-festival { font-family: 'Big Shoulders Display'; font-weight: 900; font-size: 210px; line-height: 0.88; text-transform: uppercase; color: #C8A45A; }
+  .t-year { font-family: 'Big Shoulders Display'; font-weight: 700; font-size: 130px; line-height: 1; color: transparent; -webkit-text-stroke: 2.5px rgba(200,164,90,0.5); letter-spacing: 0.08em; margin-top: 8px; }
+</style>
+</head>
+<body>
+  <div class="photo"></div><div class="wash"></div><div class="warm"></div><div class="orb"></div>
+  <div class="top">
+    <span class="tagline">In House We Trust</span>
+    <div class="top-date">06.06</div>
+  </div>
+  <div class="mid-info">
+    <div class="mid-day">Saturday 6 June</div>
+    <div class="mid-venue">Blaarmeersen · Gent · Belgium</div>
+  </div>
+  <div class="title-block">
+    <div class="t-curfew">CURFEW</div><div class="t-festival">FESTIVAL</div><div class="t-year">2026</div>
+  </div>
+  <div class="grain"></div>
+</body>
+</html>

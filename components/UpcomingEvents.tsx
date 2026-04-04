@@ -44,7 +44,7 @@ export default function UpcomingEvents() {
 
           {/* Photo moment */}
           <ScrollRevealItem>
-            <div className="relative aspect-[16/7] overflow-hidden mb-8">
+            <div className="relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[16/7] overflow-hidden mb-8">
               <Image
                 src="/images/curfew-crowd-stage-purple.jpg"
                 alt="Curfew crowd with purple stage lights"

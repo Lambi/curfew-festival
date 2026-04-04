@@ -21,7 +21,7 @@ export default function IanPooleyPage() {
   return (
     <div className="min-h-screen bg-deep text-cream">
       {/* Back nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 bg-deep/60 backdrop-blur-sm">
         <Link
           href="/#lineup"
           className="inline-flex items-center gap-2 text-cream/60 text-sm tracking-[0.15em] font-bold hover:text-golden transition-colors"
@@ -121,7 +121,7 @@ export default function IanPooleyPage() {
 
       {/* CTA */}
       <section className="px-6 md:px-16 py-16 md:py-24 text-center">
-        <p className="text-cream/40 text-sm tracking-[0.2em] mb-6">SAT 6 JUNE · BLAARMEERSEN · GENT</p>
+        <p className="text-cream/40 text-sm tracking-[0.2em] mb-6">SAT 6 JUNE · BLAARMEERSEN · GHENT</p>
         <Link
           href="/#lineup"
           className="inline-block border border-cream/20 text-cream px-8 py-3 text-xs tracking-[0.25em] font-bold hover:border-golden hover:text-golden transition-all duration-300"

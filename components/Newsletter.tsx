@@ -8,19 +8,31 @@ import { trackNewsletterSignup } from '@/lib/analytics';
 export default function Newsletter() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!email) return;
 
     setStatus('loading');
+    setErrorMsg('');
 
     try {
-      // Replace with actual API call
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Subscription failed');
+      }
+
       trackNewsletterSignup();
       setStatus('success');
-    } catch {
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Try again.');
       setStatus('error');
     }
   }
@@ -54,9 +66,14 @@ export default function Newsletter() {
 
           <ScrollRevealItem>
             {status === 'success' ? (
-              <p className="text-golden text-lg font-bold tracking-wide">
-                You&apos;re in. See you soon. &#10003;
-              </p>
+              <div className="py-6">
+                <p className="text-golden text-lg font-bold tracking-wide mb-2">
+                  You&apos;re in. See you soon. &#10003;
+                </p>
+                <p className="text-cream-muted text-sm">
+                  Check your inbox for a confirmation.
+                </p>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 items-stretch">
                 <input
@@ -77,7 +94,7 @@ export default function Newsletter() {
               </form>
             )}
             {status === 'error' && (
-              <p className="text-coral text-sm mt-4">Something went wrong. Try again.</p>
+              <p className="text-coral text-sm mt-4">{errorMsg}</p>
             )}
           </ScrollRevealItem>
         </ScrollReveal>

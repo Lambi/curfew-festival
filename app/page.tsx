@@ -13,6 +13,7 @@ import Experience from '@/components/Experience';
 import Stats from '@/components/Stats';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import Newsletter from '@/components/Newsletter';
+import Contact from '@/components/Contact';
 import Partners from '@/components/Partners';
 import TicketPricing from '@/components/TicketPricing';
 import Footer from '@/components/Footer';
@@ -76,6 +77,7 @@ export default function Home() {
         />
         <UpcomingEvents />
         <Newsletter />
+        <Contact />
         <Partners />
       </main>
 

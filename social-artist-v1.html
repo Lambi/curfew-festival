@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0A0A0C; position: relative; font-family: 'Work Sans', sans-serif; }
+
+  .photo { position: absolute; top: 0; left: 0; right: 0; height: 850px; background: url('./public/images/ian-pooley-portrait-new.jpg') center 20% / cover; filter: saturate(1.2) brightness(0.8) contrast(1.1) sepia(0.15); }
+  .wash { position: absolute; top: 0; left: 0; right: 0; height: 850px; background: linear-gradient(180deg, rgba(200,164,90,0.25) 0%, rgba(10,10,12,0.15) 35%, rgba(10,10,12,0.85) 80%, rgba(10,10,12,1) 100%); }
+  .glow { position: absolute; top: 100px; left: -100px; width: 400px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(200,164,90,0.15) 0%, transparent 60%); filter: blur(60px); mix-blend-mode: screen; }
+  .grain { position: absolute; inset: 0; opacity: 0.06; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; z-index: 50; }
+  .razor { position: absolute; left: 0; right: 0; top: 750px; height: 1px; background: rgba(200,164,90,0.25); z-index: 15; }
+
+  .top-mark { position: absolute; top: 45px; left: 55px; right: 55px; display: flex; justify-content: space-between; align-items: flex-start; z-index: 10; }
+  .mark-tagline { font-family: 'Work Sans'; font-weight: 400; font-style: italic; font-size: 22px; letter-spacing: 0.12em; text-transform: uppercase; color: #C8A45A; }
+  .mark-label { font-family: 'Work Sans'; font-weight: 700; font-size: 16px; letter-spacing: 0.25em; text-transform: uppercase; color: #C8A45A; border: 1.5px solid rgba(200,164,90,0.5); padding: 8px 22px; }
+
+  .artist-block { position: absolute; top: 700px; left: 55px; right: 55px; z-index: 10; }
+  .artist-name { font-family: 'Big Shoulders Display'; font-weight: 900; font-size: 170px; line-height: 0.85; text-transform: uppercase; color: #F2EDE3; text-shadow: 0 4px 60px rgba(200,164,90,0.3); }
+  .artist-origin { font-family: 'Work Sans'; font-weight: 400; font-size: 20px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(200,164,90,0.6); margin-top: 15px; }
+
+  .bottom-info { position: absolute; bottom: 50px; left: 55px; right: 55px; z-index: 10; }
+  .bottom-div { width: 100%; height: 1px; background: rgba(200,164,90,0.25); margin-bottom: 25px; }
+  .bottom-row { display: flex; justify-content: space-between; align-items: flex-end; }
+  .fest-name { font-family: 'Big Shoulders Display'; font-weight: 900; font-size: 40px; letter-spacing: 0.06em; text-transform: uppercase; color: #C8A45A; }
+  .fest-sub { font-family: 'Work Sans'; font-weight: 400; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(242,237,227,0.4); margin-top: 4px; }
+  .date-big { font-family: 'Big Shoulders Display'; font-weight: 900; font-size: 60px; color: #C8A45A; line-height: 1; }
+  .venue-text { font-family: 'Work Sans'; font-weight: 700; font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(242,237,227,0.5); margin-top: 6px; text-align: right; }
+</style>
+</head>
+<body>
+  <div class="photo"></div><div class="wash"></div><div class="glow"></div><div class="razor"></div>
+  <div class="top-mark">
+    <span class="mark-tagline">In House We Trust</span>
+    <span class="mark-label">Artist Announce</span>
+  </div>
+  <div class="artist-block">
+    <div class="artist-name">IAN<br>POOLEY</div>
+    <div class="artist-origin">Frankfurt, Germany · Deep House · Tech House</div>
+  </div>
+  <div class="bottom-info">
+    <div class="bottom-div"></div>
+    <div class="bottom-row">
+      <div><div class="fest-name">Curfew Festival 2026</div><div class="fest-sub">Non-Profit House Music Festival</div></div>
+      <div style="text-align:right;"><div class="date-big">06.06</div><div class="venue-text">Blaarmeersen · Gent · Belgium</div></div>
+    </div>
+  </div>
+  <div class="grain"></div>
+</body>
+</html>

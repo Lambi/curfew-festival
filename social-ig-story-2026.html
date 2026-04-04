@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Curfew Festival 2026 — IG Story</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #0A0A0C;
+    position: relative;
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  .photo-bg {
+    position: absolute;
+    inset: 0;
+    background: url('./public/images/curfew-dj-discoballs-daytime.jpg') center 30% / cover no-repeat;
+    filter: saturate(1.25) brightness(0.8) contrast(1.15) sepia(0.12);
+  }
+
+  .golden-wash {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 12, 0.8) 0%,
+      rgba(200, 164, 90, 0.25) 12%,
+      rgba(180, 130, 50, 0.1) 35%,
+      transparent 50%,
+      rgba(10, 10, 12, 0.4) 70%,
+      rgba(10, 10, 12, 0.96) 100%
+    );
+  }
+
+  .sun-flare {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 200, 80, 0.22) 0%, transparent 60%);
+    filter: blur(40px);
+    mix-blend-mode: screen;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    mix-blend-mode: screen;
+  }
+  .orb-1 {
+    width: 500px; height: 500px;
+    top: 200px; left: -120px;
+    background: radial-gradient(circle, rgba(200, 164, 90, 0.35) 0%, transparent 70%);
+  }
+  .orb-2 {
+    width: 350px; height: 350px;
+    top: 900px; right: -80px;
+    background: radial-gradient(circle, rgba(255, 179, 71, 0.25) 0%, transparent 70%);
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  /* ── TOP — tagline big + golden ── */
+  .top-cluster {
+    position: absolute;
+    top: 80px;
+    left: 65px;
+    right: 65px;
+    z-index: 10;
+  }
+
+  .tagline-top {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C8A45A;
+  }
+
+  /* ── CENTER — date big ── */
+  .center-date {
+    position: absolute;
+    top: 50%;
+    left: 65px;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .center-date-main {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 90px;
+    line-height: 1;
+    color: #C8A45A;
+    letter-spacing: 0.04em;
+  }
+
+  .center-date-sub {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(242, 237, 227, 0.6);
+    margin-top: 10px;
+  }
+
+  .center-venue {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(200, 164, 90, 0.6);
+    margin-top: 5px;
+  }
+
+  /* ── RAZOR CUTS ── */
+  .razor-h {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: rgba(200, 164, 90, 0.25);
+    z-index: 15;
+  }
+  .razor-1 { top: 680px; }
+  .razor-2 { bottom: 680px; }
+
+  /* ── MASSIVE TITLE — lower third ── */
+  .title-block {
+    position: absolute;
+    bottom: 120px;
+    left: 65px;
+    right: 65px;
+    z-index: 10;
+  }
+
+  .title-curfew {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 210px;
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: #F2EDE3;
+    letter-spacing: 0.03em;
+    text-shadow: 0 4px 80px rgba(200, 164, 90, 0.35);
+  }
+
+  .title-festival {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 210px;
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: #C8A45A;
+    letter-spacing: 0.03em;
+  }
+
+  .title-year {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 700;
+    font-size: 130px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2.5px rgba(200, 164, 90, 0.5);
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+  }
+
+  /* ── SWIPE CTA ── */
+  .swipe-cta {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 20;
+  }
+
+  .swipe-arrow {
+    width: 22px; height: 22px;
+    border-left: 1.5px solid #C8A45A;
+    border-top: 1.5px solid #C8A45A;
+    transform: rotate(45deg);
+    margin: 0 auto 10px;
+  }
+
+  .swipe-text {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #C8A45A;
+  }
+
+  .coord {
+    position: absolute;
+    right: 65px;
+    top: 84px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(200, 164, 90, 0.3);
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+  <div class="photo-bg"></div>
+  <div class="golden-wash"></div>
+  <div class="sun-flare"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="razor-h razor-1"></div>
+  <div class="razor-h razor-2"></div>
+
+  <div class="top-cluster">
+    <div class="tagline-top">In House We Trust</div>
+  </div>
+  <span class="coord">51.0543°N 3.6856°E</span>
+
+  <div class="center-date">
+    <div class="center-date-main">SAT 06.06</div>
+    <div class="center-date-sub">Blaarmeersen</div>
+    <div class="center-venue">Gent · Belgium</div>
+  </div>
+
+  <div class="title-block">
+    <div class="title-curfew">CURFEW</div>
+    <div class="title-festival">FESTIVAL</div>
+    <div class="title-year">2026</div>
+  </div>
+
+  <div class="swipe-cta">
+    <div class="swipe-arrow"></div>
+    <div class="swipe-text">Get Tickets</div>
+  </div>
+
+  <div class="grain"></div>
+</body>
+</html>

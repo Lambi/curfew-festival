@@ -1,50 +1,38 @@
 <svg viewBox="0 0 1920 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Space+Mono:wght@400&display=swap');
-
-      .headline {
-        font-family: 'Big Shoulders Display', sans-serif;
-        font-weight: 900;
-        font-size: 520px;
-        letter-spacing: -14px;
-        text-transform: uppercase;
-        fill: #FAF2E1;
-        line-height: 0.8;
-      }
-
-      .accent {
-        fill: #3DED97;
-      }
-
-      .small-text {
-        font-family: 'Space Mono', monospace;
-        font-weight: 400;
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        fill: #FAF2E1;
-      }
+      @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;900&family=Space+Mono:wght@400&display=swap');
     </style>
-
-    <filter id="bloom-soft">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="55" />
+    <filter id="blur-60">
+      <feGaussianBlur stdDeviation="60" />
+    </filter>
+    <filter id="blur-55">
+      <feGaussianBlur stdDeviation="55" />
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1920" height="600" fill="#0F0E17" />
+  <rect width="1920" height="600" fill="#0A0A0C" />
 
-  <!-- Bloom circles at edges -->
-  <circle cx="150" cy="150" r="240" fill="#FF6B9D" opacity="0.09" filter="url(#bloom-soft)" />
-  <circle cx="1770" cy="480" r="260" fill="#3DED97" opacity="0.09" filter="url(#bloom-soft)" />
+  <!-- Thermal Orbs -->
+  <!-- Rose orb (far left, 400px diameter) -->
+  <circle cx="120" cy="150" r="200" fill="#FF6B9D" opacity="0.10" filter="url(#blur-60)" />
 
-  <!-- Main headline spanning width -->
-  <text x="960" y="380" text-anchor="middle" class="headline">CURFEW</text>
+  <!-- Cyan orb (far right, 350px diameter) -->
+  <circle cx="1800" cy="450" r="175" fill="#00E5CC" opacity="0.08" filter="url(#blur-55)" />
 
-  <!-- Accent year -->
-  <text x="960" y="520" text-anchor="middle" class="accent" style="font-size: 140px; letter-spacing: -3px;">2026</text>
+  <!-- Main Title: CURFEW spans entire width (~480px), centered, cropped at top/bottom -->
+  <text x="960" y="320" font-family="Big Shoulders Display" font-size="480" font-weight="900" fill="#F2EDE3" text-anchor="middle" letter-spacing="-29" dominant-baseline="middle">
+    CURFEW
+  </text>
 
-  <!-- Bottom info centered -->
-  <text x="960" y="575" text-anchor="middle" class="small-text">SAT 6 JUNE · BLAARMEERSEN · GENT</text>
+  <!-- 2026 in thin weight, signal green, centered below -->
+  <text x="960" y="450" font-family="Big Shoulders Display" font-size="90" font-weight="100" fill="#3DED97" text-anchor="middle" letter-spacing="10" dominant-baseline="middle">
+    2026
+  </text>
+
+  <!-- Event details (bottom, tiny, centered, muted) -->
+  <text x="960" y="570" font-family="Space Mono" font-size="12" font-weight="400" fill="#F2EDE3" opacity="0.3" text-anchor="middle">
+    SAT 6 JUNE · BLAARMEERSEN · GENT · IN HOUSE WE TRUST
+  </text>
 </svg>

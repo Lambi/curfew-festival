@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; overflow: hidden; background: #0A0A0C; position: relative; font-family: 'Work Sans', sans-serif; }
+
+  /* Full-bleed crowd shot */
+  .photo { position: absolute; inset: 0; background: url('./public/images/curfew-crowd-golden-hour.jpg') center 45% / cover; filter: saturate(1.35) brightness(0.75) contrast(1.15) sepia(0.18); }
+
+  /* Heavy vignette pushing eyes to center */
+  .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, transparent 25%, rgba(10,10,12,0.55) 55%, rgba(10,10,12,0.92) 100%); }
+
+  /* Golden overlay */
+  .golden { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(200,164,90,0.2) 0%, transparent 50%); }
+
+  /* Bottom darken for lower info */
+  .bottom-dark { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(10,10,12,0.6) 80%, rgba(10,10,12,0.9) 100%); }
+
+  /* Top darken */
+  .top-dark { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,12,0.7) 0%, transparent 25%); }
+
+  /* Thermal orbs */
+  .orb1 { position: absolute; width: 600px; height: 600px; top: -150px; left: 50%; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(200,164,90,0.2) 0%, transparent 60%); filter: blur(80px); mix-blend-mode: screen; }
+  .orb2 { position: absolute; width: 400px; height: 400px; bottom: -100px; left: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,179,71,0.15) 0%, transparent 70%); filter: blur(60px); mix-blend-mode: screen; }
+  .orb3 { position: absolute; width: 350px; height: 350px; top: 200px; right: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(200,164,90,0.12) 0%, transparent 70%); filter: blur(60px); mix-blend-mode: screen; }
+
+  .grain { position: absolute; inset: 0; opacity: 0.05; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; z-index: 50; }
+
+  /* Razor cuts */
+  .razor-top { position: absolute; left: 300px; right: 300px; top: 180px; height: 1px; background: rgba(200,164,90,0.2); z-index: 15; }
+  .razor-bot { position: absolute; left: 300px; right: 300px; bottom: 180px; height: 1px; background: rgba(200,164,90,0.2); z-index: 15; }
+
+  /* ══════ CENTERED INFO BLOCK ══════ */
+  .center-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    width: 1400px;
+  }
+
+  /* Tagline above title */
+  .tagline {
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 28px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C8A45A;
+    margin-bottom: 30px;
+  }
+
+  /* Main title stack */
+  .t-curfew {
+    font-family: 'Big Shoulders Display';
+    font-weight: 900;
+    font-size: 230px;
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: #F2EDE3;
+    letter-spacing: 0.04em;
+    text-shadow: 0 6px 80px rgba(200,164,90,0.4);
+  }
+
+  .t-festival {
+    font-family: 'Big Shoulders Display';
+    font-weight: 900;
+    font-size: 230px;
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: #C8A45A;
+    letter-spacing: 0.04em;
+  }
+
+  .t-year {
+    font-family: 'Big Shoulders Display';
+    font-weight: 700;
+    font-size: 140px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2.5px rgba(200,164,90,0.5);
+    letter-spacing: 0.1em;
+    margin-top: 8px;
+  }
+
+  /* Divider below title */
+  .divider {
+    width: 200px;
+    height: 1.5px;
+    background: rgba(200,164,90,0.5);
+    margin: 35px auto 30px;
+  }
+
+  /* Date + Venue row */
+  .info-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .info-date {
+    font-family: 'Big Shoulders Display';
+    font-weight: 900;
+    font-size: 64px;
+    color: #C8A45A;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .info-sep {
+    width: 1.5px;
+    height: 50px;
+    background: rgba(200,164,90,0.4);
+  }
+
+  .info-venue {
+    text-align: left;
+  }
+
+  .info-venue-name {
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(242,237,227,0.7);
+  }
+
+  .info-venue-city {
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(200,164,90,0.6);
+    margin-top: 4px;
+  }
+
+  /* Corner whispers */
+  .corner-tl { position: absolute; top: 40px; left: 60px; font-family: 'Work Sans'; font-weight: 300; font-size: 10px; letter-spacing: 0.15em; color: rgba(200,164,90,0.2); z-index: 10; }
+  .corner-tr { position: absolute; top: 40px; right: 60px; font-family: 'Work Sans'; font-weight: 300; font-size: 10px; letter-spacing: 0.15em; color: rgba(200,164,90,0.2); z-index: 10; text-align: right; }
+  .corner-bl { position: absolute; bottom: 40px; left: 60px; font-family: 'Work Sans'; font-weight: 400; font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(200,164,90,0.35); z-index: 10; }
+  .corner-br { position: absolute; bottom: 40px; right: 60px; font-family: 'Work Sans'; font-weight: 400; font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(242,237,227,0.3); z-index: 10; }
+</style>
+</head>
+<body>
+  <div class="photo"></div>
+  <div class="vignette"></div>
+  <div class="golden"></div>
+  <div class="bottom-dark"></div>
+  <div class="top-dark"></div>
+  <div class="orb1"></div><div class="orb2"></div><div class="orb3"></div>
+  <div class="razor-top"></div><div class="razor-bot"></div>
+
+  <span class="corner-tl">51.0543°N 3.6856°E</span>
+  <span class="corner-tr">NON-PROFIT HOUSE<br>MUSIC FESTIVAL</span>
+  <span class="corner-bl">www.curfewfestival.be</span>
+  <span class="corner-br">Free · Donation Based</span>
+
+  <div class="center-block">
+    <div class="tagline">In House We Trust</div>
+    <div class="t-curfew">CURFEW</div>
+    <div class="t-festival">FESTIVAL</div>
+    <div class="t-year">2026</div>
+    <div class="divider"></div>
+    <div class="info-row">
+      <div class="info-date">SAT 06.06</div>
+      <div class="info-sep"></div>
+      <div class="info-venue">
+        <div class="info-venue-name">Blaarmeersen</div>
+        <div class="info-venue-city">Gent · Belgium</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grain"></div>
+</body>
+</html>

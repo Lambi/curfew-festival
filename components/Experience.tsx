@@ -31,7 +31,7 @@ export default function Experience() {
 
         {/* Single wide cinematic photo */}
         <ScrollReveal>
-          <div className="relative aspect-[21/9] overflow-hidden mb-10">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] overflow-hidden mb-10">
             <Image
               src="/images/curfew-dj-duo-blue.jpg"
               alt="DJ duo performing in blue lights at Curfew"

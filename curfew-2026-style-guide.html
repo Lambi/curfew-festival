@@ -3,1020 +3,862 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curfew 2026 — Style Guide</title>
+<title>CURFEW 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;700;900&family=Work+Sans:ital,wght@0,200;0,300;0,400;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
+/* ═══════════════════════════════════════════════════
+   CURFEW 2026 — "THERMAL BRUTALISM"
+
+   The guide IS the brand. Not documentation.
+   A poster that explains itself.
+   ═══════════════════════════════════════════════════ */
+
+@keyframes crawl   { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes breathe  { 0%,100% { transform: scale(1); opacity: var(--o); } 50% { transform: scale(1.08); opacity: calc(var(--o) * 1.3); } }
+@keyframes slideIn  { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+
 :root {
-  --deep:          #0F0E17;
-  --surface:       #1C1B2E;
-  --surface-light: #252440;
-  --cream:         #FAF2E1;
-  --cream-muted:   rgba(250, 242, 225, 0.45);
-  --golden:        #C8A45A;
-  --coral:         #F0879B;
-  --bloom-pink:    #FF6B9D;
-  --bloom-green:   #3DED97;
-  --bloom-cyan:    #00E5CC;
-  --bloom-violet:  #A78BFA;
-  --bloom-amber:   #FFB347;
-
-  --font-display:  'Big Shoulders Display', sans-serif;
-  --font-body:     'Work Sans', sans-serif;
-  --font-data:     'Space Mono', monospace;
+  --black:  #0A0A0C;
+  --ink:    #141418;
+  --slab:   #1E1E24;
+  --cream:  #F2EDE3;
+  --gold:   #C8A45A;
+  --rose:   #FF6B9D;
+  --signal: #3DED97;
+  --cyan:   #00E5CC;
+  --violet: #A78BFA;
+  --amber:  #FFB347;
+  --mute:   rgba(242,237,227,0.3);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
-body {
-  background: var(--deep);
-  color: var(--cream);
-  font-family: var(--font-body);
-  font-weight: 300;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+body{
+  background:var(--black);
+  color:var(--cream);
+  font-family:'Work Sans',sans-serif;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 
-/* Grain — heavier for raw texture */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
+/* GRAIN — heavy, filmic */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:10000;
+  opacity:0.06;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
 }
 
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--deep); }
-::-webkit-scrollbar-thumb { background: rgba(200,164,90,0.25); }
-::selection { background: rgba(61,237,151,0.2); color: var(--cream); }
+::selection{background:var(--signal);color:var(--black);}
 
-.wrap { max-width: 1400px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+/* ── THE ONLY FONT THAT MATTERS ── */
+.d{font-family:'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:-0.02em;line-height:.78;}
+.m{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;}
 
-/* ═══════════════════════════════════
-   MEGA TYPE — the core of this system
-   ═══════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   HERO — CURFEW fills the entire viewport
+   Like FORZA but with thermal blooms eating the type
+   ═══════════════════════════════════════════════════ */
 
-.mega {
-  font-family: var(--font-display);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  line-height: 0.85;
+.hero{
+  height:100vh;
+  height:100svh;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  padding:0 0 3vh 0;
 }
 
-.mega-hero { font-size: clamp(6rem, 20vw, 16rem); }
-.mega-xl   { font-size: clamp(4rem, 14vw, 12rem); }
-.mega-lg   { font-size: clamp(3rem, 10vw, 8rem); }
-.mega-md   { font-size: clamp(2rem, 6vw, 5rem); }
-.mega-sm   { font-size: clamp(1.5rem, 4vw, 3rem); }
-
-.mono {
-  font-family: var(--font-data);
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+/* Thermal bloom circles — the brand's visual DNA */
+.orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(var(--blur,80px));
+  mix-blend-mode:screen;
+  pointer-events:none;
+  animation:breathe var(--dur,20s) ease-in-out infinite;
 }
 
-.mono-green { color: var(--bloom-green); }
-.mono-muted { color: var(--cream-muted); }
+.hero .o1{--o:.18;--dur:18s;--blur:100px;width:55vw;height:55vw;max-width:700px;max-height:700px;background:var(--rose);top:-15%;left:-10%;}
+.hero .o2{--o:.14;--dur:24s;--blur:120px;width:45vw;height:45vw;max-width:600px;max-height:600px;background:var(--signal);bottom:-10%;right:-5%;}
+.hero .o3{--o:.08;--dur:30s;--blur:90px;width:30vw;height:30vw;max-width:400px;max-height:400px;background:var(--gold);top:30%;left:40%;}
 
-/* ═══════════════════════════════════
-   BLOOM ELEMENTS — minimal, organic
-   ═══════════════════════════════════ */
+/* Geometric cuts — sharp slashes through the organic */
+.cut{position:absolute;background:var(--cream);opacity:.04;pointer-events:none;}
+.hero .c1{width:3px;height:70vh;top:5%;left:18%;transform:rotate(2deg);}
+.hero .c2{width:50vw;height:2px;top:38%;left:30%;}
+.hero .c3{width:2px;height:45vh;bottom:5%;right:22%;transform:rotate(-1deg);}
 
-.bloom {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  mix-blend-mode: screen;
-  pointer-events: none;
+/* Coordinate whispers */
+.whisper{
+  position:absolute;
+  font-family:'Space Mono',monospace;
+  font-size:.5rem;
+  color:rgba(242,237,227,.12);
+  letter-spacing:.08em;
+  pointer-events:none;
 }
 
-.coord {
-  font-family: var(--font-data);
-  font-size: 0.55rem;
-  color: rgba(250,242,225,0.15);
-  letter-spacing: 0.05em;
-  position: absolute;
-  pointer-events: none;
+.hero-title{
+  position:relative;z-index:2;
+  width:100%;
+  padding:0 clamp(1rem,3vw,2rem);
 }
 
-.bar {
-  position: absolute;
-  opacity: 0.08;
-  pointer-events: none;
+.hero-title h1{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:900;
+  font-size:clamp(18vw,22vw,28rem);
+  line-height:.76;
+  text-transform:uppercase;
+  letter-spacing:-0.03em;
+  /* The title should feel like it's TOO big for the page */
+  margin-left:-.03em;
 }
 
-/* ═══════════════════════════════════
-   HEADER — pure impact
-   ═══════════════════════════════════ */
-
-.header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: clamp(3rem, 8vh, 6rem);
-  position: relative;
-  overflow: hidden;
+.hero-year{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:100;
+  font-size:clamp(8vw,12vw,15rem);
+  line-height:.9;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--signal);
+  display:block;
+  margin-top:-.05em;
 }
 
-.header .bloom-1 { width: 500px; height: 500px; background: var(--bloom-green); opacity: 0.07; top: 5%; left: -5%; animation: drift 25s ease-in-out infinite; }
-.header .bloom-2 { width: 350px; height: 350px; background: var(--bloom-pink); opacity: 0.06; top: 20%; right: 5%; animation: drift 20s ease-in-out infinite reverse; }
-.header .bloom-3 { width: 250px; height: 250px; background: var(--golden); opacity: 0.05; bottom: 25%; left: 40%; animation: drift 30s ease-in-out infinite; }
-
-@keyframes drift {
-  0%, 100% { transform: translate(0, 0); }
-  33% { transform: translate(40px, -30px); }
-  66% { transform: translate(-20px, 25px); }
+.hero-meta{
+  position:absolute;
+  top:clamp(1.5rem,4vh,3rem);
+  left:clamp(1rem,3vw,2rem);
+  right:clamp(1rem,3vw,2rem);
+  display:flex;
+  justify-content:space-between;
+  z-index:3;
 }
 
-.header-top {
-  position: absolute;
-  top: clamp(1.5rem, 4vh, 3rem);
-  left: clamp(1rem, 4vw, 3rem);
-  right: clamp(1rem, 4vw, 3rem);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.hero-meta .live{
+  display:flex;align-items:center;gap:.4rem;
+}
+.hero-meta .live::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--signal);
+  animation:breathe 2s ease-in-out infinite;
+  --o:1;
 }
 
-.header-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* ═══════════════════════════════════════════════════
+   MARQUEE — scrolling tape, old rave flyer energy
+   ═══════════════════════════════════════════════════ */
+
+.marquee{
+  overflow:hidden;
+  border-top:1px solid rgba(242,237,227,.06);
+  border-bottom:1px solid rgba(242,237,227,.06);
+  padding:clamp(.8rem,1.5vh,1.2rem) 0;
+  white-space:nowrap;
 }
 
-.header-badge .dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--bloom-green);
-  animation: pulse 2s ease-in-out infinite;
+.marquee-inner{
+  display:inline-flex;
+  animation:crawl 30s linear infinite;
 }
 
-@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-.header-title {
-  position: relative;
-  z-index: 2;
+.marquee-inner span{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:700;
+  font-size:clamp(.8rem,1.2vw,1rem);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  padding:0 clamp(1.5rem,4vw,3rem);
+  color:var(--mute);
 }
 
-.header-title .year {
-  font-family: var(--font-data);
-  font-size: clamp(0.7rem, 1.2vw, 1rem);
-  color: var(--bloom-green);
-  letter-spacing: 0.3em;
-  display: block;
-  margin-bottom: clamp(0.5rem, 2vh, 1.5rem);
+.marquee-inner span.accent{color:var(--signal);}
+
+/* ═══════════════════════════════════════════════════
+   SECTIONS — brutalist grid, 1px borders, raw
+   ═══════════════════════════════════════════════════ */
+
+.section{
+  padding:clamp(5rem,12vh,10rem) clamp(1rem,3vw,2rem);
+  position:relative;
 }
 
-.header-sub {
-  font-weight: 300;
-  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
-  color: var(--cream-muted);
-  max-width: 500px;
-  margin-top: clamp(1rem, 3vh, 2rem);
+.section-num{
+  position:absolute;
+  top:clamp(5rem,12vh,10rem);
+  right:clamp(1rem,3vw,2rem);
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:100;
+  font-size:clamp(6rem,15vw,14rem);
+  line-height:.8;
+  color:rgba(242,237,227,.03);
+  pointer-events:none;
 }
 
-section {
-  padding: clamp(4rem, 10vh, 8rem) 0;
-  position: relative;
+.section-label{display:block;margin-bottom:.5rem;}
+
+.section-title{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:900;
+  font-size:clamp(3.5rem,10vw,9rem);
+  line-height:.8;
+  text-transform:uppercase;
+  letter-spacing:-0.02em;
+  margin-bottom:clamp(2rem,5vh,4rem);
 }
 
-.section-head {
-  margin-bottom: clamp(2rem, 5vh, 4rem);
+.section-body{
+  font-size:clamp(.85rem,1.2vw,1.05rem);
+  line-height:1.7;
+  color:var(--mute);
+  max-width:540px;
 }
 
-.section-head .num {
-  display: inline-block;
-  margin-right: 1rem;
+/* ═══════════════════════════════════════════════════
+   VISUAL DIRECTION DEMO — the actual composition
+   ═══════════════════════════════════════════════════ */
+
+.comp{
+  position:relative;
+  height:clamp(50vh,70vh,80vh);
+  background:var(--black);
+  border:1px solid rgba(242,237,227,.04);
+  overflow:hidden;
+  margin:clamp(2rem,5vh,4rem) 0;
 }
 
-.divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(250,242,225,0.04);
-  margin-bottom: clamp(4rem, 10vh, 8rem);
+.comp .orb{position:absolute;}
+.comp .o1{--o:.22;--blur:70px;width:300px;height:300px;background:var(--rose);top:5%;left:5%;}
+.comp .o2{--o:.18;--blur:90px;width:380px;height:380px;background:var(--signal);top:20%;left:25%;}
+.comp .o3{--o:.16;--blur:60px;width:220px;height:220px;background:var(--gold);bottom:10%;right:12%;}
+.comp .o4{--o:.10;--blur:80px;width:180px;height:180px;background:var(--cyan);top:10%;right:20%;}
+
+.comp .cut{background:var(--cream);}
+.comp .c1{width:2px;height:50%;top:15%;left:20%;}
+.comp .c2{width:30%;height:1px;top:48%;left:35%;}
+.comp .c3{width:2px;height:40%;bottom:10%;right:25%;}
+
+.comp .comp-type{
+  position:absolute;z-index:2;
+  bottom:clamp(1.5rem,4vh,2.5rem);
+  left:clamp(1.5rem,3vw,2.5rem);
+  right:clamp(1.5rem,3vw,2.5rem);
 }
 
-/* ═══════════════════════════════════
-   COLORS
-   ═══════════════════════════════════ */
-
-.color-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 0.75rem;
+.comp .comp-type h3{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:900;
+  font-size:clamp(4rem,12vw,9rem);
+  text-transform:uppercase;
+  line-height:.78;
+  letter-spacing:-0.02em;
 }
 
-.color-card {
-  background: var(--surface);
-  border: 1px solid rgba(250,242,225,0.03);
-  overflow: hidden;
+/* ═══════════════════════════════════════════════════
+   PALETTE — blocks, no decoration
+   ═══════════════════════════════════════════════════ */
+
+.palette{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:1px;
+  background:rgba(242,237,227,.04);
+  border:1px solid rgba(242,237,227,.04);
 }
 
-.color-swatch { height: 100px; }
-.color-info { padding: 0.75rem; }
-.color-name { font-weight: 500; font-size: 0.8rem; }
-.color-hex { font-family: var(--font-data); font-size: 0.6rem; color: var(--cream-muted); margin-top: 0.15rem; }
-.color-role { font-family: var(--font-data); font-size: 0.5rem; color: rgba(61,237,151,0.4); margin-top: 0.25rem; letter-spacing: 0.05em; }
+.swatch{background:var(--black);overflow:hidden;}
+.swatch-color{height:clamp(80px,12vh,120px);}
+.swatch-info{padding:.75rem;}
+.swatch-name{font-weight:500;font-size:.75rem;}
+.swatch-hex{font-family:'Space Mono',monospace;font-size:.55rem;color:var(--mute);margin-top:.1rem;}
 
-.color-group-label {
-  grid-column: 1 / -1;
-  padding-top: 1.5rem;
+.palette-label{
+  grid-column:1/-1;
+  padding:1.5rem .75rem .5rem;
+  background:var(--black);
 }
 
-/* ═══════════════════════════════════
-   TYPE SHOWCASE
-   ═══════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   TYPE WALL — massive specimens, brutalist scale
+   ═══════════════════════════════════════════════════ */
 
-.type-block {
-  margin-bottom: clamp(3rem, 6vh, 5rem);
-  padding-bottom: clamp(3rem, 6vh, 5rem);
-  border-bottom: 1px solid rgba(250,242,225,0.03);
+.type-wall{
+  border:1px solid rgba(242,237,227,.04);
+  overflow:hidden;
 }
 
-.type-block:last-child { border-bottom: none; }
-
-.type-demo-massive {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(5rem, 18vw, 14rem);
-  line-height: 0.82;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  margin: clamp(1rem, 3vh, 2rem) 0;
-  /* Let it bleed visually */
-  margin-left: -0.04em;
+.type-row{
+  border-bottom:1px solid rgba(242,237,227,.04);
+  padding:clamp(2rem,5vh,4rem) clamp(1.5rem,3vw,2.5rem);
 }
 
-.type-demo-large {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  line-height: 0.9;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin: 1rem 0;
+.type-row:last-child{border-bottom:none;}
+
+.type-mega{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:900;
+  font-size:clamp(6rem,20vw,16rem);
+  line-height:.76;
+  text-transform:uppercase;
+  letter-spacing:-0.03em;
+  margin:.5rem 0;
+  /* Intentionally crops at container edge */
+  overflow:hidden;
 }
 
-.type-body-demo {
-  font-weight: 300;
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
-  line-height: 1.7;
-  color: var(--cream-muted);
-  max-width: 580px;
-  margin: 1.5rem 0;
+.type-mid{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:700;
+  font-size:clamp(3rem,8vw,7rem);
+  line-height:.82;
+  text-transform:uppercase;
+  letter-spacing:-0.01em;
+  margin:.5rem 0;
 }
 
-.type-data-demo {
-  font-family: var(--font-data);
-  font-size: 0.75rem;
-  color: var(--bloom-green);
-  letter-spacing: 0.08em;
-  margin: 1rem 0;
+.type-thin{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:100;
+  font-size:clamp(2.5rem,7vw,6rem);
+  line-height:.85;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin:.5rem 0;
 }
 
-/* ═══════════════════════════════════
-   BLOOM DEMO — the signature look
-   ═══════════════════════════════════ */
-
-.bloom-demo {
-  position: relative;
-  height: clamp(400px, 60vh, 650px);
-  background: var(--deep);
-  overflow: hidden;
-  border: 1px solid rgba(250,242,225,0.03);
+.type-body-sample{
+  font-weight:300;
+  font-size:clamp(.9rem,1.3vw,1.1rem);
+  line-height:1.7;
+  color:var(--mute);
+  max-width:500px;
+  margin:1rem 0;
 }
 
-.bloom-demo .bloom-a { width: 280px; height: 280px; background: var(--bloom-pink); opacity: 0.15; top: 10%; left: 8%; }
-.bloom-demo .bloom-b { width: 350px; height: 350px; background: var(--bloom-green); opacity: 0.12; top: 25%; left: 30%; }
-.bloom-demo .bloom-c { width: 200px; height: 200px; background: var(--golden); opacity: 0.13; bottom: 15%; right: 15%; }
-.bloom-demo .bloom-d { width: 150px; height: 150px; background: var(--bloom-cyan); opacity: 0.1; top: 15%; right: 25%; }
-
-.bloom-demo .bar-1 { width: 40px; height: 200px; background: var(--bloom-green); top: 15%; left: 22%; }
-.bloom-demo .bar-2 { width: 120px; height: 25px; background: var(--bloom-pink); top: 50%; left: 45%; }
-.bloom-demo .bar-3 { width: 30px; height: 160px; background: var(--golden); bottom: 10%; right: 28%; }
-
-.bloom-demo .type-overlay {
-  position: absolute;
-  z-index: 2;
-  bottom: clamp(1.5rem, 4vh, 3rem);
-  left: clamp(1.5rem, 4vw, 3rem);
-  right: clamp(1.5rem, 4vw, 3rem);
+.type-data-sample{
+  font-family:'Space Mono',monospace;
+  font-size:.7rem;
+  color:var(--signal);
+  letter-spacing:.06em;
+  margin:.5rem 0;
 }
 
-.bloom-demo .type-overlay h3 {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(3rem, 10vw, 7rem);
-  text-transform: uppercase;
-  line-height: 0.85;
-  letter-spacing: 0.02em;
+/* ═══════════════════════════════════════════════════
+   COMPONENTS — raw industrial grid
+   ═══════════════════════════════════════════════════ */
+
+.grid-1px{
+  display:grid;
+  gap:1px;
+  background:rgba(242,237,227,.04);
+  border:1px solid rgba(242,237,227,.04);
 }
 
-/* ═══════════════════════════════════
-   PRINCIPLES — stripped back grid
-   ═══════════════════════════════════ */
+.grid-1px > *{background:var(--black);}
 
-.principles {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1px;
-  background: rgba(250,242,225,0.03);
-  border: 1px solid rgba(250,242,225,0.03);
+.grid-2{grid-template-columns:1fr 1fr;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+
+.cell{padding:clamp(1.2rem,2.5vw,2rem);}
+
+.cell-title{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:900;
+  font-size:clamp(1.8rem,4vw,3rem);
+  text-transform:uppercase;
+  letter-spacing:-0.01em;
+  line-height:.88;
+  margin-bottom:.4rem;
 }
 
-.principle {
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  background: var(--deep);
+.cell-sub{font-size:.75rem;color:var(--mute);line-height:1.5;}
+
+.cell-stat{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:900;
+  font-size:clamp(3rem,8vw,5rem);
+  line-height:.85;
 }
 
-.principle h4 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
+.cell-stat-label{
+  font-family:'Space Mono',monospace;
+  font-size:.5rem;
+  color:var(--mute);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  margin-top:.2rem;
 }
 
-.principle p {
-  font-size: 0.85rem;
-  color: var(--cream-muted);
-  line-height: 1.6;
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding:.7em 2em;
+  font-family:'Work Sans',sans-serif;
+  font-weight:700;
+  font-size:.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:all .15s;
+}
+.btn-w{background:var(--cream);color:var(--black);}
+.btn-w:hover{background:var(--signal);}
+.btn-o{background:none;color:var(--cream);border:1px solid var(--cream);}
+.btn-o:hover{background:var(--cream);color:var(--black);}
+.btn-g{background:var(--signal);color:var(--black);}
+.btn-g:hover{background:#2DD882;}
+
+/* Cards */
+.card-visual{
+  height:clamp(150px,20vh,220px);
+  position:relative;overflow:hidden;
 }
 
-/* ═══════════════════════════════════
-   COMPONENTS — raw, functional
-   ═══════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   SOCIAL FORMATS — actual poster compositions
+   ═══════════════════════════════════════════════════ */
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  padding: 0.8em 2em;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
+.social-strip{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:clamp(1rem,2vw,2rem);
+  align-items:start;
 }
 
-.btn-primary { background: var(--cream); color: var(--deep); }
-.btn-primary:hover { background: var(--bloom-green); }
-.btn-outline { background: none; color: var(--cream); border: 1px solid var(--cream); }
-.btn-outline:hover { background: var(--cream); color: var(--deep); }
-.btn-signal { background: var(--bloom-green); color: var(--deep); }
-.btn-signal:hover { background: #2DD882; }
-.btn-ghost { background: none; color: var(--cream-muted); padding: 0.8em 0; border-bottom: 1px solid var(--cream-muted); }
-.btn-ghost:hover { color: var(--cream); border-color: var(--cream); }
+.social-item{position:relative;}
 
-.btn-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin: 2rem 0; }
-
-/* Artist cards */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1px;
-  background: rgba(250,242,225,0.03);
-  border: 1px solid rgba(250,242,225,0.03);
+.social-canvas{
+  width:100%;
+  aspect-ratio:var(--ar);
+  background:var(--black);
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(242,237,227,.04);
 }
 
-.card {
-  background: var(--deep);
-  overflow: hidden;
-  transition: background 0.3s;
+/* Mini orbs inside social previews */
+.social-canvas .mini-orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(var(--b,30px));
+  mix-blend-mode:screen;
+  pointer-events:none;
 }
 
-.card:hover { background: var(--surface); }
-
-.card-visual {
-  height: 200px;
-  position: relative;
-  overflow: hidden;
+.social-canvas .poster-type{
+  position:absolute;z-index:2;
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:900;
+  text-transform:uppercase;
+  line-height:.76;
+  letter-spacing:-0.02em;
 }
 
-.card-body { padding: 1.5rem; }
-
-.card-label {
-  font-family: var(--font-data);
-  font-size: 0.55rem;
-  color: var(--bloom-green);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
+.social-meta{
+  margin-top:.5rem;
 }
 
-.card-title {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  line-height: 0.95;
-  margin-bottom: 0.5rem;
+/* ═══════════════════════════════════════════════════
+   RULES — split panel, raw
+   ═══════════════════════════════════════════════════ */
+
+.rules-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:rgba(242,237,227,.04);
+  border:1px solid rgba(242,237,227,.04);
 }
 
-.card-text { font-size: 0.8rem; color: var(--cream-muted); line-height: 1.6; }
+.rules-col{padding:clamp(1.5rem,3vw,2.5rem);background:var(--black);}
+.rules-col h4{margin-bottom:1.2rem;}
+.rules-col ul{list-style:none;}
+.rules-col li{
+  font-size:.8rem;color:var(--mute);line-height:1.6;
+  padding-left:1.2em;position:relative;margin-bottom:.3em;
+}
+.rules-col.yes li::before{content:'+';position:absolute;left:0;color:var(--signal);font-weight:700;}
+.rules-col.no li::before{content:'×';position:absolute;left:0;color:var(--rose);font-weight:700;}
 
-/* Stats */
-.stat-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 1px;
-  background: rgba(250,242,225,0.03);
-  border: 1px solid rgba(250,242,225,0.03);
-  margin: 2rem 0;
+/* Footer */
+.foot{
+  padding:clamp(4rem,10vh,8rem) clamp(1rem,3vw,2rem);
+  text-align:center;
 }
 
-.stat {
-  padding: 1.5rem;
-  background: var(--deep);
+@media(max-width:768px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+  .rules-grid{grid-template-columns:1fr;}
+  .social-strip{grid-template-columns:1fr 1fr;}
 }
-
-.stat-val {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  line-height: 1;
-}
-
-.stat-label {
-  font-family: var(--font-data);
-  font-size: 0.55rem;
-  color: var(--cream-muted);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-top: 0.25rem;
-}
-
-/* ═══════════════════════════════════
-   GRADIENT DEMOS
-   ═══════════════════════════════════ */
-
-.grad-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 0.75rem;
-}
-
-.grad-card { background: var(--surface); border: 1px solid rgba(250,242,225,0.03); overflow: hidden; }
-.grad-swatch { height: 130px; }
-.grad-info { padding: 0.75rem; }
-.grad-name { font-weight: 500; font-size: 0.8rem; }
-.grad-css { font-family: var(--font-data); font-size: 0.55rem; color: var(--cream-muted); margin-top: 0.15rem; line-height: 1.5; }
-
-/* ═══════════════════════════════════
-   SOCIAL PREVIEW FRAMES
-   ═══════════════════════════════════ */
-
-.social-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  align-items: start;
-}
-
-.social-frame { background: var(--surface); padding: 0.75rem; border: 1px solid rgba(250,242,225,0.03); }
-.social-label { padding: 0 0.25rem 0.5rem; }
-
-.social-canvas {
-  width: 100%;
-  aspect-ratio: var(--ar);
-  background: var(--deep);
-  position: relative;
-  overflow: hidden;
-}
-
-/* ═══════════════════════════════════
-   DO/DON'T
-   ═══════════════════════════════════ */
-
-.rules {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: rgba(250,242,225,0.03);
-  border: 1px solid rgba(250,242,225,0.03);
-}
-
-.rule-col {
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  background: var(--deep);
-}
-
-.rule-col h4 {
-  font-family: var(--font-data);
-  font-size: 0.6rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-
-.rule-col.do h4 { color: var(--bloom-green); }
-.rule-col.dont h4 { color: var(--bloom-pink); }
-
-.rule-col li {
-  font-size: 0.8rem;
-  color: var(--cream-muted);
-  line-height: 1.7;
-  list-style: none;
-  padding-left: 1.2em;
-  position: relative;
-  margin-bottom: 0.4em;
-}
-
-.rule-col.do li::before { content: '+'; position: absolute; left: 0; color: var(--bloom-green); font-weight: 700; }
-.rule-col.dont li::before { content: '×'; position: absolute; left: 0; color: var(--bloom-pink); font-weight: 700; }
-
-/* Tokens code block */
-.token-block {
-  background: var(--surface);
-  border: 1px solid rgba(250,242,225,0.03);
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  overflow-x: auto;
-}
-
-.token-block pre {
-  font-family: var(--font-data);
-  font-size: 0.65rem;
-  line-height: 1.9;
-  color: var(--cream-muted);
-  margin: 0;
-  white-space: pre;
-}
-
-.footer {
-  padding: clamp(3rem, 8vh, 6rem) 0;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .rules { grid-template-columns: 1fr; }
-  .social-row { grid-template-columns: 1fr; }
+@media(max-width:480px){
+  .social-strip{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<div class="wrap">
+<!-- ═══════════════════════════════
+     HERO — the title IS the poster
+     ═══════════════════════════════ -->
+<section class="hero">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+  <div class="cut c1"></div>
+  <div class="cut c2"></div>
+  <div class="cut c3"></div>
+  <span class="whisper" style="top:22%;left:14%;">[-12.35, 19.68, 6.68]</span>
+  <span class="whisper" style="top:55%;right:16%;">[-8.97, 25.11, -4.86]</span>
+  <span class="whisper" style="bottom:28%;left:50%;">[-11.34, 22.56, 1.67]</span>
 
-  <!-- ══════════════════════════════
-       HEADER
-       ══════════════════════════════ -->
-  <header class="header">
-    <div class="bloom bloom-1"></div>
-    <div class="bloom bloom-2"></div>
-    <div class="bloom bloom-3"></div>
+  <div class="hero-meta">
+    <div class="live"><span class="m" style="color:var(--mute);">Brand Guide 2026</span></div>
+    <span class="m" style="color:var(--mute);">51.05°N 3.72°E</span>
+  </div>
 
-    <span class="coord" style="top:18%; left:12%;">[-12.35, 19.68, 6.68]</span>
-    <span class="coord" style="top:40%; right:20%;">[-8.97, 25.11, -4.86]</span>
-    <span class="coord" style="bottom:35%; left:45%;">[-11.34, 22.56, 1.67]</span>
+  <div class="hero-title">
+    <h1 class="d">Cur<br>few</h1>
+    <span class="hero-year d">2026</span>
+  </div>
+</section>
 
-    <div class="bar" style="width:40px; height:220px; background:var(--bloom-green); top:12%; left:30%;"></div>
-    <div class="bar" style="width:130px; height:25px; background:var(--bloom-pink); top:52%; right:15%;"></div>
+<!-- MARQUEE TAPE -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <span>In House We Trust</span><span class="accent">·</span>
+    <span>Sat 6 June</span><span class="accent">·</span>
+    <span>Blaarmeersen</span><span class="accent">·</span>
+    <span>Gent</span><span class="accent">·</span>
+    <span>Non-Profit</span><span class="accent">·</span>
+    <span>Since 2015</span><span class="accent">·</span>
+    <span>In House We Trust</span><span class="accent">·</span>
+    <span>Sat 6 June</span><span class="accent">·</span>
+    <span>Blaarmeersen</span><span class="accent">·</span>
+    <span>Gent</span><span class="accent">·</span>
+    <span>Non-Profit</span><span class="accent">·</span>
+    <span>Since 2015</span><span class="accent">·</span>
+    <span>In House We Trust</span><span class="accent">·</span>
+    <span>Sat 6 June</span><span class="accent">·</span>
+    <span>Blaarmeersen</span><span class="accent">·</span>
+    <span>Gent</span><span class="accent">·</span>
+  </div>
+</div>
 
-    <div class="header-top">
-      <div class="header-badge">
-        <span class="dot"></span>
-        <span class="mono mono-muted">STYLE GUIDE V1 — 2026</span>
-      </div>
-      <span class="mono mono-muted">[51.05, 3.72]</span>
+<!-- ═══════════════════════════════
+     01 — DIRECTION
+     ═══════════════════════════════ -->
+<section class="section">
+  <div class="section-num">01</div>
+  <span class="m" style="color:var(--signal);">01 — Visual Direction</span>
+  <h2 class="section-title" style="margin-top:.3rem;">Thermal<br>Brutalism</h2>
+  <p class="section-body">
+    Type that's too big for the frame. Thermal bloom orbs that eat into letterforms like heat signatures from a crowd. Razor-thin geometric cuts slicing through the organic. Data coordinates whispering underneath. The system borrows from Polish poster art, FORZA's sculptural boldness, and the Design & AI Symposium's generative DNA. Warm. Raw. Arresting.
+  </p>
+
+  <!-- THE ACTUAL COMPOSITION -->
+  <div class="comp">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+    <div class="orb o4"></div>
+    <div class="cut c1"></div>
+    <div class="cut c2"></div>
+    <div class="cut c3"></div>
+    <span class="whisper" style="top:18%;left:12%;">[-12.35, 19.68]</span>
+    <span class="whisper" style="top:40%;left:48%;">[-8.97, 25.11]</span>
+    <span class="whisper" style="bottom:25%;right:18%;">[-11.24, 19.83]</span>
+    <div class="comp-type">
+      <h3>In House<br>We Trust</h3>
+      <span class="m" style="color:var(--mute);display:block;margin-top:.6rem;">SAT 6 JUNE · BLAARMEERSEN · GENT</span>
     </div>
+  </div>
 
-    <div class="header-title">
-      <span class="year mono mono-green">2026</span>
-      <h1 class="mega mega-hero">Curfew</h1>
-      <p class="header-sub">Brand identity for the 2026 season. Raw signal. Warm soul. Less is everything.</p>
+  <!-- Principles as raw grid -->
+  <div class="grid-1px grid-2" style="margin-top:clamp(2rem,4vh,3rem);">
+    <div class="cell">
+      <div class="cell-title">Type That Bleeds</div>
+      <div class="cell-sub">Headlines fill the frame. Get cropped. Break the edge. Big Shoulders Display at maximum weight, minimum tracking. The type is the poster.</div>
     </div>
-  </header>
-
-  <!-- ══════════════════════════════
-       01. VISUAL DIRECTION
-       ══════════════════════════════ -->
-  <div class="divider"></div>
-
-  <section>
-    <div class="section-head">
-      <span class="mono mono-green"><span class="num">01</span>VISUAL DIRECTION</span>
-      <h2 class="mega mega-lg" style="margin-top:0.5rem;">Signal<br>Bloom</h2>
+    <div class="cell">
+      <div class="cell-title">Thermal Orbs</div>
+      <div class="cell-sub">Soft radial circles. Screen blend mode. They overlap the type, creating depth. Like infrared shots of a crowd. Never hard-edged. Always radial-gradient to transparent.</div>
     </div>
-
-    <p class="type-body-demo" style="max-width:640px; margin-bottom:3rem;">
-      Organic data blooms meet golden hour. Soft gradient circles cluster like heat signatures from a crowd. Monospaced coordinates float as metadata. Sharp geometry cuts through. Massive condensed type dominates everything. The system is warm but raw, computed but human.
-    </p>
-
-    <!-- Live bloom demo -->
-    <div class="bloom-demo">
-      <div class="bloom bloom-a"></div>
-      <div class="bloom bloom-b"></div>
-      <div class="bloom bloom-c"></div>
-      <div class="bloom bloom-d"></div>
-      <div class="bar bar-1"></div>
-      <div class="bar bar-2"></div>
-      <div class="bar bar-3"></div>
-      <span class="coord" style="top:20%; left:15%;">[-12.35, 19.68]</span>
-      <span class="coord" style="top:42%; left:50%;">[-8.97, 25.11]</span>
-      <span class="coord" style="top:58%; right:20%;">[-11.24, 19.83]</span>
-      <span class="coord" style="bottom:22%; left:28%;">[-12.34, 19.88]</span>
-      <div class="type-overlay">
-        <h3>In House<br>We Trust</h3>
-        <span class="mono mono-muted" style="margin-top:0.5rem; display:block;">SAT 6 JUNE · BLAARMEERSEN · GENT</span>
-      </div>
+    <div class="cell">
+      <div class="cell-title">Razor Cuts</div>
+      <div class="cell-sub">1-3px lines at 4% opacity. Vertical and horizontal. They slash through the composition like a grid that's almost invisible. Structure through absence.</div>
     </div>
-
-    <!-- Principles -->
-    <div class="principles" style="margin-top:3rem;">
-      <div class="principle">
-        <h4>Massive Type</h4>
-        <p>Big Shoulders Display at absurd sizes. It fills the frame, gets cropped, bleeds off edges. Type IS the design. Everything else supports it.</p>
-      </div>
-      <div class="principle">
-        <h4>Organic Clusters</h4>
-        <p>Soft radial gradient circles. They overlap, blur, breathe. Like thermal imaging of a dancefloor. Always radial-gradient to transparent. Never hard edges.</p>
-      </div>
-      <div class="principle">
-        <h4>Raw Geometry</h4>
-        <p>Thin rectangular blocks at low opacity slice through compositions. No rounded corners on UI. Sharp edges contrast the organic bloom. Grid borders at 1px, barely visible.</p>
-      </div>
-      <div class="principle">
-        <h4>Data Residue</h4>
-        <p>Monospaced coordinate labels at 15% opacity. They suggest a generative system underneath. Metadata from an imaginary algorithm that mapped the festival's energy.</p>
-      </div>
+    <div class="cell">
+      <div class="cell-title">Data Ghosts</div>
+      <div class="cell-sub">Monospaced coordinates at 12% opacity. They drift across the canvas. Residue from the generative system that mapped the festival's soul. Never readable, always felt.</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════
-       02. COLORS
-       ══════════════════════════════ -->
-  <div class="divider"></div>
+<!-- ═══════════════════════════════
+     02 — PALETTE
+     ═══════════════════════════════ -->
+<section class="section">
+  <div class="section-num">02</div>
+  <span class="m" style="color:var(--signal);">02 — Palette</span>
+  <h2 class="section-title" style="margin-top:.3rem;">Color</h2>
 
-  <section>
-    <div class="section-head">
-      <span class="mono mono-green"><span class="num">02</span>COLORS</span>
-      <h2 class="mega mega-lg" style="margin-top:0.5rem;">Palette</h2>
+  <div class="palette">
+    <div class="palette-label"><span class="m" style="color:var(--mute);">Ground</span></div>
+    <div class="swatch"><div class="swatch-color" style="background:#0A0A0C;"></div><div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-hex">#0A0A0C</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#141418;"></div><div class="swatch-info"><div class="swatch-name">Ink</div><div class="swatch-hex">#141418</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#1E1E24;"></div><div class="swatch-info"><div class="swatch-name">Slab</div><div class="swatch-hex">#1E1E24</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F2EDE3;"></div><div class="swatch-info"><div class="swatch-name">Cream</div><div class="swatch-hex">#F2EDE3</div></div></div>
+
+    <div class="palette-label"><span class="m" style="color:var(--mute);">Thermal</span></div>
+    <div class="swatch"><div class="swatch-color" style="background:radial-gradient(circle,#FF6B9D,transparent 80%),#0A0A0C;"></div><div class="swatch-info"><div class="swatch-name">Rose</div><div class="swatch-hex">#FF6B9D</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:radial-gradient(circle,#3DED97,transparent 80%),#0A0A0C;"></div><div class="swatch-info"><div class="swatch-name">Signal</div><div class="swatch-hex">#3DED97</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:radial-gradient(circle,#C8A45A,transparent 80%),#0A0A0C;"></div><div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-hex">#C8A45A</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:radial-gradient(circle,#00E5CC,transparent 80%),#0A0A0C;"></div><div class="swatch-info"><div class="swatch-name">Cyan</div><div class="swatch-hex">#00E5CC</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:radial-gradient(circle,#A78BFA,transparent 80%),#0A0A0C;"></div><div class="swatch-info"><div class="swatch-name">Violet</div><div class="swatch-hex">#A78BFA</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:radial-gradient(circle,#FFB347,transparent 80%),#0A0A0C;"></div><div class="swatch-info"><div class="swatch-name">Amber</div><div class="swatch-hex">#FFB347</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     03 — TYPE
+     ═══════════════════════════════ -->
+<section class="section">
+  <div class="section-num">03</div>
+  <span class="m" style="color:var(--signal);">03 — Typography</span>
+  <h2 class="section-title" style="margin-top:.3rem;">Type<br>Wall</h2>
+
+  <div class="type-wall">
+    <div class="type-row">
+      <span class="m" style="color:var(--signal);">Big Shoulders Display · 900</span>
+      <div class="type-mega">Curfew</div>
+      <div class="type-mega" style="color:var(--signal);">2026</div>
     </div>
-
-    <p class="type-body-demo" style="margin-bottom:3rem;">
-      Dark foundation. Warm heritage cream and gold. Signal accents only in the bloom layer and interactive highlights. Accents are background-only — never on text.
-    </p>
-
-    <div class="color-grid">
-      <div class="color-group-label"><span class="mono mono-muted">FOUNDATION</span></div>
-
-      <div class="color-card">
-        <div class="color-swatch" style="background:#0F0E17;"></div>
-        <div class="color-info"><div class="color-name">Deep</div><div class="color-hex">#0F0E17</div><div class="color-role">Primary bg</div></div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:#1C1B2E;"></div>
-        <div class="color-info"><div class="color-name">Surface</div><div class="color-hex">#1C1B2E</div><div class="color-role">Cards, panels</div></div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:#252440;"></div>
-        <div class="color-info"><div class="color-name">Surface Light</div><div class="color-hex">#252440</div><div class="color-role">Hover, active</div></div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:#FAF2E1;"></div>
-        <div class="color-info"><div class="color-name">Cream</div><div class="color-hex">#FAF2E1</div><div class="color-role">Text, headlines</div></div>
-      </div>
-
-      <div class="color-group-label"><span class="mono mono-muted">HERITAGE</span></div>
-
-      <div class="color-card">
-        <div class="color-swatch" style="background:#C8A45A;"></div>
-        <div class="color-info"><div class="color-name">Golden</div><div class="color-hex">#C8A45A</div><div class="color-role">Brand accent</div></div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:#F0879B;"></div>
-        <div class="color-info"><div class="color-name">Coral</div><div class="color-hex">#F0879B</div><div class="color-role">Warm secondary</div></div>
-      </div>
-
-      <div class="color-group-label"><span class="mono mono-muted">SIGNAL BLOOM — 2026</span></div>
-
-      <div class="color-card">
-        <div class="color-swatch" style="background:radial-gradient(circle, #3DED97, transparent 70%); background-color:#0F0E17;"></div>
-        <div class="color-info"><div class="color-name">Signal Green</div><div class="color-hex">#3DED97</div><div class="color-role">Primary signal, CTAs</div></div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:radial-gradient(circle, #FF6B9D, transparent 70%); background-color:#0F0E17;"></div>
-        <div class="color-info"><div class="color-name">Bloom Pink</div><div class="color-hex">#FF6B9D</div><div class="color-role">Energy accent</div></div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:radial-gradient(circle, #00E5CC, transparent 70%); background-color:#0F0E17;"></div>
-        <div class="color-info"><div class="color-name">Bloom Cyan</div><div class="color-hex">#00E5CC</div><div class="color-role">Cool contrast</div></div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:radial-gradient(circle, #A78BFA, transparent 70%); background-color:#0F0E17;"></div>
-        <div class="color-info"><div class="color-name">Bloom Violet</div><div class="color-hex">#A78BFA</div><div class="color-role">Depth accent</div></div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:radial-gradient(circle, #FFB347, transparent 70%); background-color:#0F0E17;"></div>
-        <div class="color-info"><div class="color-name">Bloom Amber</div><div class="color-hex">#FFB347</div><div class="color-role">Warm bridge</div></div>
-      </div>
+    <div class="type-row">
+      <span class="m" style="color:var(--mute);">Big Shoulders Display · 700</span>
+      <div class="type-mid">Where House<br>Comes Home</div>
     </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       03. TYPOGRAPHY
-       ══════════════════════════════ -->
-  <div class="divider"></div>
-
-  <section>
-    <div class="section-head">
-      <span class="mono mono-green"><span class="num">03</span>TYPOGRAPHY</span>
-      <h2 class="mega mega-lg" style="margin-top:0.5rem;">Type</h2>
+    <div class="type-row">
+      <span class="m" style="color:var(--mute);">Big Shoulders Display · 100</span>
+      <div class="type-thin">Saturday June Sixth<br>Blaarmeersen Gent</div>
     </div>
-
-    <div class="type-block">
-      <span class="mono mono-green">BIG SHOULDERS DISPLAY — 900, 700, 400</span>
-      <span class="mono mono-muted" style="margin-left:1rem;">Headlines, hero, stats. The loudest voice.</span>
-      <div class="type-demo-massive">Curfew</div>
-      <div class="type-demo-massive" style="font-size: clamp(4rem, 15vw, 12rem); font-weight: 700;">In House<br>We Trust</div>
-      <div class="type-demo-large" style="font-weight: 400; letter-spacing: 0.06em;">Blaarmeersen, Gent</div>
+    <div class="type-row">
+      <span class="m" style="color:var(--mute);">Work Sans · 300</span>
+      <p class="type-body-sample">Non-profit house music collective born in Gent, 2015. Over 100 events. No investors. No corporate agenda. Just the music and the people who live for it.</p>
     </div>
-
-    <div class="type-block">
-      <span class="mono mono-green">WORK SANS — 300, 400, 500, 700</span>
-      <span class="mono mono-muted" style="margin-left:1rem;">Body, labels, navigation</span>
-      <p class="type-body-demo" style="max-width:100%; margin-top:1.5rem;">
-        Non-profit house music collective. Born in Gent, 2015. Over 100 events: club nights, warehouses, the annual open-air at Blaarmeersen. No investors. No corporate agenda. Just the music and the people who live for it. Where house comes home.
-      </p>
-      <div style="font-family:var(--font-body); font-weight:700; font-size:0.75rem; letter-spacing:0.25em; text-transform:uppercase; margin-top:1rem;">LABEL STYLE — TRACKED CAPS</div>
-      <div style="font-family:var(--font-body); font-weight:300; font-style:italic; font-size:1.1rem; color:var(--cream-muted); margin-top:1rem;">Where house comes home — italic tagline</div>
+    <div class="type-row">
+      <span class="m" style="color:var(--signal);">Space Mono · 400 — data layer</span>
+      <div class="type-data-sample">[-12.35, 19.68, 6.68] — THERMAL_BRUTALISM — 2026.06.06</div>
+      <div class="type-data-sample" style="color:var(--mute);">SAT 6 JUNE · BLAARMEERSEN · GENT · 12:00–23:59 · NON-PROFIT · €25</div>
     </div>
+  </div>
+</section>
 
-    <div class="type-block">
-      <span class="mono mono-green">SPACE MONO — 400, 700</span>
-      <span class="mono mono-muted" style="margin-left:1rem;">Data, coordinates, metadata</span>
-      <div class="type-data-demo">[-12.35, 19.68, 6.68] — SIGNAL_BLOOM_V1 — 2026.06.06</div>
-      <div class="type-data-demo" style="color:var(--cream-muted); font-size:0.65rem;">SAT 6 JUNE · BLAARMEERSEN · GENT · 12:00—23:59 · €25 EARLY BIRD</div>
-    </div>
-  </section>
+<!-- ═══════════════════════════════
+     04 — COMPONENTS
+     ═══════════════════════════════ -->
+<section class="section">
+  <div class="section-num">04</div>
+  <span class="m" style="color:var(--signal);">04 — Components</span>
+  <h2 class="section-title" style="margin-top:.3rem;">Raw<br>UI</h2>
 
-  <!-- ══════════════════════════════
-       04. GRADIENTS
-       ══════════════════════════════ -->
-  <div class="divider"></div>
+  <!-- Buttons -->
+  <span class="m" style="color:var(--mute);display:block;margin-bottom:1rem;">Buttons — zero radius, always</span>
+  <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:clamp(3rem,6vh,5rem);">
+    <button class="btn btn-w">Get Tickets</button>
+    <button class="btn btn-o">Learn More</button>
+    <button class="btn btn-g">Buy Now — €25</button>
+  </div>
 
-  <section>
-    <div class="section-head">
-      <span class="mono mono-green"><span class="num">04</span>GRADIENTS</span>
-      <h2 class="mega mega-lg" style="margin-top:0.5rem;">Glow</h2>
-    </div>
+  <!-- Stats -->
+  <span class="m" style="color:var(--mute);display:block;margin-bottom:1rem;">Stats</span>
+  <div class="grid-1px grid-4" style="margin-bottom:clamp(3rem,6vh,5rem);">
+    <div class="cell"><div class="cell-stat">40K</div><div class="cell-stat-label">Capacity</div></div>
+    <div class="cell"><div class="cell-stat" style="color:var(--signal);">10</div><div class="cell-stat-label">Years</div></div>
+    <div class="cell"><div class="cell-stat">100+</div><div class="cell-stat-label">Events</div></div>
+    <div class="cell"><div class="cell-stat" style="color:var(--gold);">€25</div><div class="cell-stat-label">Early Bird</div></div>
+  </div>
 
-    <div class="grad-grid">
-      <div class="grad-card">
-        <div class="grad-swatch" style="background: radial-gradient(ellipse at 30% 40%, rgba(61,237,151,0.15) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(255,107,157,0.1) 0%, transparent 60%), #0F0E17;"></div>
-        <div class="grad-info"><div class="grad-name">Ambient Bloom</div><div class="grad-css">Dual radial bloom on deep bg. Page-level atmosphere.</div></div>
-      </div>
-      <div class="grad-card">
-        <div class="grad-swatch" style="background: radial-gradient(circle, #3DED97 0%, transparent 70%); background-color:#0F0E17;"></div>
-        <div class="grad-info"><div class="grad-name">Signal Circle</div><div class="grad-css">radial-gradient(circle, #3DED97 → transparent)</div></div>
-      </div>
-      <div class="grad-card">
-        <div class="grad-swatch" style="background: radial-gradient(circle, #FF6B9D 0%, transparent 70%); background-color:#0F0E17;"></div>
-        <div class="grad-info"><div class="grad-name">Pink Bloom</div><div class="grad-css">radial-gradient(circle, #FF6B9D → transparent)</div></div>
-      </div>
-      <div class="grad-card">
-        <div class="grad-swatch" style="background: radial-gradient(ellipse at 50% 50%, rgba(200,164,90,0.15) 0%, transparent 70%); background-color:#0F0E17;"></div>
-        <div class="grad-info"><div class="grad-name">Golden Hour</div><div class="grad-css">Heritage warm glow. Behind hero and key moments.</div></div>
-      </div>
-      <div class="grad-card">
-        <div class="grad-swatch" style="background: radial-gradient(circle at 30% 50%, rgba(167,139,250,0.2) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(0,229,204,0.15) 0%, transparent 50%); background-color:#0F0E17;"></div>
-        <div class="grad-info"><div class="grad-name">Cool Bloom</div><div class="grad-css">Violet + Cyan dual bloom for alternative sections.</div></div>
+  <!-- Artist Cards -->
+  <span class="m" style="color:var(--mute);display:block;margin-bottom:1rem;">Artist Cards</span>
+  <div class="grid-1px grid-3">
+    <div style="background:var(--black);">
+      <div class="card-visual" style="background:radial-gradient(circle at 30% 40%,rgba(255,107,157,.25),transparent 60%),radial-gradient(circle at 70% 60%,rgba(200,164,90,.15),transparent 60%),var(--black);"></div>
+      <div class="cell">
+        <span class="m" style="color:var(--signal);">Germany · Live</span>
+        <div class="cell-title" style="margin-top:.4rem;">Ian<br>Pooley</div>
+        <div class="cell-sub">Frankfurt sound. Three decades of deep house architecture.</div>
       </div>
     </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       05. COMPONENTS
-       ══════════════════════════════ -->
-  <div class="divider"></div>
-
-  <section>
-    <div class="section-head">
-      <span class="mono mono-green"><span class="num">05</span>COMPONENTS</span>
-      <h2 class="mega mega-lg" style="margin-top:0.5rem;">UI</h2>
+    <div style="background:var(--black);">
+      <div class="card-visual" style="background:radial-gradient(circle at 50% 30%,rgba(61,237,151,.25),transparent 60%),radial-gradient(circle at 30% 70%,rgba(0,229,204,.15),transparent 60%),var(--black);"></div>
+      <div class="cell">
+        <span class="m" style="color:var(--signal);">Colombia · DJ</span>
+        <div class="cell-title" style="margin-top:.4rem;">Pa<br>bels</div>
+        <div class="cell-sub">House, disco, balearic. Sun-drenched selections from Bogotá.</div>
+      </div>
     </div>
-
-    <!-- Buttons -->
-    <span class="mono mono-green" style="display:block; margin-bottom:1rem;">BUTTONS — ALWAYS SHARP EDGES</span>
-    <div class="btn-row">
-      <button class="btn btn-primary">Get Tickets</button>
-      <button class="btn btn-outline">Learn More</button>
-      <button class="btn btn-signal">Buy Now</button>
-      <button class="btn btn-ghost">View Lineup →</button>
+    <div style="background:var(--black);">
+      <div class="card-visual" style="background:radial-gradient(circle at 60% 50%,rgba(167,139,250,.25),transparent 60%),radial-gradient(circle at 20% 30%,rgba(255,179,71,.15),transparent 60%),var(--black);"></div>
+      <div class="cell">
+        <span class="m" style="color:var(--signal);">Syria · DJ</span>
+        <div class="cell-title" style="margin-top:.4rem;">Wa<br>lashi</div>
+        <div class="cell-sub">Middle Eastern rhythms woven into deep house.</div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Stats -->
-    <span class="mono mono-green" style="display:block; margin-top:3rem; margin-bottom:1rem;">STATS</span>
-    <div class="stat-row">
-      <div class="stat"><div class="stat-val">40K+</div><div class="stat-label">Capacity</div></div>
-      <div class="stat"><div class="stat-val">10</div><div class="stat-label">Years</div></div>
-      <div class="stat"><div class="stat-val">100+</div><div class="stat-label">Events</div></div>
-      <div class="stat"><div class="stat-val">€25</div><div class="stat-label">Early Bird</div></div>
-    </div>
+<!-- ═══════════════════════════════
+     05 — SOCIAL ASSETS
+     ═══════════════════════════════ -->
+<section class="section">
+  <div class="section-num">05</div>
+  <span class="m" style="color:var(--signal);">05 — Social Formats</span>
+  <h2 class="section-title" style="margin-top:.3rem;">Poster<br>System</h2>
+  <p class="section-body" style="margin-bottom:clamp(2rem,4vh,3rem);">
+    Every format is a poster. Type fills the frame. 2 thermal orbs max. 1 coordinate whisper. That's it. The constraint IS the identity.
+  </p>
 
-    <!-- Cards -->
-    <span class="mono mono-green" style="display:block; margin-top:3rem; margin-bottom:1rem;">ARTIST CARDS</span>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-visual" style="background:radial-gradient(circle at 30% 40%, rgba(255,107,157,0.2), transparent 60%), radial-gradient(circle at 70% 60%, rgba(200,164,90,0.15), transparent 60%), var(--deep);"></div>
-        <div class="card-body">
-          <div class="card-label">Germany</div>
-          <div class="card-title">Ian Pooley</div>
-          <div class="card-text">Deep house pioneer. Frankfurt sound architect.</div>
+  <div class="social-strip">
+    <!-- IG POST -->
+    <div class="social-item">
+      <div class="social-canvas" style="--ar:1/1;">
+        <div class="mini-orb" style="--b:35px;width:55%;height:55%;background:var(--rose);opacity:.18;top:-10%;left:-10%;"></div>
+        <div class="mini-orb" style="--b:45px;width:45%;height:45%;background:var(--signal);opacity:.12;bottom:-5%;right:-5%;"></div>
+        <div style="position:absolute;width:2px;height:60%;background:var(--cream);opacity:.04;top:10%;left:25%;"></div>
+        <span class="whisper" style="top:18%;left:12%;font-size:.4rem;">[-12.35, 19.68]</span>
+        <div class="poster-type" style="bottom:8%;left:6%;right:6%;font-size:clamp(2.5rem,8vw,3.5rem);">
+          Cur<br>few<br><span style="color:var(--signal);font-weight:100;font-size:.5em;letter-spacing:.1em;">2026</span>
         </div>
+        <span class="m" style="position:absolute;bottom:4%;left:6%;color:var(--mute);font-size:.35rem;">SAT 6 JUNE · GENT</span>
       </div>
-      <div class="card">
-        <div class="card-visual" style="background:radial-gradient(circle at 50% 30%, rgba(61,237,151,0.2), transparent 60%), radial-gradient(circle at 30% 70%, rgba(0,229,204,0.15), transparent 60%), var(--deep);"></div>
-        <div class="card-body">
-          <div class="card-label">Colombia</div>
-          <div class="card-title">Pabels</div>
-          <div class="card-text">House, disco, balearic. Sun-drenched selections.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-visual" style="background:radial-gradient(circle at 60% 50%, rgba(167,139,250,0.2), transparent 60%), radial-gradient(circle at 20% 30%, rgba(255,179,71,0.15), transparent 60%), var(--deep);"></div>
-        <div class="card-body">
-          <div class="card-label">Syria/Dubai</div>
-          <div class="card-title">Walashi</div>
-          <div class="card-text">Middle Eastern rhythms woven into deep house.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       06. SOCIAL FORMATS
-       ══════════════════════════════ -->
-  <div class="divider"></div>
-
-  <section>
-    <div class="section-head">
-      <span class="mono mono-green"><span class="num">06</span>SOCIAL FORMATS</span>
-      <h2 class="mega mega-lg" style="margin-top:0.5rem;">Assets</h2>
+      <div class="social-meta"><span class="m" style="color:var(--mute);">Instagram · 1080×1080</span></div>
     </div>
 
-    <p class="type-body-demo" style="margin-bottom:3rem;">
-      Every format: massive type filling the frame, 2–3 bloom circles max, 1–2 coordinate labels, minimal info. Let it breathe. The type does the work.
-    </p>
-
-    <div class="social-row">
-      <div class="social-frame">
-        <div class="social-label"><span class="mono mono-muted">IG POST — 1080×1080</span></div>
-        <div class="social-canvas" style="--ar:1/1;">
-          <div style="position:absolute; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(61,237,151,0.2), transparent 70%); top:5%; left:5%; filter:blur(40px);"></div>
-          <div style="position:absolute; width:150px; height:150px; border-radius:50%; background:radial-gradient(circle, rgba(255,107,157,0.15), transparent 70%); bottom:30%; right:10%; filter:blur(40px);"></div>
-          <div style="position:absolute; width:20px; height:100px; background:rgba(61,237,151,0.06); top:20%; left:35%;"></div>
-          <span class="coord" style="top:25%; left:15%; font-size:0.4rem;">[-12.35, 19.68]</span>
-          <div style="position:absolute; bottom:8%; left:6%; right:6%;">
-            <div style="font-family:var(--font-display); font-weight:900; font-size:3rem; text-transform:uppercase; line-height:0.85; letter-spacing:0.02em;">Curfew<br>2026</div>
-            <div class="mono mono-muted" style="margin-top:0.5rem; font-size:0.35rem;">SAT 6 JUNE · BLAARMEERSEN · GENT</div>
-          </div>
+    <!-- IG STORY -->
+    <div class="social-item">
+      <div class="social-canvas" style="--ar:9/16;">
+        <div class="mini-orb" style="--b:40px;width:60%;height:35%;background:var(--rose);opacity:.16;top:5%;right:-15%;"></div>
+        <div class="mini-orb" style="--b:50px;width:50%;height:30%;background:var(--gold);opacity:.10;bottom:20%;left:-10%;"></div>
+        <div style="position:absolute;width:1px;height:50%;background:var(--cream);opacity:.04;top:20%;right:22%;"></div>
+        <span class="whisper" style="top:15%;left:8%;font-size:.35rem;">[-8.97, 25.11]</span>
+        <span class="m" style="position:absolute;top:6%;left:6%;color:var(--signal);font-size:.28rem;">In House We Trust</span>
+        <div class="poster-type" style="bottom:15%;left:6%;right:6%;font-size:clamp(2rem,7vw,2.8rem);">
+          Curfew<br>Festival<br><span style="color:var(--signal);font-weight:100;font-size:.55em;letter-spacing:.1em;">2026</span>
         </div>
+        <span class="m" style="position:absolute;bottom:5%;left:6%;color:var(--mute);font-size:.28rem;">SAT 6 JUNE · GENT · €25</span>
       </div>
-
-      <div class="social-frame">
-        <div class="social-label"><span class="mono mono-muted">IG STORY — 1080×1920</span></div>
-        <div class="social-canvas" style="--ar:9/16;">
-          <div style="position:absolute; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle, rgba(255,107,157,0.18), transparent 70%); top:15%; right:5%; filter:blur(40px);"></div>
-          <div style="position:absolute; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle, rgba(61,237,151,0.12), transparent 70%); bottom:25%; left:0%; filter:blur(50px);"></div>
-          <div style="position:absolute; width:15px; height:80px; background:rgba(200,164,90,0.06); top:40%; right:20%;"></div>
-          <span class="coord" style="top:22%; left:12%; font-size:0.35rem;">[-8.97, 25.11]</span>
-          <div style="position:absolute; top:5%; left:6%;"><span class="mono" style="color:var(--bloom-green); font-size:0.3rem;">IN HOUSE WE TRUST</span></div>
-          <div style="position:absolute; bottom:12%; left:6%; right:6%;">
-            <div style="font-family:var(--font-display); font-weight:900; font-size:2.2rem; text-transform:uppercase; line-height:0.85;">Curfew<br>Festival<br>2026</div>
-            <div class="mono mono-muted" style="margin-top:0.4rem; font-size:0.3rem;">SAT 6 JUNE · GENT · €25</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="social-frame">
-        <div class="social-label"><span class="mono mono-muted">FB COVER — 1200×628</span></div>
-        <div class="social-canvas" style="--ar:1200/628;">
-          <div style="position:absolute; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(61,237,151,0.15), transparent 70%); top:10%; left:10%; filter:blur(50px);"></div>
-          <div style="position:absolute; width:160px; height:160px; border-radius:50%; background:radial-gradient(circle, rgba(200,164,90,0.1), transparent 70%); bottom:10%; right:20%; filter:blur(40px);"></div>
-          <span class="coord" style="top:20%; right:30%; font-size:0.35rem;">[-11.24, 19.83]</span>
-          <div style="position:absolute; bottom:12%; left:4%;">
-            <div style="font-family:var(--font-display); font-weight:900; font-size:2rem; text-transform:uppercase; line-height:0.85;">Curfew 2026</div>
-            <div class="mono mono-muted" style="margin-top:0.3rem; font-size:0.3rem;">SAT 6 JUNE · BLAARMEERSEN · GENT</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="social-frame">
-        <div class="social-label"><span class="mono mono-muted">WIDE — 1920×600</span></div>
-        <div class="social-canvas" style="--ar:1920/600;">
-          <div style="position:absolute; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle, rgba(255,107,157,0.12), transparent 70%); top:5%; left:15%; filter:blur(45px);"></div>
-          <div style="position:absolute; width:160px; height:160px; border-radius:50%; background:radial-gradient(circle, rgba(61,237,151,0.1), transparent 70%); bottom:5%; right:25%; filter:blur(45px);"></div>
-          <div style="position:absolute; bottom:15%; left:3%;">
-            <div style="font-family:var(--font-display); font-weight:900; font-size:1.6rem; text-transform:uppercase; line-height:0.85;">Curfew Festival 2026</div>
-            <div class="mono mono-muted" style="margin-top:0.25rem; font-size:0.28rem;">SAT 6 JUNE · BLAARMEERSEN · GENT</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       07. GUIDELINES
-       ══════════════════════════════ -->
-  <div class="divider"></div>
-
-  <section>
-    <div class="section-head">
-      <span class="mono mono-green"><span class="num">07</span>GUIDELINES</span>
-      <h2 class="mega mega-lg" style="margin-top:0.5rem;">Rules</h2>
+      <div class="social-meta"><span class="m" style="color:var(--mute);">Story · 1080×1920</span></div>
     </div>
 
-    <div class="rules">
-      <div class="rule-col do">
-        <h4>Do</h4>
-        <ul>
-          <li>Fill the frame with type. Let it get cropped. Let it bleed.</li>
-          <li>Use max 2–3 bloom circles per composition</li>
-          <li>Keep coordinate labels near invisible (15% opacity max)</li>
-          <li>Sharp edges on all UI. No border-radius.</li>
-          <li>1px borders, barely there. Let structure be implied.</li>
-          <li>Grain texture on everything. Heavier = rawer.</li>
-          <li>Leave massive negative space. Let it breathe.</li>
-          <li>mix-blend-mode: screen on bloom circles</li>
-        </ul>
+    <!-- FB COVER -->
+    <div class="social-item">
+      <div class="social-canvas" style="--ar:1200/628;">
+        <div class="mini-orb" style="--b:40px;width:40%;height:80%;background:var(--signal);opacity:.12;top:-10%;left:5%;"></div>
+        <div class="mini-orb" style="--b:35px;width:35%;height:70%;background:var(--gold);opacity:.08;bottom:-10%;right:15%;"></div>
+        <div style="position:absolute;width:45%;height:1px;background:var(--cream);opacity:.04;top:45%;left:25%;"></div>
+        <span class="whisper" style="top:20%;right:25%;font-size:.35rem;">[-11.24, 19.83]</span>
+        <div class="poster-type" style="bottom:12%;left:4%;font-size:clamp(1.4rem,5vw,2rem);">Curfew 2026</div>
+        <span class="m" style="position:absolute;bottom:6%;left:4%;color:var(--mute);font-size:.28rem;">SAT 6 JUNE · BLAARMEERSEN · GENT</span>
       </div>
-      <div class="rule-col dont">
-        <h4>Don't</h4>
-        <ul>
-          <li>Use white backgrounds. Ever.</li>
-          <li>Put bloom accent colors on text. Background only.</li>
-          <li>Add more than 3 elements to a social post. Less is more.</li>
-          <li>Use drop shadows. Use translate + subtle border instead.</li>
-          <li>Make it decorative. Every element earns its place.</li>
-          <li>Use rounded buttons or pill shapes.</li>
-          <li>Shrink the type. If it feels too big, it's right.</li>
-          <li>Use Inter, Roboto, Arial. Big Shoulders + Work Sans only.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       08. CSS TOKENS
-       ══════════════════════════════ -->
-  <div class="divider"></div>
-
-  <section>
-    <div class="section-head">
-      <span class="mono mono-green"><span class="num">08</span>IMPLEMENTATION</span>
-      <h2 class="mega mega-lg" style="margin-top:0.5rem;">Tokens</h2>
+      <div class="social-meta"><span class="m" style="color:var(--mute);">Facebook · 1200×628</span></div>
     </div>
 
-    <div class="token-block">
-      <pre><span style="color:var(--bloom-green);">:root</span> {
-  <span style="color:var(--cream);">/* Foundation */</span>
-  --deep:          <span style="color:var(--bloom-cyan);">#0F0E17</span>;
-  --surface:       <span style="color:var(--bloom-cyan);">#1C1B2E</span>;
-  --surface-light: <span style="color:var(--bloom-cyan);">#252440</span>;
+    <!-- WIDE BANNER -->
+    <div class="social-item">
+      <div class="social-canvas" style="--ar:1920/600;">
+        <div class="mini-orb" style="--b:35px;width:30%;height:90%;background:var(--rose);opacity:.1;top:-15%;left:5%;"></div>
+        <div class="mini-orb" style="--b:40px;width:25%;height:80%;background:var(--cyan);opacity:.08;bottom:-10%;right:10%;"></div>
+        <div class="poster-type" style="bottom:18%;left:3%;right:3%;font-size:clamp(1.2rem,4vw,1.8rem);text-align:center;">Curfew Festival 2026</div>
+        <span class="m" style="position:absolute;bottom:8%;left:50%;transform:translateX(-50%);color:var(--mute);font-size:.25rem;white-space:nowrap;">SAT 6 JUNE · BLAARMEERSEN · GENT · IN HOUSE WE TRUST</span>
+      </div>
+      <div class="social-meta"><span class="m" style="color:var(--mute);">Banner · 1920×600</span></div>
+    </div>
+  </div>
+</section>
 
-  <span style="color:var(--cream);">/* Heritage */</span>
-  --cream:         <span style="color:var(--bloom-cyan);">#FAF2E1</span>;
-  --cream-muted:   <span style="color:var(--bloom-cyan);">rgba(250, 242, 225, 0.45)</span>;
-  --golden:        <span style="color:var(--bloom-cyan);">#C8A45A</span>;
-  --coral:         <span style="color:var(--bloom-cyan);">#F0879B</span>;
+<!-- ═══════════════════════════════
+     06 — RULES
+     ═══════════════════════════════ -->
+<section class="section">
+  <div class="section-num">06</div>
+  <span class="m" style="color:var(--signal);">06 — Guidelines</span>
+  <h2 class="section-title" style="margin-top:.3rem;">Rules</h2>
 
-  <span style="color:var(--cream);">/* Signal Bloom 2026 */</span>
-  --bloom-pink:    <span style="color:var(--bloom-cyan);">#FF6B9D</span>;
-  --bloom-green:   <span style="color:var(--bloom-cyan);">#3DED97</span>;
-  --bloom-cyan:    <span style="color:var(--bloom-cyan);">#00E5CC</span>;
-  --bloom-violet:  <span style="color:var(--bloom-cyan);">#A78BFA</span>;
-  --bloom-amber:   <span style="color:var(--bloom-cyan);">#FFB347</span>;
+  <div class="rules-grid">
+    <div class="rules-col yes">
+      <h4 class="m" style="color:var(--signal);">Always</h4>
+      <ul>
+        <li>Type fills the frame. If it feels too big, double it.</li>
+        <li>Max 2 thermal orbs per composition. Constraint = identity.</li>
+        <li>Screen blend mode on orbs. They must eat into the type.</li>
+        <li>1–2 razor cuts per layout. 2px wide, 4% opacity.</li>
+        <li>Heavy film grain on everything. This isn't clean.</li>
+        <li>Zero border-radius. Not on buttons, not on cards, not anywhere.</li>
+        <li>1px grid borders at 4% opacity. Structure through whispers.</li>
+        <li>Negative space is sacred. 60% empty minimum.</li>
+      </ul>
+    </div>
+    <div class="rules-col no">
+      <h4 class="m" style="color:var(--rose);">Never</h4>
+      <ul>
+        <li>White backgrounds. This lives in the dark.</li>
+        <li>Thermal colors on text. They only exist as orbs.</li>
+        <li>More than 3 elements on a social post. Poster discipline.</li>
+        <li>Drop shadows. Depth comes from blend modes only.</li>
+        <li>Decorative flourishes. Everything earns its pixel.</li>
+        <li>Rounded corners. Anywhere. For any reason.</li>
+        <li>Small type as the hero. If it's not massive, rethink.</li>
+        <li>Inter, Roboto, system fonts. We have our three. That's enough.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <span style="color:var(--cream);">/* Type */</span>
-  --font-display:  <span style="color:var(--bloom-cyan);">'Big Shoulders Display'</span>;
-  --font-body:     <span style="color:var(--bloom-cyan);">'Work Sans'</span>;
-  --font-data:     <span style="color:var(--bloom-cyan);">'Space Mono'</span>;
+<!-- ═══════════════════════════════
+     07 — TOKENS
+     ═══════════════════════════════ -->
+<section class="section">
+  <div class="section-num">07</div>
+  <span class="m" style="color:var(--signal);">07 — Implementation</span>
+  <h2 class="section-title" style="margin-top:.3rem;">Tokens</h2>
+
+  <div style="background:var(--ink);border:1px solid rgba(242,237,227,.04);padding:clamp(1.5rem,3vw,2.5rem);overflow-x:auto;">
+    <pre style="font-family:'Space Mono',monospace;font-size:.6rem;line-height:2;color:var(--mute);margin:0;white-space:pre;"><span style="color:var(--signal);">:root</span> {
+  --black:  <span style="color:var(--cyan);">#0A0A0C</span>;
+  --ink:    <span style="color:var(--cyan);">#141418</span>;
+  --slab:   <span style="color:var(--cyan);">#1E1E24</span>;
+  --cream:  <span style="color:var(--cyan);">#F2EDE3</span>;
+  --gold:   <span style="color:var(--cyan);">#C8A45A</span>;
+  --rose:   <span style="color:var(--cyan);">#FF6B9D</span>;
+  --signal: <span style="color:var(--cyan);">#3DED97</span>;
+  --cyan:   <span style="color:var(--cyan);">#00E5CC</span>;
+  --violet: <span style="color:var(--cyan);">#A78BFA</span>;
+  --amber:  <span style="color:var(--cyan);">#FFB347</span>;
+
+  --font-display: <span style="color:var(--cyan);">'Big Shoulders Display'</span>;
+  --font-body:    <span style="color:var(--cyan);">'Work Sans'</span>;
+  --font-data:    <span style="color:var(--cyan);">'Space Mono'</span>;
 }</pre>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="footer">
-    <span class="mono mono-muted">CURFEW — WHERE HOUSE COMES HOME — 2026</span><br>
-    <span class="mono" style="color:rgba(61,237,151,0.25); margin-top:0.25rem; display:inline-block;">SIGNAL BLOOM V1</span>
-  </footer>
-
+<!-- FOOTER -->
+<div class="foot">
+  <span class="m" style="color:var(--mute);">Curfew · Where House Comes Home · 2026</span><br>
+  <span class="m" style="color:rgba(61,237,151,.2);margin-top:.3rem;display:inline-block;">Thermal Brutalism V1</span>
 </div>
 
 </body>

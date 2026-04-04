@@ -40,7 +40,7 @@ export default function Countdown() {
   if (!mounted) return null;
 
   return (
-    <div className="flex justify-center gap-4 md:gap-8">
+    <div className="flex justify-center gap-3 sm:gap-4 md:gap-8">
       {[
         { value: time.days, label: 'DAYS' },
         { value: time.hours, label: 'HOURS' },
@@ -48,7 +48,7 @@ export default function Countdown() {
         { value: time.seconds, label: 'SEC' },
       ].map((unit) => (
         <div key={unit.label} className="text-center">
-          <div className="font-display font-black text-golden text-3xl md:text-5xl lg:text-6xl leading-none tracking-wider">
+          <div className="font-display font-black text-golden text-2xl sm:text-3xl md:text-5xl lg:text-6xl leading-none tracking-wider">
             {pad(unit.value)}
           </div>
           <div className="text-cream/40 text-[9px] md:text-[10px] tracking-[0.3em] font-bold mt-2">

@@ -140,6 +140,41 @@ body::before {
   color: var(--color-cream);
 }
 
+/* Mobile-first responsive fixes */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .stat-number {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  /* Ensure tap targets are at least 44px */
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Prevent horizontal overflow */
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Safe area insets for notched phones */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
 /* Signal Bloom 2026 — Data labels */
 .data-label {
   font-family: var(--font-data);

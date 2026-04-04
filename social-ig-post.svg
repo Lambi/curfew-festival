@@ -1,63 +1,47 @@
 <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Space+Mono:wght@400&display=swap');
-
-      .headline {
-        font-family: 'Big Shoulders Display', sans-serif;
-        font-weight: 900;
-        font-size: 280px;
-        letter-spacing: -8px;
-        text-transform: uppercase;
-        fill: #FAF2E1;
-        line-height: 0.9;
-      }
-
-      .accent {
-        fill: #3DED97;
-      }
-
-      .small-text {
-        font-family: 'Space Mono', monospace;
-        font-weight: 400;
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        fill: #FAF2E1;
-      }
-
-      .coordinate {
-        font-family: 'Space Mono', monospace;
-        font-weight: 400;
-        font-size: 11px;
-        fill: #FAF2E1;
-        opacity: 0.15;
-        letter-spacing: 1px;
-      }
+      @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;900&family=Space+Mono:wght@400&display=swap');
     </style>
-
-    <filter id="bloom-soft">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="45" />
+    <filter id="blur-60">
+      <feGaussianBlur stdDeviation="60" />
+    </filter>
+    <filter id="blur-70">
+      <feGaussianBlur stdDeviation="70" />
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1080" height="1080" fill="#0F0E17" />
+  <rect width="1080" height="1080" fill="#0A0A0C" />
 
-  <!-- Bloom circles -->
-  <circle cx="120" cy="120" r="180" fill="#3DED97" opacity="0.1" filter="url(#bloom-soft)" />
-  <circle cx="980" cy="940" r="200" fill="#FF6B9D" opacity="0.1" filter="url(#bloom-soft)" />
+  <!-- Thermal Orbs -->
+  <!-- Rose orb (top-left, 500px diameter) -->
+  <circle cx="180" cy="140" r="250" fill="#FF6B9D" opacity="0.18" filter="url(#blur-60)" />
 
-  <!-- Thin geometric bar -->
-  <line x1="80" y1="200" x2="80" y2="900" stroke="#3DED97" stroke-width="3" opacity="0.08" />
+  <!-- Signal green orb (bottom-right, 400px diameter) -->
+  <circle cx="950" cy="950" r="200" fill="#3DED97" opacity="0.12" filter="url(#blur-70)" />
 
-  <!-- Content -->
-  <text x="540" y="720" text-anchor="middle" class="accent" style="font-size: 92px; letter-spacing: -2px;">2026</text>
+  <!-- Razor-thin vertical line (left 25%, 60% height) -->
+  <line x1="270" y1="216" x2="270" y2="864" stroke="#F2EDE3" stroke-width="2" opacity="0.04" />
 
-  <text x="540" y="950" text-anchor="middle" class="headline">CURFEW</text>
+  <!-- Main Title: CUR / FEW (stacked, ~500px each) -->
+  <text x="540" y="580" font-family="Big Shoulders Display" font-size="520" font-weight="900" fill="#F2EDE3" text-anchor="middle" letter-spacing="-31" dominant-baseline="middle">
+    CUR
+  </text>
+  <text x="540" y="750" font-family="Big Shoulders Display" font-size="520" font-weight="900" fill="#F2EDE3" text-anchor="middle" letter-spacing="-31" dominant-baseline="middle">
+    FEW
+  </text>
 
-  <text x="540" y="1050" text-anchor="middle" class="small-text">SAT 6 JUNE · BLAARMEERSEN · GENT</text>
+  <!-- 2026 in thin weight, signal green -->
+  <text x="540" y="880" font-family="Big Shoulders Display" font-size="72" font-weight="100" fill="#3DED97" text-anchor="middle" letter-spacing="8" dominant-baseline="middle">
+    2026
+  </text>
 
-  <!-- Coordinate label -->
-  <text x="1050" y="35" text-anchor="end" class="coordinate">51.3°N / 3.7°E</text>
+  <!-- Coordinate whisper (top-left) -->
+  <text x="70" y="50" font-family="Space Mono" font-size="13" font-weight="400" fill="#F2EDE3" opacity="0.12">[-12.35, 19.68]</text>
+
+  <!-- Event details (bottom, tiny, muted) -->
+  <text x="540" y="1050" font-family="Space Mono" font-size="11" font-weight="400" fill="#F2EDE3" opacity="0.3" text-anchor="middle">
+    SAT 6 JUNE · BLAARMEERSEN · GENT
+  </text>
 </svg>

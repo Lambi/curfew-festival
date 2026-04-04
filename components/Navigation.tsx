@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'EVENTS', href: '#events' },
   { label: 'PARTNERS', href: '#partners' },
   { label: 'NEWSLETTER', href: '#newsletter' },
+  { label: 'CONTACT', href: '#contact' },
 ];
 
 export default function Navigation() {
