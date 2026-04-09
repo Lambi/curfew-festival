@@ -40,7 +40,7 @@ export default function Hero() {
           src="/images/curfew-crowd-golden-hour.jpg"
           alt="Curfew Festival crowd at golden hour"
           fill
-          className="object-cover warm-grade"
+          className="object-cover"
           priority
           sizes="(max-width: 768px) 85vw, 700px"
         />

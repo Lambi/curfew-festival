@@ -42,7 +42,7 @@ export default function Newsletter() {
       {/* Background photo with heavy overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/curfew-dj-discoballs-daytime.jpg"
+          src="/images/new-103a9395.jpg"
           alt=""
           fill
           className="object-cover opacity-20"

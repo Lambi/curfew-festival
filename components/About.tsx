@@ -12,8 +12,8 @@ export default function About() {
           <ScrollRevealItem>
             <div className="relative aspect-[16/9] overflow-hidden mb-8 md:mb-12">
               <Image
-                src="/images/curfew-live-act-streamers.jpg"
-                alt="Curfew live performance with streamers"
+                src="/images/new-103a8926.jpg"
+                alt="Curfew crowd dancing under open skies"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 900px"

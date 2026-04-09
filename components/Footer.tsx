@@ -49,7 +49,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-16 md:py-24 px-6 relative overflow-hidden">
+    <footer className="py-10 md:py-16 px-6 relative overflow-hidden">
       {/* Massive CURFEW wordmark background */}
       <button
         onClick={handleWordmarkClick}

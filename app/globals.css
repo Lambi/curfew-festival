@@ -105,10 +105,8 @@ body::before {
   line-height: 1.5;
 }
 
-/* Warm photo grade */
-.warm-grade {
-  filter: saturate(1.1) brightness(1.02) sepia(0.06);
-}
+/* Warm photo grade — removed, photos show natural color */
+.warm-grade { filter: none; }
 
 /* Warm glow blob */
 .warm-glow {
