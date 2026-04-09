@@ -6,11 +6,18 @@ import { trackTicketClick } from '@/lib/analytics';
 
 const tiers = [
   { name: 'Pre-Release', price: '€20', status: 'sold-out' as const },
-  { name: 'Early Birds', price: '€25', status: 'active' as const },
-  { name: 'Wave 1', price: '€30', status: 'upcoming' as const },
+  { name: 'Early Birds', price: '€25', status: 'sold-out' as const },
+  { name: 'Wave 1', price: '€30', status: 'active' as const },
   { name: 'Wave 2', price: '€35', status: 'upcoming' as const },
   { name: 'Final Wave', price: '€40', status: 'upcoming' as const },
   { name: 'Door Sale', price: '€45', status: 'upcoming' as const },
+];
+
+const groupTiers = [
+  { name: 'Love Birds Duo Ticket', detail: '2 × €27.50', price: '€55' },
+  { name: '5 Group Ticket', detail: '5 × €25.00', price: '€125' },
+  { name: '10 Group Ticket', detail: '10 × €22.50', price: '€225' },
+  { name: 'Bday Formula', detail: 'contact us for magic', price: null },
 ];
 
 export default function TicketPricing() {
@@ -91,12 +98,44 @@ export default function TicketPricing() {
           </ScrollRevealItem>
 
           <ScrollRevealItem>
+            <h3 className="text-cream text-center mt-12 mb-6 text-xs tracking-[0.3em] font-bold uppercase">Group Tickets</h3>
+            <div className="space-y-0">
+              {groupTiers.map((tier, i) => (
+                <div
+                  key={tier.name}
+                  className={`flex items-center justify-between py-4 px-4 -mx-4 ${
+                    i < groupTiers.length - 1 ? 'border-b border-cream/[0.08]' : ''
+                  }`}
+                >
+                  <div className="flex flex-col">
+                    <span className="text-base font-semibold tracking-wide text-cream/80">
+                      {tier.name}
+                    </span>
+                    <span className="text-cream/40 text-xs mt-0.5">
+                      {tier.detail}
+                    </span>
+                  </div>
+                  {tier.price ? (
+                    <span className="font-display font-bold text-lg tracking-wide text-cream/60">
+                      {tier.price}
+                    </span>
+                  ) : (
+                    <span className="text-golden text-xs tracking-wider font-semibold">
+                      ASK US
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </ScrollRevealItem>
+
+          <ScrollRevealItem>
             <div className="text-center mt-10">
               <button
                 onClick={handleTicketClick}
                 className="bg-golden text-deep px-10 py-4 text-sm tracking-[0.25em] font-bold hover:bg-golden/90 transition-all duration-300"
               >
-                GET EARLY BIRD TICKETS
+                GET TICKETS
               </button>
             </div>
           </ScrollRevealItem>
