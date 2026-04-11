@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 import { buildLandingUrl, MOJUICE_TICKET_URL } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
@@ -43,21 +42,6 @@ export default function UpcomingEvents() {
             <p className="text-cream-muted text-center mb-8 tagline">
               Curfew beyond the festival.
             </p>
-          </ScrollRevealItem>
-
-          {/* Photo moment */}
-          <ScrollRevealItem>
-            <div className="relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[16/7] overflow-hidden mb-8">
-              <Image
-                src="/images/curfew-crowd-stage-purple.jpg"
-                alt="Curfew crowd with purple stage lights"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 900px"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-deep/20 to-deep/30" />
-            </div>
           </ScrollRevealItem>
 
           <ScrollRevealItem>

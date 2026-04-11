@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 
 export default function About() {
@@ -8,20 +7,6 @@ export default function About() {
     <section className="py-8 md:py-14 px-6">
       <div className="max-w-[900px] mx-auto">
         <ScrollReveal stagger>
-          {/* Photo — full width, natural colors */}
-          <ScrollRevealItem>
-            <div className="relative aspect-[16/9] overflow-hidden mb-8 md:mb-12">
-              <Image
-                src="/images/new-103a8926.jpg"
-                alt="Curfew crowd dancing under open skies"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 900px"
-                loading="lazy"
-              />
-            </div>
-          </ScrollRevealItem>
-
           {/* Centered text */}
           <div className="text-center max-w-[700px] mx-auto">
             <ScrollRevealItem>
