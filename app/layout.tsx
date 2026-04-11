@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
+
+const GA_MEASUREMENT_ID = 'G-NX0DWXZZBY';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -299,6 +302,26 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-deep text-cream overflow-x-hidden">
+        {/* GA4 — consent mode default (EU regions denied until user grants) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied',
+              'ad_personalization': 'denied',
+              'ad_user_data': 'denied',
+              'region': ['BE', 'NL', 'FR', 'DE']
+            });
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         {children}
       </body>
     </html>

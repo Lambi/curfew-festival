@@ -19,7 +19,7 @@ import TicketPricing from '@/components/TicketPricing';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import CustomCursor from '@/components/CustomCursor';
-import { initMetaPixel, initGA4, trackContentView } from '@/lib/analytics';
+import { initMetaPixel, trackContentView } from '@/lib/analytics';
 import { shouldRedirect } from '@/lib/redirectConfig';
 import { buildTicketUrl } from '@/lib/ticketUrl';
 
@@ -37,9 +37,8 @@ export default function Home() {
     }
     requestAnimationFrame(raf);
 
-    // Analytics
+    // Analytics — GA4 loaded in layout.tsx via next/script
     initMetaPixel();
-    initGA4();
 
     // Section view tracking
     const sections = [
