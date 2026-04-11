@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1005px; overflow: hidden; background: #0A0A0C; position: relative; font-family: 'Work Sans', sans-serif; }
+
+  /* ── PHOTO LAYERS ── */
+  /* Golden hour crowd with sun flare — already warm, lighter treatment */
+  .photo-base {
+    position: absolute; inset: 0;
+    background: url('./curfew-crowd-golden-hour.jpg') center 40% / cover;
+    filter: saturate(1.5) brightness(1.08) contrast(1.12);
+  }
+
+  /* ── WARM SUMMER COLOR GRADING ── */
+  /* Lighter golden sun wash — photo is already warm */
+  .sun-wash {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(255, 179, 71, 0.28) 0%,
+      rgba(200, 164, 90, 0.15) 30%,
+      rgba(255, 140, 50, 0.12) 60%,
+      rgba(200, 100, 40, 0.18) 100%
+    );
+    mix-blend-mode: color;
+  }
+
+  /* Sun burst from upper-right — subtle golden glow */
+  .sun-burst {
+    position: absolute; inset: 0;
+    background: radial-gradient(
+      ellipse at 70% 10%,
+      rgba(255, 220, 140, 0.45) 0%,
+      rgba(255, 179, 71, 0.20) 25%,
+      transparent 55%
+    );
+    mix-blend-mode: screen;
+  }
+
+  /* Secondary warm glow from left */
+  .warm-glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(
+      ellipse at 20% 60%,
+      rgba(255, 160, 60, 0.15) 0%,
+      transparent 50%
+    );
+    mix-blend-mode: screen;
+  }
+
+  /* Very subtle amber tint — light touch */
+  .amber-tint {
+    position: absolute; inset: 0;
+    background: rgba(200, 140, 50, 0.06);
+    mix-blend-mode: multiply;
+  }
+
+  /* Very gentle vignette — keep it bright and open */
+  .vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(
+      ellipse at 50% 45%,
+      transparent 40%,
+      rgba(10, 10, 12, 0.25) 75%,
+      rgba(10, 10, 12, 0.55) 100%
+    );
+  }
+
+  /* Bottom band for text legibility */
+  .bottom-fade {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 60%,
+      rgba(10, 10, 12, 0.35) 78%,
+      rgba(10, 10, 12, 0.65) 100%
+    );
+  }
+
+  /* Top subtle darken for corner text */
+  .top-fade {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,12,0.3) 0%, transparent 18%);
+  }
+
+  /* Thermal orbs — brand DNA */
+  .orb1 { position: absolute; width: 700px; height: 700px; top: -200px; right: 15%; border-radius: 50%; background: radial-gradient(circle, rgba(255,200,100,0.2) 0%, transparent 60%); filter: blur(90px); mix-blend-mode: screen; }
+  .orb2 { position: absolute; width: 500px; height: 500px; bottom: -100px; left: 20%; border-radius: 50%; background: radial-gradient(circle, rgba(255,160,60,0.15) 0%, transparent 70%); filter: blur(70px); mix-blend-mode: screen; }
+
+  /* Film grain */
+  .grain { position: absolute; inset: 0; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; z-index: 50; }
+
+  /* Razor lines */
+  .razor-top { position: absolute; left: 350px; right: 350px; top: 165px; height: 1px; background: rgba(255,220,140,0.15); z-index: 15; }
+  .razor-bot { position: absolute; left: 350px; right: 350px; bottom: 165px; height: 1px; background: rgba(255,220,140,0.15); z-index: 15; }
+
+  /* ══════ CENTERED INFO BLOCK ══════ */
+  .center-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    width: 1400px;
+  }
+
+  .tagline {
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 26px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 230, 170, 0.9);
+    margin-bottom: 28px;
+    text-shadow: 0 2px 20px rgba(200,140,50,0.4);
+  }
+
+  .t-curfew {
+    font-family: 'Big Shoulders Display';
+    font-weight: 900;
+    font-size: 220px;
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: #F2EDE3;
+    letter-spacing: 0.04em;
+    text-shadow: 0 4px 60px rgba(255,180,80,0.5), 0 2px 20px rgba(200,164,90,0.3);
+  }
+
+  .t-festival {
+    font-family: 'Big Shoulders Display';
+    font-weight: 900;
+    font-size: 220px;
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: #C8A45A;
+    letter-spacing: 0.04em;
+    text-shadow: 0 4px 40px rgba(200,164,90,0.4);
+  }
+
+  .t-year {
+    font-family: 'Big Shoulders Display';
+    font-weight: 700;
+    font-size: 130px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255,220,140,0.4);
+    letter-spacing: 0.1em;
+    margin-top: 6px;
+  }
+
+  .divider {
+    width: 180px;
+    height: 1.5px;
+    background: rgba(255,220,140,0.45);
+    margin: 30px auto 26px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+  }
+
+  .info-date {
+    font-family: 'Big Shoulders Display';
+    font-weight: 900;
+    font-size: 58px;
+    color: #C8A45A;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-shadow: 0 2px 15px rgba(200,164,90,0.3);
+  }
+
+  .info-sep {
+    width: 1.5px;
+    height: 46px;
+    background: rgba(255,220,140,0.35);
+  }
+
+  .info-venue { text-align: left; }
+  .info-venue-name {
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(242,237,227,0.75);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+  }
+  .info-venue-city {
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(200,164,90,0.65);
+    margin-top: 3px;
+  }
+
+  /* Corner whispers */
+  .corner-tl { position: absolute; top: 36px; left: 55px; font-family: 'Space Mono'; font-size: 10px; letter-spacing: 0.14em; color: rgba(255,220,140,0.2); z-index: 10; }
+  .corner-tr { position: absolute; top: 36px; right: 55px; font-family: 'Space Mono'; font-size: 10px; letter-spacing: 0.14em; color: rgba(255,220,140,0.2); z-index: 10; text-align: right; }
+  .corner-bl { position: absolute; bottom: 36px; left: 55px; font-family: 'Work Sans'; font-weight: 400; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,220,140,0.3); z-index: 10; }
+  .corner-br { position: absolute; bottom: 36px; right: 55px; font-family: 'Work Sans'; font-weight: 400; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(242,237,227,0.3); z-index: 10; }
+</style>
+</head>
+<body>
+  <div class="photo-base"></div>
+  <div class="sun-wash"></div>
+  <div class="sun-burst"></div>
+  <div class="warm-glow"></div>
+  <div class="amber-tint"></div>
+  <div class="vignette"></div>
+  <div class="bottom-fade"></div>
+  <div class="top-fade"></div>
+  <div class="orb1"></div><div class="orb2"></div>
+  <div class="razor-top"></div><div class="razor-bot"></div>
+
+  <span class="corner-tl">51.0543°N 3.6856°E</span>
+  <span class="corner-tr">NON-PROFIT<br>HOUSE FESTIVAL</span>
+  <span class="corner-bl">www.curfewfestival.be</span>
+  <span class="corner-br">Free · Donation Based</span>
+
+  <div class="center-block">
+    <div class="tagline">In House We Trust</div>
+    <div class="t-curfew">CURFEW</div>
+    <div class="t-festival">FESTIVAL</div>
+    <div class="t-year">2026</div>
+    <div class="divider"></div>
+    <div class="info-row">
+      <div class="info-date">SAT 06.06</div>
+      <div class="info-sep"></div>
+      <div class="info-venue">
+        <div class="info-venue-name">Blaarmeersen</div>
+        <div class="info-venue-city">Gent · Belgium</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grain"></div>
+</body>
+</html>

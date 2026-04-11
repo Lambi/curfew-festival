@@ -112,7 +112,7 @@ export default function VideoHero() {
             onClick={handleTicketClick}
             className="border-2 border-golden text-golden px-8 py-3 font-semibold tracking-wide hover:bg-golden hover:text-deep transition-colors duration-300 mb-8"
           >
-            GET TICKETS
+            EARLY BIRD TICKETS
           </motion.button>
 
           {/* Countdown */}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1005px; overflow: hidden; background: #0A0A0C; position: relative; font-family: 'Work Sans', sans-serif; }
+
+  /* ── PHOTO + SUMMER GRADING ── */
+  .photo-base {
+    position: absolute; inset: 0;
+    background: url('./Curfew banner.jpg') center 40% / cover;
+    filter: saturate(1.7) brightness(1.25) contrast(1.1) hue-rotate(5deg);
+  }
+
+  /* Bright golden wash */
+  .sun-wash {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg,
+      rgba(255,220,80,0.40) 0%,
+      rgba(255,200,60,0.30) 35%,
+      rgba(255,180,50,0.22) 65%,
+      rgba(255,210,80,0.30) 100%
+    );
+    mix-blend-mode: color;
+  }
+
+  /* Big sun burst — high, bright, summer noon */
+  .sun-burst {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 55% 0%,
+      rgba(255,245,180,0.70) 0%,
+      rgba(255,220,100,0.40) 20%,
+      rgba(255,200,80,0.18) 40%,
+      transparent 60%
+    );
+    mix-blend-mode: screen;
+  }
+
+  /* Secondary warm glow bottom-left */
+  .warm-glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 25% 80%,
+      rgba(255,190,60,0.22) 0%, transparent 50%
+    );
+    mix-blend-mode: screen;
+  }
+
+  /* Soft golden tint */
+  .amber-tint {
+    position: absolute; inset: 0;
+    background: rgba(255,220,100,0.08);
+    mix-blend-mode: multiply;
+  }
+
+  /* Gentle vignette — lighter for summer */
+  .vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 42%,
+      transparent 40%,
+      rgba(10,10,12,0.18) 68%,
+      rgba(10,10,12,0.50) 100%
+    );
+  }
+
+  /* Bottom fade for text readability */
+  .bottom-fade {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      transparent 45%,
+      rgba(10,10,12,0.20) 65%,
+      rgba(10,10,12,0.55) 85%,
+      rgba(10,10,12,0.75) 100%
+    );
+  }
+
+  /* Top fade */
+  .top-fade {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,12,0.20) 0%, transparent 15%);
+  }
+
+  /* Thermal orbs */
+  .orb1 {
+    position: absolute; width: 800px; height: 800px; top: -300px; right: 20%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,235,120,0.18) 0%, transparent 60%);
+    filter: blur(100px); mix-blend-mode: screen;
+  }
+  .orb2 {
+    position: absolute; width: 500px; height: 500px; bottom: -50px; left: 15%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,200,70,0.12) 0%, transparent 70%);
+    filter: blur(80px); mix-blend-mode: screen;
+  }
+
+  /* Film grain */
+  .grain {
+    position: absolute; inset: 0; opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay; z-index: 50;
+  }
+
+  /* Razor lines */
+  .razor-top { position: absolute; left: 280px; right: 280px; top: 100px; height: 1px; background: rgba(255,240,160,0.18); z-index: 15; }
+  .razor-bot { position: absolute; left: 280px; right: 280px; bottom: 100px; height: 1px; background: rgba(255,240,160,0.18); z-index: 15; }
+
+  /* ── TEXT BLOCK ── */
+  .center-block {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; z-index: 10; width: 1500px;
+  }
+
+  .t-curfew {
+    font-family: 'Big Shoulders Display'; font-weight: 900;
+    font-size: 230px; line-height: 0.84; text-transform: uppercase;
+    color: #FFFFFF;
+    letter-spacing: 0.04em;
+    text-shadow: 0 6px 60px rgba(0,0,0,0.35), 0 2px 15px rgba(0,0,0,0.3);
+  }
+  .t-festival {
+    font-family: 'Big Shoulders Display'; font-weight: 900;
+    font-size: 230px; line-height: 0.84; text-transform: uppercase;
+    color: #FFDC50;
+    letter-spacing: 0.04em;
+    text-shadow: 0 6px 50px rgba(0,0,0,0.30), 0 2px 12px rgba(0,0,0,0.25);
+  }
+
+  .tagline {
+    font-family: 'Work Sans'; font-weight: 400; font-style: italic;
+    font-size: 30px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,250,220,0.92);
+    margin-top: 22px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  }
+
+  .divider {
+    width: 180px; height: 1px;
+    background: rgba(255,240,160,0.45);
+    margin: 22px auto 20px;
+  }
+
+  .info-row {
+    display: flex; justify-content: center; align-items: center; gap: 40px;
+  }
+  .info-date {
+    font-family: 'Big Shoulders Display'; font-weight: 900;
+    font-size: 58px; color: #FFDC50;
+    letter-spacing: 0.04em; line-height: 1;
+    text-shadow: 0 3px 16px rgba(0,0,0,0.30);
+  }
+  .info-sep {
+    width: 1.5px; height: 44px;
+    background: rgba(255,240,160,0.35);
+  }
+  .info-venue { text-align: left; }
+  .info-venue-name {
+    font-family: 'Work Sans'; font-weight: 700;
+    font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.88);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.30);
+  }
+  .info-venue-city {
+    font-family: 'Work Sans'; font-weight: 400;
+    font-size: 17px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,230,100,0.80);
+    margin-top: 3px; text-shadow: 0 1px 8px rgba(0,0,0,0.25);
+  }
+
+  .cta {
+    margin-top: 22px;
+    text-shadow: 0 3px 16px rgba(0,0,0,0.35);
+  }
+  .cta .label {
+    font-family: 'Work Sans'; font-weight: 400;
+    color: rgba(255,255,255,0.70); font-size: 17px; letter-spacing: 0.20em; text-transform: uppercase;
+  }
+  .cta .url {
+    font-family: 'Work Sans'; font-weight: 700;
+    color: #FFFFFF; font-size: 26px; letter-spacing: 0.12em;
+  }
+</style>
+</head>
+<body>
+  <div class="photo-base"></div>
+  <div class="sun-wash"></div>
+  <div class="sun-burst"></div>
+  <div class="warm-glow"></div>
+  <div class="amber-tint"></div>
+  <div class="vignette"></div>
+  <div class="bottom-fade"></div>
+  <div class="top-fade"></div>
+  <div class="orb1"></div>
+  <div class="orb2"></div>
+  <div class="grain"></div>
+  <div class="razor-top"></div>
+  <div class="razor-bot"></div>
+
+  <div class="center-block">
+    <div class="t-curfew">CURFEW</div>
+    <div class="t-festival">FESTIVAL</div>
+    <div class="tagline">In House We Trust</div>
+    <div class="divider"></div>
+    <div class="info-row">
+      <div class="info-date">SAT 06.06</div>
+      <div class="info-sep"></div>
+      <div class="info-venue">
+        <div class="info-venue-name">Blaarmeersen</div>
+        <div class="info-venue-city">Gent · Belgium</div>
+      </div>
+    </div>
+    <div class="cta">
+      <span class="label">Info & Tickets</span><br>
+      <span class="url">WWW.CURFEW.EVENTS</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -92,6 +92,8 @@ export default function Hero() {
           GET TICKETS
         </motion.button>
 
+        {/* Note: This is the 2nd CTA — links to direct festival ticket shop */}
+
         <motion.p
           className="tagline text-golden"
           custom={5}

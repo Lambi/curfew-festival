@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
-import { buildTicketUrl } from '@/lib/ticketUrl';
+import { buildLandingUrl, MOJUICE_TICKET_URL } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
 
 const events = [
@@ -12,6 +12,7 @@ const events = [
     venue: 'Club Wintercircus \u00B7 Ghent',
     lineup: 'Kamma & Masalo \u00B7 Forbidden Fruit \u00B7 Nico Juice & Mo Disko',
     status: 'SOON',
+    url: MOJUICE_TICKET_URL,
   },
   {
     name: 'CURFEW OPEN AIR',
@@ -19,13 +20,15 @@ const events = [
     venue: 'Location TBA',
     lineup: 'Lineup TBA',
     status: 'SOON',
+    url: null, // will use landing page
   },
 ];
 
 export default function UpcomingEvents() {
-  function handleTicketClick() {
+  function handleEventClick(url: string | null) {
     trackTicketClick();
-    window.open(buildTicketUrl(), '_blank');
+    const target = url || buildLandingUrl();
+    window.open(target, '_blank');
   }
 
   return (
@@ -62,7 +65,7 @@ export default function UpcomingEvents() {
               {events.map((event, i) => (
                 <button
                   key={event.name}
-                  onClick={handleTicketClick}
+                  onClick={() => handleEventClick(event.url)}
                   className={`w-full text-left py-6 md:py-8 group hover:bg-cream/[0.02] transition-colors duration-300 px-4 -mx-4 ${i < events.length - 1 ? 'border-b border-cream/[0.08]' : ''}`}
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -88,10 +91,10 @@ export default function UpcomingEvents() {
           <ScrollRevealItem>
             <div className="text-center mt-10">
               <button
-                onClick={handleTicketClick}
+                onClick={() => handleEventClick(null)}
                 className="inline-block border border-golden text-cream px-8 py-3 text-xs tracking-[0.25em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
               >
-                GET TICKETS
+                ALL EVENTS
               </button>
             </div>
           </ScrollRevealItem>

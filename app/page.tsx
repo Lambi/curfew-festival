@@ -60,30 +60,18 @@ export default function Home() {
         <Marquee />
         <About />
         <AtmosphereBreak
-          src="/images/new-103a8237.jpg"
-          alt="Curfew crowd under golden hour light"
+          src="/images/banner-curfew-hero.jpg"
+          alt="Curfew crowd dancing under golden hour light"
         />
         <Lineup />
-        <AtmosphereBreak
-          src="/images/new-103a9097.jpg"
-          alt="DJ behind the decks at Curfew"
-        />
         <Experience />
-        <AtmosphereBreak
-          src="/images/new-103a8758.jpg"
-          alt="Dancers on the Curfew floor"
-        />
         <Stats />
         <TicketPricing />
         <AtmosphereBreak
-          src="/images/new-103a9382.jpg"
-          alt="DJ booth bathed in coloured lights at Curfew"
+          src="/images/banner-curfew-deep.jpg"
+          alt="Curfew geodesic dome with disco ball and crowd"
         />
         <UpcomingEvents />
-        <AtmosphereBreak
-          src="/images/new-103a9824.jpg"
-          alt="Curfew sunset crowd"
-        />
         <Newsletter />
         <Contact />
         <Partners />

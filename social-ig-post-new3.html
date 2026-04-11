@@ -1,0 +1,50 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Work+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1080px;overflow:hidden;background:#0A0A0C;position:relative;font-family:'Work Sans',sans-serif}
+.photo{position:absolute;inset:0;background:url('./public/images/web-103a8758.jpg') center center/cover;filter:saturate(1.25) brightness(0.78) contrast(1.12)}
+.vignette{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 25%,rgba(10,10,12,0.55) 60%,rgba(10,10,12,0.92) 100%)}
+.golden{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(200,164,90,0.28) 0%,transparent 55%);mix-blend-mode:overlay}
+.golden2{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(200,164,90,0.12) 70%,rgba(200,164,90,0.18) 100%);mix-blend-mode:soft-light}
+.bottom-dark{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,12,0.55) 80%,rgba(10,10,12,0.9) 100%)}
+.top-dark{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,0.65) 0%,transparent 25%)}
+.orb1{position:absolute;width:486px;height:486px;top:-108px;left:50%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(200,164,90,0.22) 0%,transparent 60%);filter:blur(80px);mix-blend-mode:screen}
+.orb2{position:absolute;width:324px;height:324px;bottom:-86px;left:162px;border-radius:50%;background:radial-gradient(circle,rgba(255,179,71,0.18) 0%,transparent 70%);filter:blur(60px);mix-blend-mode:screen}
+.grain{position:absolute;inset:0;opacity:0.06;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay;z-index:50}
+.center-block{position:absolute;top:50%;transform:translate(-50%,-50%);left:50%;;text-align:center;z-index:10;width:993px}
+.tagline{font-family:'Work Sans';font-weight:400;font-style:italic;font-size:19px;letter-spacing:0.18em;text-transform:uppercase;color:#C8A45A;margin-bottom:21px}
+.t-curfew{font-family:'Big Shoulders Display';font-weight:900;font-size:155px;line-height:0.86;text-transform:uppercase;color:#F2EDE3;letter-spacing:0.04em;text-shadow:0 6px 80px rgba(200,164,90,0.4)}
+.t-festival{font-family:'Big Shoulders Display';font-weight:900;font-size:155px;line-height:0.86;text-transform:uppercase;color:#C8A45A;letter-spacing:0.04em}
+.t-year{font-family:'Big Shoulders Display';font-weight:700;font-size:95px;line-height:1;color:transparent;-webkit-text-stroke:2.5px rgba(200,164,90,0.55);letter-spacing:0.1em;margin-top:6px}
+.divider{width:140px;height:1.5px;background:rgba(200,164,90,0.5);margin:23px auto 19px}
+.info-row{display:flex;justify-content:center;align-items:center;gap:27px}
+.info-date{font-family:'Big Shoulders Display';font-weight:900;font-size:41px;color:#C8A45A;letter-spacing:0.04em;line-height:1}
+.info-sep{width:1.5px;height:30px;background:rgba(200,164,90,0.4)}
+.info-venue{text-align:left}
+.info-venue-name{font-family:'Work Sans';font-weight:700;font-size:15px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,237,227,0.85)}
+.info-venue-city{font-family:'Work Sans';font-weight:400;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(200,164,90,0.7);margin-top:3px}
+.corner-tl{position:absolute;top:43px;left:37px;font-family:'Work Sans';font-weight:300;font-size:9px;letter-spacing:0.15em;color:rgba(200,164,90,0.35);z-index:10}
+.corner-tr{position:absolute;top:43px;right:37px;font-family:'Work Sans';font-weight:400;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(200,164,90,0.45);z-index:10;text-align:right;line-height:1.4}
+</style></head><body>
+<div class="photo"></div><div class="vignette"></div><div class="golden"></div><div class="golden2"></div>
+<div class="bottom-dark"></div><div class="top-dark"></div>
+<div class="orb1"></div><div class="orb2"></div>
+<span class="corner-tl">51.0543°N 3.6856°E</span>
+<span class="corner-tr">NON-PROFIT<br>HOUSE FESTIVAL</span>
+<div class="center-block">
+  <div class="tagline">In House We Trust</div>
+  <div class="t-curfew">CURFEW</div>
+  <div class="t-festival">FESTIVAL</div>
+  <div class="t-year">2026</div>
+  <div class="divider"></div>
+  <div class="info-row">
+    <div class="info-date">SAT 06.06</div>
+    <div class="info-sep"></div>
+    <div class="info-venue">
+      <div class="info-venue-name">Blaarmeersen</div>
+      <div class="info-venue-city">Gent · Belgium</div>
+    </div>
+  </div>
+</div>
+<div class="grain"></div>
+</body></html>

@@ -135,7 +135,7 @@ export default function TicketPricing() {
                 onClick={handleTicketClick}
                 className="bg-golden text-deep px-10 py-4 text-sm tracking-[0.25em] font-bold hover:bg-golden/90 transition-all duration-300"
               >
-                GET TICKETS
+                FESTIVAL TICKETS
               </button>
             </div>
           </ScrollRevealItem>
