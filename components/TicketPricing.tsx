@@ -6,8 +6,8 @@ import { trackTicketClick } from '@/lib/analytics';
 
 const tiers = [
   { name: 'Pre-Release', price: '€20', status: 'sold-out' as const },
-  { name: 'Early Birds', price: '€25', status: 'sold-out' as const },
-  { name: 'Wave 1', price: '€30', status: 'active' as const },
+  { name: 'Early Birds', price: '€25', status: 'active' as const },
+  { name: 'Wave 1', price: '€30', status: 'upcoming' as const },
   { name: 'Wave 2', price: '€35', status: 'upcoming' as const },
   { name: 'Final Wave', price: '€40', status: 'upcoming' as const },
   { name: 'Door Sale', price: '€45', status: 'upcoming' as const },
