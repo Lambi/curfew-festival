@@ -7,7 +7,7 @@ declare global {
 }
 
 const FB_PIXEL_ID = '636940698616732';
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Replace with actual GA4 ID
+const GA_MEASUREMENT_ID = 'G-NX0DWXZZBY';
 
 export function initMetaPixel() {
   if (typeof window === 'undefined') return;
