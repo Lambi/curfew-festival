@@ -15,7 +15,7 @@ const events = [
   },
   {
     name: 'CURFEW OPEN AIR',
-    date: 'SUN 26 OCTOBER',
+    date: 'SAT 26 SEPTEMBER',
     venue: 'Location TBA',
     lineup: 'Lineup TBA',
     status: 'SOON',
