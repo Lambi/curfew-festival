@@ -1,8 +1,15 @@
 'use client';
 
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
+import { buildTicketUrl } from '@/lib/ticketUrl';
+import { trackTicketClick } from '@/lib/analytics';
 
 export default function About() {
+  function handleTicketClick() {
+    trackTicketClick();
+    window.open(buildTicketUrl(), '_blank');
+  }
+
   return (
     <section className="py-8 md:py-14 px-6">
       <div className="max-w-[900px] mx-auto">
@@ -41,12 +48,12 @@ export default function About() {
             </ScrollRevealItem>
 
             <ScrollRevealItem>
-              <a
-                href="#newsletter"
+              <button
+                onClick={handleTicketClick}
                 className="inline-block border border-golden text-cream px-8 py-3 text-xs tracking-[0.25em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
               >
                 GET TICKETS
-              </a>
+              </button>
             </ScrollRevealItem>
           </div>
         </ScrollReveal>

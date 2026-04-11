@@ -15,7 +15,7 @@ export default function Stats() {
       <div className="warm-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
       <div className="max-w-[1100px] mx-auto relative z-10">
-        <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 text-center">
+        <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 text-center">
           {stats.map((stat) => (
             <ScrollRevealItem key={stat.label}>
               <div>

@@ -19,7 +19,7 @@ import TicketPricing from '@/components/TicketPricing';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import CustomCursor from '@/components/CustomCursor';
-import { initMetaPixel, initGA4 } from '@/lib/analytics';
+import { initMetaPixel, initGA4, trackContentView } from '@/lib/analytics';
 import { shouldRedirect } from '@/lib/redirectConfig';
 import { buildTicketUrl } from '@/lib/ticketUrl';
 
@@ -41,12 +41,40 @@ export default function Home() {
     initMetaPixel();
     initGA4();
 
+    // Section view tracking
+    const sections = [
+      { id: 'lineup', name: 'Lineup' },
+      { id: 'experience', name: 'Experience' },
+      { id: 'events', name: 'UpcomingEvents' },
+      { id: 'newsletter', name: 'Newsletter' },
+      { id: 'contact', name: 'Contact' },
+    ];
+    const observers: IntersectionObserver[] = [];
+    sections.forEach(({ id, name }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            trackContentView(name);
+            obs.disconnect();
+          }
+        },
+        { threshold: 0.3 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
     // Redirect check
     if (shouldRedirect()) {
       window.location.href = buildTicketUrl();
     }
 
-    return () => lenis.destroy();
+    return () => {
+      lenis.destroy();
+      observers.forEach((obs) => obs.disconnect());
+    };
   }, []);
 
   return (
