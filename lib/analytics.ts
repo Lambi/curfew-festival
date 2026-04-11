@@ -41,11 +41,14 @@ export function initGA4() {
   configScript.innerHTML = `
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
     gtag('consent', 'default', {
       'analytics_storage': 'denied',
-      'ad_storage': 'denied'
+      'ad_storage': 'denied',
+      'ad_personalization': 'denied',
+      'ad_user_data': 'denied',
+      'region': ['BE', 'NL', 'FR', 'DE']
     });
+    gtag('js', new Date());
     gtag('config', '${GA_MEASUREMENT_ID}');
   `;
   document.head.appendChild(configScript);
