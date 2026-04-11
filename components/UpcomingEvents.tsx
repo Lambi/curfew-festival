@@ -10,7 +10,7 @@ const events = [
     date: 'FRI 7 NOVEMBER',
     venue: 'Club Wintercircus \u00B7 Ghent',
     lineup: 'Kamma & Masalo \u00B7 Forbidden Fruit \u00B7 Nico Juice & Mo Disko',
-    status: 'SOON',
+    status: 'TICKETS',
     url: MOJUICE_TICKET_URL,
   },
   {
