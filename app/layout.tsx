@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
 const GA_MEASUREMENT_ID = 'G-NX0DWXZZBY';
@@ -323,6 +325,8 @@ export default function RootLayout({
           `}
         </Script>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

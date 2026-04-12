@@ -6,20 +6,44 @@ import { trackTicketClick } from '@/lib/analytics';
 
 const events = [
   {
-    name: "MO'JUICE \u00D7 CURFEW",
-    date: 'FRI 7 NOVEMBER',
-    venue: 'Club Wintercircus \u00B7 Ghent',
-    lineup: 'Kamma & Masalo \u00B7 Forbidden Fruit \u00B7 Nico Juice & Mo Disko',
-    status: 'TICKETS',
-    url: MOJUICE_TICKET_URL,
+    name: 'CLUB CURFEW \u00D7 WIDE OPEN',
+    date: 'SAT 16 MAY',
+    venue: 'Keizerspark \u00B7 Ghent',
+    lineup: 'Afterparty w/ The Rekord Klub \u00B7 House music all night',
+    status: 'SOON',
+    url: null,
   },
   {
-    name: 'CURFEW OPEN AIR',
-    date: 'SAT 26 SEPTEMBER',
-    venue: 'Location TBA',
+    name: 'CLUB CURFEW \u2014 GENTSE FEESTEN',
+    date: 'FRI 17 JULY \u2013 SUN 26 JULY',
+    venue: 'Sint-Jacobsnieuwstraat \u00B7 Ghent',
+    lineup: '10 Days Off \u00B7 Lineup TBA',
+    status: 'SOON',
+    url: null,
+  },
+  {
+    name: 'CURFEW \u00D7 PUSH IT OPEN AIR',
+    date: 'SAT 25 SEPTEMBER',
+    venue: 'Secret Location \u00B7 Ghent',
     lineup: 'Lineup TBA',
     status: 'SOON',
-    url: null, // will use landing page
+    url: null,
+  },
+  {
+    name: 'CURFEW \u00D7 ???',
+    date: 'SAT 31 OCTOBER',
+    venue: 'Secret Location \u00B7 Ghent',
+    lineup: 'Birthday of a very special label in house music \u00B7 TBA',
+    status: 'SOON',
+    url: null,
+  },
+  {
+    name: "CURFEW \u00D7 MO'JUICE",
+    date: 'SAT 7 NOVEMBER',
+    venue: 'Club Wintercircus \u00B7 Ghent',
+    lineup: 'Kamma & Masalo \u00B7 Forbidden Fruit \u00B7 Nico Juice & Mo\u2019Disko',
+    status: 'SOON',
+    url: null,
   },
 ];
 

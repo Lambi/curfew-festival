@@ -9,6 +9,13 @@ declare global {
 const FB_PIXEL_ID = '636940698616732';
 const GA_MEASUREMENT_ID = 'G-NX0DWXZZBY';
 
+/** Generate a unique event_id for Meta Pixel deduplication (client ↔ Conversions API) */
+function generateEventId(prefix: string): string {
+  const timestamp = Date.now();
+  const random = Math.random().toString(36).substring(2, 10);
+  return `${prefix}_${timestamp}_${random}`;
+}
+
 export function initMetaPixel() {
   if (typeof window === 'undefined') return;
 
@@ -65,24 +72,32 @@ export function grantConsent() {
 
 export function trackEvent(eventName: string, params?: Record<string, unknown>) {
   if (typeof window === 'undefined') return;
-  window.fbq?.('track', eventName, params);
-  window.gtag?.('event', eventName, params);
+  const eventId = generateEventId(eventName.toLowerCase());
+  const fbParams = { ...params, event_id: eventId };
+  window.fbq?.('track', eventName, fbParams, { eventID: eventId });
+  window.gtag?.('event', eventName, { ...params, event_id: eventId });
 }
 
 export function trackTicketClick() {
-  trackEvent('InitiateCheckout');
+  const eventId = generateEventId('initiatecheckout');
   if (typeof window !== 'undefined') {
-    window.gtag?.('event', 'begin_checkout');
+    window.fbq?.('track', 'InitiateCheckout', { event_id: eventId }, { eventID: eventId });
+    window.gtag?.('event', 'begin_checkout', { event_id: eventId });
   }
 }
 
 export function trackNewsletterSignup() {
-  trackEvent('Lead');
+  const eventId = generateEventId('lead');
   if (typeof window !== 'undefined') {
-    window.gtag?.('event', 'generate_lead');
+    window.fbq?.('track', 'Lead', { event_id: eventId }, { eventID: eventId });
+    window.gtag?.('event', 'generate_lead', { event_id: eventId });
   }
 }
 
 export function trackContentView(section: string) {
-  trackEvent('ViewContent', { content_name: section });
+  const eventId = generateEventId('viewcontent');
+  if (typeof window !== 'undefined') {
+    window.fbq?.('track', 'ViewContent', { content_name: section, event_id: eventId }, { eventID: eventId });
+    window.gtag?.('event', 'ViewContent', { content_name: section, event_id: eventId });
+  }
 }
