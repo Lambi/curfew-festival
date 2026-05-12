@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Curfew Ticket Update Carousel</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Work+Sans:wght@500;700;900&display=swap");
+
+      :root {
+        --cream: #faf2e1;
+        --gold: #c8a45a;
+        --coral: #f0879b;
+        --deep: #10101f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--deep);
+        color: var(--cream);
+        font-family: "Work Sans", system-ui, sans-serif;
+      }
+
+      .slide {
+        position: relative;
+        display: none;
+        width: 1080px;
+        height: 1080px;
+        padding: 74px 78px;
+        overflow: hidden;
+      }
+
+      .slide.is-active {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .photo,
+      .shade,
+      .grain {
+        position: absolute;
+        inset: 0;
+      }
+
+      .photo {
+        background-image: url("../../../Curfew banner.jpg");
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.04);
+      }
+
+      .shade {
+        background:
+          linear-gradient(180deg, rgba(16, 16, 31, 0.62) 0%, rgba(16, 16, 31, 0.12) 44%, rgba(16, 16, 31, 0.78) 100%),
+          radial-gradient(circle at 30% 24%, rgba(240, 135, 155, 0.32), transparent 42%),
+          radial-gradient(circle at 78% 72%, rgba(200, 164, 90, 0.34), transparent 50%);
+      }
+
+      .grain {
+        opacity: 0.16;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .eyebrow,
+      .footer,
+      .meta {
+        font-size: 24px;
+        line-height: 1.2;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .eyebrow {
+        color: var(--gold);
+      }
+
+      .meta {
+        color: rgba(250, 242, 225, 0.74);
+        margin-top: 28px;
+      }
+
+      .headline {
+        margin: 0;
+        max-width: 860px;
+        font-family: "Big Shoulders Display", Impact, sans-serif;
+        font-size: 142px;
+        line-height: 0.9;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+        text-wrap: balance;
+      }
+
+      .headline.tight {
+        font-size: 174px;
+      }
+
+      .headline span {
+        color: var(--gold);
+      }
+
+      .subline {
+        max-width: 760px;
+        margin: 30px 0 0;
+        font-size: 38px;
+        line-height: 1.16;
+        font-weight: 800;
+        color: rgba(250, 242, 225, 0.9);
+      }
+
+      .stat-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 48px;
+        max-width: 760px;
+      }
+
+      .stat {
+        padding: 26px 28px;
+        border: 2px solid rgba(200, 164, 90, 0.72);
+        background: rgba(16, 16, 31, 0.52);
+      }
+
+      .stat strong {
+        display: block;
+        font-family: "Big Shoulders Display", Impact, sans-serif;
+        font-size: 86px;
+        line-height: 0.9;
+        color: var(--gold);
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 12px;
+        font-size: 18px;
+        line-height: 1.25;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .ticket-pill {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        min-height: 70px;
+        margin-top: 42px;
+        padding: 18px 28px;
+        background: var(--gold);
+        color: var(--deep);
+        font-size: 24px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .footer {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        color: rgba(250, 242, 225, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="slide" data-slide="1">
+      <div class="photo"></div>
+      <div class="shade"></div>
+      <div class="grain"></div>
+      <div class="content">
+        <div class="eyebrow">Weekly ticket update</div>
+        <h1 class="headline">Early Birds <span>sold out</span></h1>
+        <p class="subline">Wave 1 is the active ticket tier now. Last tickets in this wave.</p>
+        <div class="ticket-pill">Wave 1 · EUR 30</div>
+      </div>
+      <div class="footer">
+        <span>Curfew Festival 2026</span>
+        <span>6 June · Blaarmeersen</span>
+      </div>
+    </section>
+
+    <section class="slide" data-slide="2">
+      <div class="photo"></div>
+      <div class="shade"></div>
+      <div class="grain"></div>
+      <div class="content">
+        <div class="eyebrow">Momentum check</div>
+        <h1 class="headline tight"><span>329</span> people in</h1>
+        <div class="stat-row">
+          <div class="stat"><strong>274</strong><span>paid tickets</span></div>
+          <div class="stat"><strong>116</strong><span>early birds gone</span></div>
+        </div>
+      </div>
+      <div class="footer">
+        <span>In House We Trust</span>
+        <span>curfew.events</span>
+      </div>
+    </section>
+
+    <section class="slide" data-slide="3">
+      <div class="photo"></div>
+      <div class="shade"></div>
+      <div class="grain"></div>
+      <div class="content">
+        <div class="eyebrow">Current ticket wave</div>
+        <h1 class="headline">Wave 1 <span>last tickets</span></h1>
+        <p class="subline">The next wave goes up. This is the clean moment to get in.</p>
+        <div class="ticket-pill">Festival tickets · EUR 30</div>
+      </div>
+      <div class="footer">
+        <span>Saturday 6 June</span>
+        <span>Ghent, Belgium</span>
+      </div>
+    </section>
+
+    <section class="slide" data-slide="4">
+      <div class="photo"></div>
+      <div class="shade"></div>
+      <div class="grain"></div>
+      <div class="content">
+        <div class="eyebrow">Next step</div>
+        <h1 class="headline">Get your <span>festival ticket</span></h1>
+        <p class="subline">Curfew Festival 2026 · Ian Pooley live · Pabels · Walashi · more to be announced.</p>
+        <div class="ticket-pill">Tickets via curfew.events</div>
+      </div>
+      <div class="footer">
+        <span>Where House Comes Home</span>
+        <span>Swipe · Save · Share</span>
+      </div>
+    </section>
+
+    <script>
+      const requested = new URLSearchParams(window.location.search).get("slide") || "1";
+      document
+        .querySelector(`[data-slide="${requested}"]`)
+        ?.classList.add("is-active");
+    </script>
+  </body>
+</html>

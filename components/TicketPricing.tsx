@@ -5,12 +5,12 @@ import { buildTicketUrl } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
 
 const tiers = [
-  { name: 'Pre-Release', price: '€20', status: 'sold-out' as const },
-  { name: 'Early Birds', price: '€25', status: 'active' as const },
-  { name: 'Wave 1', price: '€30', status: 'upcoming' as const },
-  { name: 'Wave 2', price: '€35', status: 'upcoming' as const },
-  { name: 'Final Wave', price: '€40', status: 'upcoming' as const },
-  { name: 'Door Sale', price: '€45', status: 'upcoming' as const },
+  { name: 'Pre-Release', price: '€20', status: 'sold-out' as const, badge: 'Sold Out' },
+  { name: 'Early Birds', price: '€25', status: 'sold-out' as const, badge: 'Sold Out' },
+  { name: 'Wave 1', price: '€30', status: 'active' as const, badge: 'Last Tickets' },
+  { name: 'Wave 2', price: '€35', status: 'upcoming' as const, badge: null },
+  { name: 'Final Wave', price: '€40', status: 'upcoming' as const, badge: null },
+  { name: 'Door Sale', price: '€45', status: 'upcoming' as const, badge: null },
 ];
 
 const groupTiers = [
@@ -37,6 +37,12 @@ export default function TicketPricing() {
           <ScrollRevealItem>
             <p className="tagline text-cream-muted text-center mb-10">
               SAT 6 JUNE 2026 &middot; BLAARMEERSEN &middot; GHENT
+            </p>
+          </ScrollRevealItem>
+
+          <ScrollRevealItem>
+            <p className="text-golden text-center mb-8 text-xs md:text-sm tracking-[0.22em] font-bold uppercase">
+              Early Birds sold out &middot; Wave 1 last tickets now
             </p>
           </ScrollRevealItem>
 
@@ -70,14 +76,13 @@ export default function TicketPricing() {
                     >
                       {tier.name}
                     </span>
-                    {tier.status === 'sold-out' && (
-                      <span className="text-[9px] tracking-[0.15em] font-bold text-coral/80 uppercase">
-                        Sold Out
-                      </span>
-                    )}
-                    {tier.status === 'active' && (
-                      <span className="text-[9px] tracking-[0.15em] font-bold text-golden uppercase">
-                        On Sale
+                    {tier.badge && (
+                      <span
+                        className={`text-[9px] tracking-[0.15em] font-bold uppercase ${
+                          tier.status === 'active' ? 'text-golden' : 'text-coral/80'
+                        }`}
+                      >
+                        {tier.badge}
                       </span>
                     )}
                   </div>

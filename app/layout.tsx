@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: '%s | Curfew Festival 2026',
   },
   description:
-    'Curfew Festival 2026: Saturday 6 June at Blaarmeersen, Ghent, Belgium. A non-profit open-air house music festival featuring Ian Pooley (LIVE), Pabels, Walashi and more. Early bird tickets from €25. In House We Trust.',
+    'Curfew Festival 2026: Saturday 6 June at Blaarmeersen, Ghent, Belgium. A non-profit open-air house music festival featuring Ian Pooley (LIVE), Pabels, Walashi and more. Early Birds are sold out; Wave 1 last tickets are available now. In House We Trust.',
   metadataBase: new URL('https://curfew.events'),
   alternates: {
     canonical: 'https://curfew.events',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Curfew Festival 2026 — Open-Air Edition',
     description:
-      'SAT 6 JUNE · Blaarmeersen · Ghent. Non-profit open-air house music festival featuring Ian Pooley (LIVE), Pabels, Walashi & more. Tickets from €25.',
+      'SAT 6 JUNE · Blaarmeersen · Ghent. Non-profit open-air house music festival featuring Ian Pooley (LIVE), Pabels, Walashi & more. Early Birds sold out; Wave 1 last tickets now.',
     url: 'https://curfew.events',
     siteName: 'Curfew',
     images: [
@@ -197,14 +197,14 @@ export default function RootLayout({
                   url: 'https://www.tiqs.com/alfred/events/shop/4789',
                   price: '25',
                   priceCurrency: 'EUR',
-                  availability: 'https://schema.org/InStock',
+                  availability: 'https://schema.org/SoldOut',
                   validFrom: '2026-04-08T18:00:00+02:00',
                 },
                 {
                   '@type': 'Offer',
-                  name: 'Full Price Ticket',
+                  name: 'Wave 1 Ticket',
                   url: 'https://www.tiqs.com/alfred/events/shop/4789',
-                  price: '40',
+                  price: '30',
                   priceCurrency: 'EUR',
                   availability: 'https://schema.org/InStock',
                 },
@@ -287,7 +287,7 @@ export default function RootLayout({
                   name: 'How much are tickets for Curfew Festival 2026?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Early bird tickets are €25. Regular tickets range from €30 to €40. Door sale is €45. Tickets are available at tiqs.com.',
+                    text: 'Early Birds are sold out. Wave 1 tickets are €30 and are the current last tickets available. Later waves range from €35 to €40, with door sale at €45 if available. Tickets are available at tiqs.com.',
                   },
                 },
                 {
