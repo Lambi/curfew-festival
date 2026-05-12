@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { buildTicketUrl } from '@/lib/ticketUrl';
+import { buildTicketUrl, buildWideOpenTicketUrl } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
 
 const navLinks = [
@@ -27,7 +27,12 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  function handleTicketClick() {
+  function handleMay16TicketsClick() {
+    trackTicketClick();
+    window.open(buildWideOpenTicketUrl(), '_blank');
+  }
+
+  function handleFestivalTicketsClick() {
     trackTicketClick();
     window.open(buildTicketUrl(), '_blank');
   }
@@ -54,32 +59,41 @@ export default function Navigation() {
           scrolled ? 'bg-deep/95 backdrop-blur-sm shadow-lg shadow-deep/50' : 'bg-deep/30 backdrop-blur-[2px]'
         }`}
       >
-        <div className="flex justify-between items-center px-6 py-4 max-w-[1400px] mx-auto">
+        <div className="flex justify-between items-center gap-2 px-4 sm:px-6 py-4 max-w-[1400px] mx-auto">
           <button
             onClick={handleLogoClick}
-            className="font-display text-cream text-xl tracking-wider font-bold hover:text-golden transition-colors duration-300"
+            className="font-display text-cream text-lg sm:text-xl tracking-wider font-bold hover:text-golden transition-colors duration-300"
           >
             CURFEW
           </button>
 
-          <div className="hidden md:flex gap-6 items-center">
+          <div className="hidden lg:flex gap-5 items-center">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => scrollTo(link.href)}
-                className="text-sm tracking-[0.2em] text-cream/60 hover:text-cream transition-colors duration-300 font-body font-semibold"
+                className="text-xs tracking-[0.18em] text-cream/60 hover:text-cream transition-colors duration-300 font-body font-semibold"
               >
                 {link.label}
               </button>
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-3">
             <button
-              onClick={handleTicketClick}
-              className="border border-golden text-cream px-5 py-2 text-sm tracking-[0.2em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
+              onClick={handleMay16TicketsClick}
+              className="bg-golden text-deep px-2.5 sm:px-4 py-2 text-[10px] sm:text-xs tracking-[0.08em] sm:tracking-[0.18em] font-bold hover:bg-golden/90 transition-all duration-300"
             >
-              GET TICKETS
+              <span className="sm:hidden">MAY 16</span>
+              <span className="hidden sm:inline">MAY 16 TICKETS</span>
+            </button>
+
+            <button
+              onClick={handleFestivalTicketsClick}
+              className="border border-golden text-cream px-2.5 sm:px-4 py-2 text-[10px] sm:text-xs tracking-[0.08em] sm:tracking-[0.18em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
+            >
+              <span className="sm:hidden">FESTIVAL</span>
+              <span className="hidden sm:inline">FESTIVAL TICKETS</span>
             </button>
 
             <button
@@ -137,14 +151,26 @@ export default function Navigation() {
               <motion.button
                 onClick={() => {
                   setMenuOpen(false);
-                  handleTicketClick();
+                  handleMay16TicketsClick();
                 }}
-                className="mt-4 border border-golden text-cream px-8 py-3 text-sm tracking-[0.25em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
+                className="mt-4 bg-golden text-deep px-8 py-3 text-sm tracking-[0.22em] font-bold hover:bg-golden/90 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
               >
-                GET TICKETS
+                MAY 16 TICKETS
+              </motion.button>
+              <motion.button
+                onClick={() => {
+                  setMenuOpen(false);
+                  handleFestivalTicketsClick();
+                }}
+                className="border border-golden text-cream px-8 py-3 text-sm tracking-[0.22em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.58, duration: 0.4 }}
+              >
+                FESTIVAL TICKETS
               </motion.button>
             </div>
 

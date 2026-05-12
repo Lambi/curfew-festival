@@ -1,12 +1,23 @@
 const FESTIVAL_SHOP_URL = 'https://www.tiqs.com/alfred/events/shop/4789';
+const WIDE_OPEN_AFTERHOURS_SHOP_URL = 'https://www.tiqs.com/alfred/events/shop/5547';
 const LANDING_PAGE_URL = 'https://www.tiqs.com/alfred/upcoming_events/217350';
 
-function appendUtm(base: string, extraParams?: Record<string, string>): string {
+function appendUtm(
+  base: string,
+  defaultParams?: Record<string, string>,
+  extraParams?: Record<string, string>
+): string {
   const url = new URL(base);
 
   url.searchParams.set('utm_source', 'curfew_website');
   url.searchParams.set('utm_medium', 'cta');
   url.searchParams.set('utm_campaign', 'festival2026');
+
+  if (defaultParams) {
+    Object.entries(defaultParams).forEach(([key, value]) => {
+      url.searchParams.set(key, value);
+    });
+  }
 
   if (typeof window !== 'undefined') {
     const searchParams = new URLSearchParams(window.location.search);
@@ -28,12 +39,21 @@ function appendUtm(base: string, extraParams?: Record<string, string>): string {
 
 /** Direct link to the festival ticket shop */
 export function buildTicketUrl(extraParams?: Record<string, string>): string {
-  return appendUtm(FESTIVAL_SHOP_URL, extraParams);
+  return appendUtm(FESTIVAL_SHOP_URL, undefined, extraParams);
+}
+
+/** Direct link to the Club Curfew x Wide Open afterhours ticket shop */
+export function buildWideOpenTicketUrl(extraParams?: Record<string, string>): string {
+  return appendUtm(
+    WIDE_OPEN_AFTERHOURS_SHOP_URL,
+    { utm_campaign: 'wide_open_afterhours_2026' },
+    extraParams
+  );
 }
 
 /** Landing page with all upcoming events */
 export function buildLandingUrl(extraParams?: Record<string, string>): string {
-  return appendUtm(LANDING_PAGE_URL, extraParams);
+  return appendUtm(LANDING_PAGE_URL, undefined, extraParams);
 }
 
 /** Mo'Juice × Curfew at Wintercircus ticket link */

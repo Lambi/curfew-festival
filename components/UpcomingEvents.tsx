@@ -1,17 +1,39 @@
 'use client';
 
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
-import { buildLandingUrl, MOJUICE_TICKET_URL } from '@/lib/ticketUrl';
+import { buildLandingUrl, buildTicketUrl, buildWideOpenTicketUrl } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
 
-const events = [
+type TicketTarget = string | (() => string) | null;
+
+type UpcomingEvent = {
+  name: string;
+  date: string;
+  venue: string;
+  lineup: string;
+  description?: string;
+  status: string;
+  url: TicketTarget;
+};
+
+const events: UpcomingEvent[] = [
   {
-    name: 'CLUB CURFEW \u00D7 WIDE OPEN',
+    name: 'CLUB CURFEW INVITES THE REKORD KLUB',
     date: 'SAT 16 MAY',
-    venue: 'Keizerspark \u00B7 Ghent',
-    lineup: 'Afterparty w/ The Rekord Klub \u00B7 House music all night',
-    status: 'SOON',
-    url: null,
+    venue: 'Sint-Jacobsnieuwstraat 30 \u00B7 Ghent',
+    lineup: 'Wide Open afterhours \u00B7 Deejames b2b Deejames \u00B7 Vinyl only',
+    description: '10 hours and more. No handover, no feature, no shortcut.',
+    status: 'MAY 16 TICKETS',
+    url: buildWideOpenTicketUrl,
+  },
+  {
+    name: 'CURFEW FESTIVAL 2026',
+    date: 'SAT 6 JUNE',
+    venue: 'Blaarmeersen \u00B7 Ghent',
+    lineup: 'Ian Pooley (LIVE) \u00B7 Pabels \u00B7 Walashi \u00B7 More TBA',
+    description: 'Open-air house music festival. In House We Trust.',
+    status: 'FESTIVAL TICKETS',
+    url: buildTicketUrl,
   },
   {
     name: 'CLUB CURFEW \u2014 GENTSE FEESTEN',
@@ -48,9 +70,9 @@ const events = [
 ];
 
 export default function UpcomingEvents() {
-  function handleEventClick(url: string | null) {
+  function handleEventClick(url: TicketTarget) {
     trackTicketClick();
-    const target = url || buildLandingUrl();
+    const target = typeof url === 'function' ? url() : url || buildLandingUrl();
     window.open(target, '_blank');
   }
 
@@ -85,6 +107,11 @@ export default function UpcomingEvents() {
                         {event.date} &middot; {event.venue}
                       </p>
                       <p className="text-cream-muted/60 text-sm mt-1">{event.lineup}</p>
+                      {event.description && (
+                        <p className="text-cream-muted/45 text-xs md:text-sm mt-2 max-w-[620px]">
+                          {event.description}
+                        </p>
+                      )}
                     </div>
                     <span className="inline-flex self-start items-center gap-2 border border-golden text-golden px-4 py-1.5 text-xs tracking-[0.2em] font-bold group-hover:bg-golden group-hover:text-deep transition-all duration-300">
                       {event.status}

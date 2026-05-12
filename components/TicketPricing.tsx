@@ -31,7 +31,7 @@ export default function TicketPricing() {
       <div className="max-w-[700px] mx-auto">
         <ScrollReveal stagger>
           <ScrollRevealItem>
-            <h2 className="section-title text-cream text-center mb-4">TICKETS</h2>
+            <h2 className="section-title text-cream text-center mb-4">FESTIVAL TICKETS</h2>
           </ScrollRevealItem>
 
           <ScrollRevealItem>

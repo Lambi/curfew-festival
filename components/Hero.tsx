@@ -89,7 +89,7 @@ export default function Hero() {
           animate="visible"
           variants={fadeUp}
         >
-          GET TICKETS
+          FESTIVAL TICKETS
         </motion.button>
 
         {/* Note: This is the 2nd CTA — links to direct festival ticket shop */}

@@ -52,7 +52,7 @@ export default function About() {
                 onClick={handleTicketClick}
                 className="inline-block border border-golden text-cream px-8 py-3 text-xs tracking-[0.25em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
               >
-                GET TICKETS
+                FESTIVAL TICKETS
               </button>
             </ScrollRevealItem>
           </div>

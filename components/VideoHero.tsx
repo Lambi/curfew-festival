@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { buildTicketUrl } from '@/lib/ticketUrl';
+import { buildTicketUrl, buildWideOpenTicketUrl } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
 import Countdown from './Countdown';
 
@@ -41,7 +41,12 @@ const scrollPulse = {
 };
 
 export default function VideoHero() {
-  function handleTicketClick() {
+  function handleMay16TicketsClick() {
+    trackTicketClick();
+    window.open(buildWideOpenTicketUrl(), '_blank');
+  }
+
+  function handleFestivalTicketsClick() {
     trackTicketClick();
     window.open(buildTicketUrl(), '_blank');
   }
@@ -96,33 +101,45 @@ export default function VideoHero() {
             CURFEW
           </motion.h1>
 
+          <motion.div custom={2} variants={fadeUp} className="mb-6">
+            <p className="text-cream/70 text-xs tracking-[0.22em] font-semibold mb-3">
+              NEXT UP · SAT 16 MAY · WIDE OPEN AFTERHOURS
+            </p>
+            <button
+              onClick={handleMay16TicketsClick}
+              className="bg-golden text-deep px-8 py-3 font-bold tracking-[0.2em] hover:bg-golden/90 transition-colors duration-300"
+            >
+              MAY 16 TICKETS
+            </button>
+          </motion.div>
+
           {/* Event Details Label */}
           <motion.p
-            custom={2}
+            custom={3}
             variants={fadeUp}
-            className="text-cream/60 text-sm tracking-wide mb-8"
+            className="text-cream/60 text-sm tracking-wide mb-4"
           >
             SAT 6 JUNE · BLAARMEERSEN · GHENT
           </motion.p>
 
           {/* Get Tickets Button */}
           <motion.button
-            custom={3}
+            custom={4}
             variants={fadeUp}
-            onClick={handleTicketClick}
+            onClick={handleFestivalTicketsClick}
             className="border-2 border-golden text-golden px-8 py-3 font-semibold tracking-wide hover:bg-golden hover:text-deep transition-colors duration-300 mb-8"
           >
-            EARLY BIRD TICKETS
+            FESTIVAL TICKETS
           </motion.button>
 
           {/* Countdown */}
-          <motion.div custom={4} variants={fadeUp} className="mb-6">
+          <motion.div custom={5} variants={fadeUp} className="mb-6">
             <Countdown />
           </motion.div>
 
           {/* Tagline */}
           <motion.p
-            custom={5}
+            custom={6}
             variants={fadeUp}
             className="text-golden italic text-sm"
           >
