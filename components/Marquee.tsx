@@ -1,10 +1,11 @@
 'use client';
 
+import { FULL_LINEUP_DISPLAY } from '@/lib/festivalTimetable';
+
 export default function Marquee() {
   const row1Text =
-    'IN HOUSE WE TRUST · SAT 6 JUNE 2026 · SPORT VLAANDEREN · BLAARMEERSEN GHENT · FINAL TIMETABLE · ';
-  const row2Text =
-    'MAIN · HIDE OUT · IAN POOLEY LIVE · PABELS B2B SIGNO · WALASHI · GHENT BELGIUM · ';
+    'IN HOUSE WE TRUST · SAT 6 JUNE 2026 · SPORT VLAANDEREN · BLAARMEERSEN GHENT · FULL LINE UP A-Z · ';
+  const row2Text = `${FULL_LINEUP_DISPLAY.toUpperCase()} · `;
 
   const row1Full = row1Text + row1Text + row1Text + row1Text;
   const row2Full = row2Text + row2Text + row2Text + row2Text;

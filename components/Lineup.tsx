@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
-import { HIDE_OUT_STAGE_SLOTS, MAIN_STAGE_SLOTS, type FestivalStageSlot } from '@/lib/festivalTimetable';
+import { FULL_LINEUP_NAMES } from '@/lib/festivalTimetable';
 
 interface Artist {
   name: string;
@@ -45,50 +45,6 @@ const artists: Artist[] = [
   },
 ];
 
-function StageTimetable({
-  name,
-  slots,
-}: {
-  name: string;
-  slots: FestivalStageSlot[];
-}) {
-  return (
-    <div className="border border-cream/[0.08] bg-cream/[0.02]">
-      <div className="flex items-center justify-between gap-4 border-b border-cream/[0.08] px-4 py-3 md:px-5">
-        <h3 className="font-display text-cream text-3xl md:text-4xl font-black tracking-wider">
-          {name}
-        </h3>
-        <span className="text-golden text-[10px] md:text-xs tracking-[0.22em] font-bold uppercase">
-          SAT 06.06
-        </span>
-      </div>
-
-      <div>
-        {slots.map((slot) => (
-          <div
-            key={`${slot.time}-${slot.artist}`}
-            className="grid grid-cols-[112px_1fr] gap-4 border-b border-cream/[0.06] px-4 py-3 last:border-b-0 md:grid-cols-[132px_1fr] md:px-5"
-          >
-            <div className="font-mono text-[11px] md:text-xs text-golden tracking-[0.08em] pt-1">
-              {slot.time}
-            </div>
-            <div>
-              <p className="font-display text-cream text-2xl md:text-3xl leading-none font-bold tracking-wide">
-                {slot.artist}
-              </p>
-              {slot.detail && (
-                <p className="mt-1 text-cream/45 text-[10px] md:text-xs tracking-[0.18em] font-bold uppercase">
-                  {slot.detail}
-                </p>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function Lineup() {
   return (
     <section id="lineup" className="py-8 md:py-14 px-6">
@@ -100,14 +56,24 @@ export default function Lineup() {
 
           <ScrollRevealItem>
             <p className="text-cream-muted text-center mb-8 tagline">
-              Two floors. Sport Vlaanderen. Blaarmeersen.
+              Full line up A-Z. Sport Vlaanderen. Blaarmeersen.
             </p>
           </ScrollRevealItem>
 
           <ScrollRevealItem>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8 md:mb-12">
-              <StageTimetable name="MAIN" slots={MAIN_STAGE_SLOTS} />
-              <StageTimetable name="HIDE OUT" slots={HIDE_OUT_STAGE_SLOTS} />
+            <div className="mx-auto mb-8 md:mb-12 max-w-[1040px] border-y border-cream/[0.08] py-8 md:py-10">
+              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 md:gap-x-8 md:gap-y-5">
+                {FULL_LINEUP_NAMES.map((artist, index) => (
+                  <span
+                    key={artist}
+                    className={`font-display text-[2.45rem] sm:text-[3.35rem] md:text-[4.4rem] lg:text-[5.2rem] font-black uppercase leading-[1.04] tracking-[0.045em] ${
+                      index % 2 === 1 ? 'text-golden' : 'text-cream'
+                    }`}
+                  >
+                    {artist}
+                  </span>
+                ))}
+              </div>
             </div>
           </ScrollRevealItem>
 

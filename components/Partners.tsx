@@ -14,18 +14,18 @@ export default function Partners() {
           </ScrollRevealItem>
 
           <ScrollRevealItem>
-            <div className="flex justify-center items-center gap-14 md:gap-20">
+            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-16">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/toutbien-logo.svg"
                 alt="Tout Bien"
-                className="h-8 md:h-10 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+                className="max-h-8 w-auto max-w-[130px] object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 md:max-h-10 md:max-w-[220px]"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/yugen-logo.svg"
                 alt="Yugen"
-                className="h-8 md:h-10 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+                className="max-h-8 w-auto max-w-[130px] object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 md:max-h-10 md:max-w-[220px]"
               />
             </div>
           </ScrollRevealItem>

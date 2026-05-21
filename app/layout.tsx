@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: '%s | Curfew Festival 2026',
   },
   description:
-    `Curfew Festival 2026: Saturday 6 June at Sport Vlaanderen, Blaarmeersen, Ghent. Final timetable announced across Main and Hide Out: ${FULL_LINEUP_SENTENCE}. In House We Trust.`,
+    `Curfew Festival 2026: Saturday 6 June at Sport Vlaanderen, Blaarmeersen, Ghent. Full lineup announced: ${FULL_LINEUP_SENTENCE}. In House We Trust.`,
   metadataBase: new URL('https://curfew.events'),
   alternates: {
     canonical: 'https://curfew.events',
@@ -34,15 +34,19 @@ export const metadata: Metadata = {
     'open air festival Belgium',
     'deep house festival',
     'Ian Pooley live',
-    'Pabels DJ',
-    'Walashi DJ',
+    'Pabels',
+    'Walashi',
     'Borat Music Mania',
-    'Sharon Deman',
     'Fonkituur',
-    'Red D Jensen',
+    'Lathouwers',
+    'Shron',
+    'WellSee',
+    'WeZienWel Ensemble',
     'Deejames',
+    'Red D',
+    'Jensen',
+    'Kingfluencer',
     'No Shit Like Deep',
-    'Hide Out stage',
     'non-profit festival',
     'In House We Trust',
     'Curfew Gent',
@@ -54,7 +58,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Curfew Festival 2026 — Open-Air Edition',
     description:
-      `SAT 6 JUNE · Sport Vlaanderen, Blaarmeersen · Ghent. Final timetable announced: ${FULL_LINEUP_DISPLAY}.`,
+      `SAT 6 JUNE · Sport Vlaanderen, Blaarmeersen · Ghent. Full lineup announced: ${FULL_LINEUP_DISPLAY}.`,
     url: 'https://curfew.events',
     siteName: 'Curfew',
     images: [
@@ -72,7 +76,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Curfew Festival 2026 — Open-Air Edition',
     description:
-      `SAT 6 JUNE · Sport Vlaanderen, Blaarmeersen · Ghent. Final timetable announced across Main and Hide Out.`,
+      `SAT 6 JUNE · Sport Vlaanderen, Blaarmeersen · Ghent. Full lineup announced.`,
     images: ['/images/og-curfew-2026.jpg'],
   },
   robots: {
@@ -156,7 +160,7 @@ export default function RootLayout({
               '@type': 'MusicEvent',
               name: 'Curfew Festival 2026',
               description:
-                `Non-profit open-air house music festival at Sport Vlaanderen, Blaarmeersen, Ghent. Final timetable announced: ${FULL_LINEUP_SENTENCE}. In House We Trust.`,
+                `Non-profit open-air house music festival at Sport Vlaanderen, Blaarmeersen, Ghent. Full lineup announced: ${FULL_LINEUP_SENTENCE}. In House We Trust.`,
               startDate: '2026-06-06T12:00:00+02:00',
               endDate: '2026-06-07T02:00:00+02:00',
               eventStatus: 'https://schema.org/EventScheduled',
@@ -272,7 +276,7 @@ export default function RootLayout({
                   name: 'Who is playing at Curfew Festival 2026?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: `The final Curfew Festival 2026 timetable includes ${FULL_LINEUP_SENTENCE}, across the Main and Hide Out stages.`,
+                    text: `The full Curfew Festival 2026 lineup is ${FULL_LINEUP_SENTENCE}.`,
                   },
                 },
                 {

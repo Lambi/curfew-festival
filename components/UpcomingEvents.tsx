@@ -32,7 +32,7 @@ const events: UpcomingEvent[] = [
     date: 'SAT 6 JUNE',
     venue: 'Sport Vlaanderen \u00B7 Blaarmeersen \u00B7 Ghent',
     lineup: FULL_LINEUP_DISPLAY,
-    description: 'Final timetable announced across Main and Hide Out.',
+    description: 'Full line up A-Z announced.',
     status: 'FESTIVAL TICKETS',
     url: buildTicketUrl,
   },
