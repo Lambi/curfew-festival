@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { FULL_LINEUP_DISPLAY, FULL_LINEUP_NAMES, FULL_LINEUP_SENTENCE } from '@/lib/festivalTimetable';
 import './globals.css';
 
 const GA_MEASUREMENT_ID = 'G-NX0DWXZZBY';
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     template: '%s | Curfew Festival 2026',
   },
   description:
-    'Curfew Festival 2026: Saturday 6 June at Blaarmeersen, Ghent, Belgium. A non-profit open-air house music festival featuring Ian Pooley (LIVE), Pabels, Walashi and more. Early Birds are sold out; Wave 1 last tickets are available now. In House We Trust.',
+    `Curfew Festival 2026: Saturday 6 June at Sport Vlaanderen, Blaarmeersen, Ghent. Final timetable announced across Main and Hide Out: ${FULL_LINEUP_SENTENCE}. In House We Trust.`,
   metadataBase: new URL('https://curfew.events'),
   alternates: {
     canonical: 'https://curfew.events',
@@ -35,6 +36,13 @@ export const metadata: Metadata = {
     'Ian Pooley live',
     'Pabels DJ',
     'Walashi DJ',
+    'Borat Music Mania',
+    'Sharon Deman',
+    'Fonkituur',
+    'Red D Jensen',
+    'Deejames',
+    'No Shit Like Deep',
+    'Hide Out stage',
     'non-profit festival',
     'In House We Trust',
     'Curfew Gent',
@@ -46,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Curfew Festival 2026 — Open-Air Edition',
     description:
-      'SAT 6 JUNE · Blaarmeersen · Ghent. Non-profit open-air house music festival featuring Ian Pooley (LIVE), Pabels, Walashi & more. Early Birds sold out; Wave 1 last tickets now.',
+      `SAT 6 JUNE · Sport Vlaanderen, Blaarmeersen · Ghent. Final timetable announced: ${FULL_LINEUP_DISPLAY}.`,
     url: 'https://curfew.events',
     siteName: 'Curfew',
     images: [
@@ -64,7 +72,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Curfew Festival 2026 — Open-Air Edition',
     description:
-      'SAT 6 JUNE · Blaarmeersen · Ghent. Non-profit house music festival. Ian Pooley LIVE, Pabels, Walashi & more.',
+      `SAT 6 JUNE · Sport Vlaanderen, Blaarmeersen · Ghent. Final timetable announced across Main and Hide Out.`,
     images: ['/images/og-curfew-2026.jpg'],
   },
   robots: {
@@ -148,15 +156,15 @@ export default function RootLayout({
               '@type': 'MusicEvent',
               name: 'Curfew Festival 2026',
               description:
-                'Non-profit open-air house music festival at Blaarmeersen, Ghent. Featuring Ian Pooley (LIVE), Pabels, Walashi and more. In House We Trust.',
+                `Non-profit open-air house music festival at Sport Vlaanderen, Blaarmeersen, Ghent. Final timetable announced: ${FULL_LINEUP_SENTENCE}. In House We Trust.`,
               startDate: '2026-06-06T12:00:00+02:00',
-              endDate: '2026-06-06T23:00:00+02:00',
+              endDate: '2026-06-07T02:00:00+02:00',
               eventStatus: 'https://schema.org/EventScheduled',
               eventAttendanceMode:
                 'https://schema.org/OfflineEventAttendanceMode',
               location: {
                 '@type': 'Place',
-                name: 'Blaarmeersen',
+                name: 'Sport Vlaanderen, Blaarmeersen',
                 address: {
                   '@type': 'PostalAddress',
                   streetAddress: 'Zuiderlaan 14',
@@ -171,25 +179,10 @@ export default function RootLayout({
                   longitude: 3.6883,
                 },
               },
-              performer: [
-                {
-                  '@type': 'MusicGroup',
-                  name: 'Ian Pooley',
-                  description: 'Deep house and techno pioneer from Germany. Exclusive live set.',
-                  sameAs: 'https://open.spotify.com/artist/3dBKhZCi2cluaB0VW1XrBE',
-                },
-                {
-                  '@type': 'MusicGroup',
-                  name: 'Pabels',
-                  description: 'House, disco and balearic DJ from Colombia.',
-                  sameAs: 'https://www.instagram.com/pabelspabels/',
-                },
-                {
-                  '@type': 'MusicGroup',
-                  name: 'Walashi',
-                  description: 'Middle Eastern house DJ from Syria/Dubai. Boiler Room alumni.',
-                },
-              ],
+              performer: FULL_LINEUP_NAMES.map((name) => ({
+                '@type': 'MusicGroup',
+                name,
+              })),
               offers: [
                 {
                   '@type': 'Offer',
@@ -263,7 +256,7 @@ export default function RootLayout({
                   name: 'What is Curfew Festival?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Curfew is a non-profit open-air house music festival in Ghent, Belgium. Founded in 2015, it takes place at Blaarmeersen and celebrates deep, soulful house music. The 2026 edition is on Saturday 6 June.',
+                    text: 'Curfew is a non-profit open-air house music festival in Ghent, Belgium. Founded in 2015, it takes place at Sport Vlaanderen, Blaarmeersen, and celebrates deep, soulful house music. The 2026 edition is on Saturday 6 June.',
                   },
                 },
                 {
@@ -271,7 +264,7 @@ export default function RootLayout({
                   name: 'When and where is Curfew Festival 2026?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Saturday 6 June 2026, at Blaarmeersen, Ghent, Belgium. It is a daytime open-air festival.',
+                    text: 'Saturday 6 June 2026, from 12:00 until 02:00 at Sport Vlaanderen, Blaarmeersen, Ghent, Belgium.',
                   },
                 },
                 {
@@ -279,7 +272,7 @@ export default function RootLayout({
                   name: 'Who is playing at Curfew Festival 2026?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Confirmed artists include Ian Pooley (exclusive LIVE set, Germany), Pabels (DJ set, Colombia), and Walashi (DJ set, Syria/Dubai). More artists will be announced.',
+                    text: `The final Curfew Festival 2026 timetable includes ${FULL_LINEUP_SENTENCE}, across the Main and Hide Out stages.`,
                   },
                 },
                 {

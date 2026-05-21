@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
+import { HIDE_OUT_STAGE_SLOTS, MAIN_STAGE_SLOTS, type FestivalStageSlot } from '@/lib/festivalTimetable';
 
 interface Artist {
   name: string;
@@ -44,17 +45,76 @@ const artists: Artist[] = [
   },
 ];
 
+function StageTimetable({
+  name,
+  slots,
+}: {
+  name: string;
+  slots: FestivalStageSlot[];
+}) {
+  return (
+    <div className="border border-cream/[0.08] bg-cream/[0.02]">
+      <div className="flex items-center justify-between gap-4 border-b border-cream/[0.08] px-4 py-3 md:px-5">
+        <h3 className="font-display text-cream text-3xl md:text-4xl font-black tracking-wider">
+          {name}
+        </h3>
+        <span className="text-golden text-[10px] md:text-xs tracking-[0.22em] font-bold uppercase">
+          SAT 06.06
+        </span>
+      </div>
+
+      <div>
+        {slots.map((slot) => (
+          <div
+            key={`${slot.time}-${slot.artist}`}
+            className="grid grid-cols-[112px_1fr] gap-4 border-b border-cream/[0.06] px-4 py-3 last:border-b-0 md:grid-cols-[132px_1fr] md:px-5"
+          >
+            <div className="font-mono text-[11px] md:text-xs text-golden tracking-[0.08em] pt-1">
+              {slot.time}
+            </div>
+            <div>
+              <p className="font-display text-cream text-2xl md:text-3xl leading-none font-bold tracking-wide">
+                {slot.artist}
+              </p>
+              {slot.detail && (
+                <p className="mt-1 text-cream/45 text-[10px] md:text-xs tracking-[0.18em] font-bold uppercase">
+                  {slot.detail}
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Lineup() {
   return (
     <section id="lineup" className="py-8 md:py-14 px-6">
       <div className="max-w-[1200px] mx-auto">
         <ScrollReveal stagger>
           <ScrollRevealItem>
-            <h2 className="section-title text-cream text-center mb-8 md:mb-12">LINEUP</h2>
+            <h2 className="section-title text-cream text-center mb-4">LINEUP</h2>
           </ScrollRevealItem>
 
-          {/* All 3 artists in a row on desktop */}
           <ScrollRevealItem>
+            <p className="text-cream-muted text-center mb-8 tagline">
+              Two floors. Sport Vlaanderen. Blaarmeersen.
+            </p>
+          </ScrollRevealItem>
+
+          <ScrollRevealItem>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8 md:mb-12">
+              <StageTimetable name="MAIN" slots={MAIN_STAGE_SLOTS} />
+              <StageTimetable name="HIDE OUT" slots={HIDE_OUT_STAGE_SLOTS} />
+            </div>
+          </ScrollRevealItem>
+
+          <ScrollRevealItem>
+            <p className="label text-golden mb-5 tracking-[0.2em] text-center">
+              ARTIST STORIES
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {artists.map((artist) => (
                 <Link href={`/artists/${artist.slug}`} key={artist.name} className="block group">
@@ -107,33 +167,6 @@ export default function Lineup() {
                   </div>
                 </Link>
               ))}
-            </div>
-          </ScrollRevealItem>
-
-          {/* Coming soon — remaining mystery slots */}
-          <ScrollRevealItem>
-            <div className="mt-6">
-              <div className="grid grid-cols-3 md:grid-cols-3 gap-3">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="aspect-square border border-cream/[0.06] bg-cream/[0.015] flex items-center justify-center"
-                  >
-                    <span className="text-cream/[0.12] font-display text-4xl md:text-5xl font-bold">?</span>
-                  </div>
-                ))}
-              </div>
-              <div className="text-center mt-8">
-                <p className="label text-golden mb-6 tracking-[0.2em]">
-                  MORE ARTISTS DROPPING SOON
-                </p>
-                <a
-                  href="#newsletter"
-                  className="inline-block border border-golden text-cream px-8 py-3 text-xs tracking-[0.25em] font-bold hover:bg-golden hover:text-deep transition-all duration-300"
-                >
-                  SIGN UP FOR UPDATES
-                </a>
-              </div>
             </div>
           </ScrollRevealItem>
         </ScrollReveal>

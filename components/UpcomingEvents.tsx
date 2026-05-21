@@ -3,6 +3,7 @@
 import { ScrollReveal, ScrollRevealItem } from './ScrollReveal';
 import { buildLandingUrl, buildTicketUrl, buildWideOpenTicketUrl } from '@/lib/ticketUrl';
 import { trackTicketClick } from '@/lib/analytics';
+import { FULL_LINEUP_DISPLAY } from '@/lib/festivalTimetable';
 
 type TicketTarget = string | (() => string) | null;
 
@@ -29,9 +30,9 @@ const events: UpcomingEvent[] = [
   {
     name: 'CURFEW FESTIVAL 2026',
     date: 'SAT 6 JUNE',
-    venue: 'Blaarmeersen \u00B7 Ghent',
-    lineup: 'Ian Pooley (LIVE) \u00B7 Pabels \u00B7 Walashi \u00B7 More TBA',
-    description: 'Open-air house music festival. In House We Trust.',
+    venue: 'Sport Vlaanderen \u00B7 Blaarmeersen \u00B7 Ghent',
+    lineup: FULL_LINEUP_DISPLAY,
+    description: 'Final timetable announced across Main and Hide Out.',
     status: 'FESTIVAL TICKETS',
     url: buildTicketUrl,
   },
